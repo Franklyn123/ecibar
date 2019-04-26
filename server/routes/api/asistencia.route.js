@@ -206,8 +206,16 @@ router.get("/marcar_asistencia/:id", async (req, res) => {
         if (err) {
           console.log(err);
         }
-        //res.json(expediente);
       });
+
+      if (
+        expedientes[0].curso_licencia.dias_manejo ===
+        expedientes[0].asistencias_manejo.length
+      ) {
+        await Expediente.findByIdAndUpdate(expedientes[0]._id, {
+          $set: { estado: "T" }
+        });
+      }
     } else {
       if (
         expedientes[0].curso_licencia.dias_manejo >
@@ -246,6 +254,9 @@ router.get("/marcar_asistencia/:id", async (req, res) => {
           //res.json(expediente);
         });
       }
+      console.log(expedientes[0].curso_licencia.dias_manejo);
+      console.log(expedientes[0].asistencias_manejo.length);
+
       if (
         expedientes[0].curso_licencia.dias_manejo ===
         expedientes[0].asistencias_manejo.length

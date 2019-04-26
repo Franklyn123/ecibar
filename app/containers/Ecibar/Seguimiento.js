@@ -20,6 +20,38 @@ import * as ficha from "../../reports/fichainsripcion";
 
 import * as reportes from "./Reportes";
 
+let datos = {
+  estado: "",
+  expediente: "",
+  alumno: {
+    dni: "",
+    nombres: "",
+    a_paterno: "",
+    a_materno: "",
+    sexo: "",
+    domicilio: "",
+    cel_tel: "",
+    fecha_nacimiento: ""
+  },
+  fecha_registro_expediente: "",
+  fecha_inicio_teoria: "",
+  fecha_fin_teoria: "",
+  fecha_inicio_manejo: "",
+  fecha_fin_manejo: "",
+  km_inicio: "",
+  km_fin: "",
+  vehiculo: "",
+  clase_vehiculo: "",
+  instructor: "",
+  curso: "",
+  licencia_actual: "",
+  licencia_postula: "",
+  clases_teoricas: [],
+  clases_manejo: [],
+  dias_manejo: "",
+  dias_teoria: ""
+};
+
 const styles = theme => ({
   demo: {
     height: "auto"
@@ -98,11 +130,19 @@ class BlankPage extends React.Component {
   }
 
   onPrintExamenes() {
-    window.open(
-      "/examenes/aiib/EXAMENES.pdf",
-      "_blank",
-      "toolbar=yes,scrollbars=yes,resizable=yes,top=500,left=500,width=800,height=800"
-    );
+    if (datos.curso === "SENSIBILIZACIÓN") {
+      window.open(
+        "/examenes/taller_cambiemos_actitud/EXAMENES.pdf",
+        "_blank",
+        "toolbar=yes,scrollbars=yes,resizable=yes,top=500,left=500,width=800,height=800"
+      );
+    } else if (datos.curso === "RECATEGORIZACIÓN") {
+      window.open(
+        "/examenes/aiia/EXAMENES.pdf",
+        "_blank",
+        "toolbar=yes,scrollbars=yes,resizable=yes,top=500,left=500,width=800,height=800"
+      );
+    }
   }
 
   render() {
@@ -113,37 +153,6 @@ class BlankPage extends React.Component {
 
     const expediente = props.seguimiento.get("expediente");
 
-    let datos = {
-      estado: "",
-      expediente: "",
-      alumno: {
-        dni: "",
-        nombres: "",
-        a_paterno: "",
-        a_materno: "",
-        sexo: "",
-        domicilio: "",
-        cel_tel: "",
-        fecha_nacimiento: ""
-      },
-      fecha_registro_expediente: "",
-      fecha_inicio_teoria: "",
-      fecha_fin_teoria: "",
-      fecha_inicio_manejo: "",
-      fecha_fin_manejo: "",
-      km_inicio: "",
-      km_fin: "",
-      vehiculo: "",
-      clase_vehiculo: "",
-      instructor: "",
-      curso: "",
-      licencia_actual: "",
-      licencia_postula: "",
-      clases_teoricas: [],
-      clases_manejo: [],
-      dias_manejo: "",
-      dias_teoria: ""
-    };
     /*eslint-disable */
     const dias = new Array(
       "Domingo",
@@ -196,109 +205,190 @@ class BlankPage extends React.Component {
 
         datos.clases_manejo = expediente.get("exp").get("asistencias_manejo");
       } else {
-        datos.expediente = expediente
-          .get("exp")
-          .get("numeracion")
-          .toString();
+        var temp_curso = expediente.get("curso").toUpperCase();
+        if (temp_curso === "RECATEGORIZACIÓN") {
+          datos.expediente = expediente
+            .get("exp")
+            .get("numeracion")
+            .toString();
 
-        datos.alumno.dni = expediente
-          .get("exp")
-          .get("alumno")
-          .get("dni");
-        datos.alumno.nombres = expediente
-          .get("exp")
-          .get("alumno")
-          .get("nombres")
-          .toUpperCase();
-        datos.alumno.a_paterno = expediente
-          .get("exp")
-          .get("alumno")
-          .get("a_paterno")
-          .toUpperCase();
-        datos.alumno.a_materno = expediente
-          .get("exp")
-          .get("alumno")
-          .get("a_materno")
-          .toUpperCase();
-        datos.alumno.sexo = expediente
-          .get("exp")
-          .get("alumno")
-          .get("sexo")
-          .toUpperCase();
-        datos.alumno.domicilio = expediente
-          .get("exp")
-          .get("alumno")
-          .get("domicilio")
-          .toUpperCase();
-        datos.alumno.cel_tel = expediente
-          .get("exp")
-          .get("alumno")
-          .get("cel_tel")
-          .toString();
-        datos.alumno.fecha_nacimiento = expediente
-          .get("exp")
-          .get("alumno")
-          .get("fecha_nacimiento");
+          datos.alumno.dni = expediente
+            .get("exp")
+            .get("alumno")
+            .get("dni");
+          datos.alumno.nombres = expediente
+            .get("exp")
+            .get("alumno")
+            .get("nombres")
+            .toUpperCase();
+          datos.alumno.a_paterno = expediente
+            .get("exp")
+            .get("alumno")
+            .get("a_paterno")
+            .toUpperCase();
+          datos.alumno.a_materno = expediente
+            .get("exp")
+            .get("alumno")
+            .get("a_materno")
+            .toUpperCase();
+          datos.alumno.sexo = expediente
+            .get("exp")
+            .get("alumno")
+            .get("sexo")
+            .toUpperCase();
+          datos.alumno.domicilio = expediente
+            .get("exp")
+            .get("alumno")
+            .get("domicilio")
+            .toUpperCase();
+          datos.alumno.cel_tel = expediente
+            .get("exp")
+            .get("alumno")
+            .get("cel_tel")
+            .toString();
+          datos.alumno.fecha_nacimiento = expediente
+            .get("exp")
+            .get("alumno")
+            .get("fecha_nacimiento");
 
-        datos.fecha_registro_expediente = expediente
-          .get("exp")
-          .get("fecha_registro_expediente");
+          datos.fecha_registro_expediente = expediente
+            .get("exp")
+            .get("fecha_registro_expediente");
 
-        datos.fecha_inicio_teoria = expediente
-          .get("exp")
-          .get("fecha_inicio_teoria");
+          datos.fecha_inicio_teoria = expediente
+            .get("exp")
+            .get("fecha_inicio_teoria");
 
-        datos.fecha_fin_teoria = expediente.get("exp").get("fecha_fin_teoria");
+          datos.fecha_fin_teoria = expediente
+            .get("exp")
+            .get("fecha_fin_teoria");
 
-        datos.fecha_inicio_manejo = expediente
-          .get("exp")
-          .get("fecha_inicio_manejo");
+          datos.fecha_inicio_manejo = expediente
+            .get("exp")
+            .get("fecha_inicio_manejo");
 
-        datos.fecha_fin_manejo = expediente.get("exp").get("fecha_fin_manejo");
+          datos.fecha_fin_manejo = expediente
+            .get("exp")
+            .get("fecha_fin_manejo");
 
-        datos.km_inicio = expediente
-          .get("exp")
-          .get("km_inicio")
-          .toString();
+          datos.km_inicio = expediente
+            .get("exp")
+            .get("km_inicio")
+            .toString();
 
-        datos.km_fin = expediente
-          .get("exp")
-          .get("km_fin")
-          .toString();
+          datos.km_fin = expediente
+            .get("exp")
+            .get("km_fin")
+            .toString();
 
-        datos.vehiculo = expediente.get("vehiculo").get("placa");
+          datos.vehiculo = expediente.get("vehiculo").get("placa");
 
-        datos.clase_vehiculo = expediente.get("vehiculo").get("clase");
+          datos.clase_vehiculo = expediente.get("vehiculo").get("clase");
 
-        datos.instructor = (
-          expediente.get("instructor").get("a_paterno") +
-          " " +
-          expediente.get("instructor").get("a_materno") +
-          " " +
-          expediente.get("instructor").get("nombres")
-        ).toUpperCase();
+          datos.instructor = (
+            expediente.get("instructor").get("a_paterno") +
+            " " +
+            expediente.get("instructor").get("a_materno") +
+            " " +
+            expediente.get("instructor").get("nombres")
+          ).toUpperCase();
 
-        datos.curso = expediente.get("curso").toUpperCase();
+          datos.curso = expediente.get("curso").toUpperCase();
 
-        datos.licencia_actual = expediente.get("lactual");
-        datos.licencia_postula = expediente.get("lpostula");
+          datos.licencia_actual = expediente.get("lactual");
+          datos.licencia_postula = expediente.get("lpostula");
 
-        datos.dias_teoria = expediente
-          .get("exp")
-          .get("curso_licencia")
-          .get("dias_teoricas");
-        datos.dias_manejo = expediente
-          .get("exp")
-          .get("curso_licencia")
-          .get("dias_manejo");
+          datos.dias_teoria = expediente
+            .get("exp")
+            .get("curso_licencia")
+            .get("dias_teoricas");
+          datos.dias_manejo = expediente
+            .get("exp")
+            .get("curso_licencia")
+            .get("dias_manejo");
 
-        datos.clases_teoricas = expediente
-          .get("exp")
-          .get("asistencias_teoricas");
+          datos.clases_teoricas = expediente
+            .get("exp")
+            .get("asistencias_teoricas");
 
-        datos.clases_manejo = expediente
-          .get("exp")
-          .get("asistencias_manejo")._tail.array;
+          datos.clases_manejo = expediente
+            .get("exp")
+            .get("asistencias_manejo")._tail.array;
+        } else if (temp_curso === "SENSIBILIZACIÓN") {
+          datos.expediente = expediente
+            .get("exp")
+            .get("numeracion")
+            .toString();
+
+          datos.alumno.dni = expediente
+            .get("exp")
+            .get("alumno")
+            .get("dni");
+          datos.alumno.nombres = expediente
+            .get("exp")
+            .get("alumno")
+            .get("nombres")
+            .toUpperCase();
+          datos.alumno.a_paterno = expediente
+            .get("exp")
+            .get("alumno")
+            .get("a_paterno")
+            .toUpperCase();
+          datos.alumno.a_materno = expediente
+            .get("exp")
+            .get("alumno")
+            .get("a_materno")
+            .toUpperCase();
+          datos.alumno.sexo = expediente
+            .get("exp")
+            .get("alumno")
+            .get("sexo")
+            .toUpperCase();
+          datos.alumno.domicilio = expediente
+            .get("exp")
+            .get("alumno")
+            .get("domicilio")
+            .toUpperCase();
+          datos.alumno.cel_tel = expediente
+            .get("exp")
+            .get("alumno")
+            .get("cel_tel")
+            .toString();
+          datos.alumno.fecha_nacimiento = expediente
+            .get("exp")
+            .get("alumno")
+            .get("fecha_nacimiento");
+
+          datos.fecha_registro_expediente = expediente
+            .get("exp")
+            .get("fecha_registro_expediente");
+
+          datos.fecha_inicio_teoria = expediente
+            .get("exp")
+            .get("fecha_inicio_teoria");
+
+          datos.fecha_fin_teoria = expediente
+            .get("exp")
+            .get("fecha_fin_teoria");
+
+          datos.curso = expediente.get("curso").toUpperCase();
+
+          datos.licencia_actual = expediente.get("lactual");
+          datos.licencia_postula = expediente.get("lpostula");
+
+          datos.dias_teoria = expediente
+            .get("exp")
+            .get("curso_licencia")
+            .get("dias_teoricas");
+          datos.dias_manejo = expediente
+            .get("exp")
+            .get("curso_licencia")
+            .get("dias_manejo");
+
+          datos.clases_teoricas = expediente
+            .get("exp")
+            .get("asistencias_teoricas");
+        }
       }
     }
     return (

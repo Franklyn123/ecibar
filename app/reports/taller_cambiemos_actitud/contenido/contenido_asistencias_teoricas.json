@@ -1,0 +1,58 @@
+[
+  {
+    "nro": 1,
+    "nombreCurso": "Conducción responsable I.",
+    "fecha": "",
+    "horaentrada": "08:00",
+    "horasalida": "08:30",
+    "minutos": "30"
+  },
+  {
+    "nro": 2,
+    "nombreCurso": "Técnicas de manejo defensivo I.",
+    "fecha": "",
+    "horaentrada": "08:30",
+    "horasalida": "09:30",
+    "minutos": "60"
+  },
+  {
+    "nro": 3,
+    "nombreCurso": "Conducción responsable II.",
+    "fecha": "",
+    "horaentrada": "09:30",
+    "horasalida": "10:00",
+    "minutos": "30"
+  },
+  {
+    "nro": 4,
+    "nombreCurso": "Psicología aplicada a la conducción.",
+    "fecha": "",
+    "horaentrada": "10:00",
+    "horasalida": "11:00",
+    "minutos": "60"
+  },
+  {
+    "nro": 5,
+    "nombreCurso": "Técnicas de manejo defensivo II.",
+    "fecha": "",
+    "horaentrada": "11:00",
+    "horasalida": "11:30",
+    "minutos": "30"
+  },
+  {
+    "nro": 6,
+    "nombreCurso": "Conducción responsable III.",
+    "fecha": "",
+    "horaentrada": "11:30",
+    "horasalida": "12:15",
+    "minutos": "45"
+  },
+  {
+    "nro": 7,
+    "nombreCurso": "Acoso sexual en espacios públicos.",
+    "fecha": "",
+    "horaentrada": "12:15",
+    "horasalida": "12:30",
+    "minutos": "15"
+  }
+]

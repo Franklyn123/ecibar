@@ -1,40 +1,40 @@
-import React, { Fragment, PureComponent } from 'react';
-import { Helmet } from 'react-helmet';
-import { PapperBlock } from 'dan-components';
-import { connect } from 'react-redux';
-import PropTypes from 'prop-types';
-import Typography from '@material-ui/core/Typography';
-import Grid from '@material-ui/core/Grid';
-import { withStyles } from '@material-ui/core/styles';
-import Input from '@material-ui/core/Input';
-import InputLabel from '@material-ui/core/InputLabel';
-import FormControl from '@material-ui/core/FormControl';
-import FormHelperText from '@material-ui/core/FormHelperText';
-import { DatePicker, MuiPickersUtilsProvider } from 'material-ui-pickers';
-import TextField from '@material-ui/core/TextField';
+import React, { Fragment, PureComponent } from "react";
+import { Helmet } from "react-helmet";
+import { PapperBlock } from "dan-components";
+import { connect } from "react-redux";
+import PropTypes from "prop-types";
+import Typography from "@material-ui/core/Typography";
+import Grid from "@material-ui/core/Grid";
+import { withStyles } from "@material-ui/core/styles";
+import Input from "@material-ui/core/Input";
+import InputLabel from "@material-ui/core/InputLabel";
+import FormControl from "@material-ui/core/FormControl";
+import FormHelperText from "@material-ui/core/FormHelperText";
+import { DatePicker, MuiPickersUtilsProvider } from "material-ui-pickers";
+import TextField from "@material-ui/core/TextField";
 
-import MenuItem from '@material-ui/core/MenuItem';
-import MomentUtils from '@date-io/moment';
-import RadioGroup from '@material-ui/core/RadioGroup';
+import MenuItem from "@material-ui/core/MenuItem";
+import MomentUtils from "@date-io/moment";
+import RadioGroup from "@material-ui/core/RadioGroup";
 
-import { Field, reduxForm } from 'redux-form/immutable';
-import FormLabel from '@material-ui/core/FormLabel';
-import FormControlLabel from '@material-ui/core/FormControlLabel';
-import Radio from '@material-ui/core/Radio';
+import { Field, reduxForm } from "redux-form/immutable";
+import FormLabel from "@material-ui/core/FormLabel";
+import FormControlLabel from "@material-ui/core/FormControlLabel";
+import Radio from "@material-ui/core/Radio";
 
 // bottom
-import Button from '@material-ui/core/Button';
-import classNames from 'classnames';
-import CheckCircleIcon from '@material-ui/icons/CheckCircle';
-import ErrorIcon from '@material-ui/icons/Error';
-import InfoIcon from '@material-ui/icons/Info';
-import CloseIcon from '@material-ui/icons/Close';
-import green from '@material-ui/core/colors/green';
-import amber from '@material-ui/core/colors/amber';
-import IconButton from '@material-ui/core/IconButton';
-import Snackbar from '@material-ui/core/Snackbar';
-import SnackbarContent from '@material-ui/core/SnackbarContent';
-import WarningIcon from '@material-ui/icons/Warning';
+import Button from "@material-ui/core/Button";
+import classNames from "classnames";
+import CheckCircleIcon from "@material-ui/icons/CheckCircle";
+import ErrorIcon from "@material-ui/icons/Error";
+import InfoIcon from "@material-ui/icons/Info";
+import CloseIcon from "@material-ui/icons/Close";
+import green from "@material-ui/core/colors/green";
+import amber from "@material-ui/core/colors/amber";
+import IconButton from "@material-ui/core/IconButton";
+import Snackbar from "@material-ui/core/Snackbar";
+import SnackbarContent from "@material-ui/core/SnackbarContent";
+import WarningIcon from "@material-ui/icons/Warning";
 
 import {
   getItems,
@@ -50,7 +50,7 @@ import {
   getCursosLicencias,
   changeStateDe,
   changeStateA
-} from '../../actions2/itemActions';
+} from "../../actions2/itemActions";
 const renderRadioGroup = ({ input, ...rest }) => (
   <RadioGroup
     {...input}
@@ -62,7 +62,7 @@ const renderRadioGroup = ({ input, ...rest }) => (
 
 const styles = theme => ({
   demo: {
-    height: 'auto'
+    height: "auto"
   },
   divider: {
     margin: `${theme.spacing.unit * 3}px 0`
@@ -71,8 +71,8 @@ const styles = theme => ({
     margin: theme.spacing.unit * 3
   },
   container: {
-    display: 'flex',
-    flexWrap: 'wrap'
+    display: "flex",
+    flexWrap: "wrap"
   },
   formControl: {
     margin: theme.spacing.unit * 3
@@ -88,8 +88,8 @@ const styles = theme => ({
     margin: `${theme.spacing.unit * 3}px 5px`
   },
   inlineWrap: {
-    display: 'flex',
-    flexDirection: 'row'
+    display: "flex",
+    flexDirection: "row"
   },
   rightIcon: {
     marginLeft: theme.spacing.unit
@@ -109,21 +109,19 @@ const variantIcon = {
   info: InfoIcon
 };
 function MySnackbarContent(props) {
-  const {
-    classes, className, message, onClose, variant, ...other
-  } = props;
+  const { classes, className, message, onClose, variant, ...other } = props;
   const Icon = variantIcon[variant];
 
   return (
     <SnackbarContent
       className={classNames(classes[variant], className)}
       aria-describedby="client-snackbar"
-      message={(
+      message={
         <span id="client-snackbar" className={classes.message}>
           <Icon className={classNames(classes.icon, classes.iconVariant)} />
           {message}
         </span>
-      )}
+      }
       action={[
         <IconButton
           key="close"
@@ -160,8 +158,8 @@ const styles1 = theme => ({
     marginRight: theme.spacing.unit
   },
   message: {
-    display: 'flex',
-    alignItems: 'center'
+    display: "flex",
+    alignItems: "center"
   }
 });
 const MySnackbarContentWrapper = withStyles(styles1)(MySnackbarContent);
@@ -172,32 +170,32 @@ class Test extends React.Component {
   }
 
   state = {
-    toast: 'error',
-    toastMessage: 'Error',
+    toast: "error",
+    toastMessage: "Error",
     open: false,
-    name: 'Composed TextField',
-    currency: '',
+    name: "Composed TextField",
+    currency: "",
     fechaRegistro: new Date(),
-    dni: '',
-    nombres: '',
-    aPaterno: '',
-    aMaterno: '',
+    dni: "",
+    nombres: "",
+    aPaterno: "",
+    aMaterno: "",
     selectedDate: new Date(),
-    domicilio: '',
-    celTel: '',
-    sexo: '',
-    departamento: '040000',
-    provincia: '-1',
-    distrito: '-1',
-    tipoCurso: '-1',
-    de: '-1',
-    a: '-1'
+    domicilio: "",
+    celTel: "",
+    sexo: "",
+    departamento: "040000",
+    provincia: "-1",
+    distrito: "-1",
+    tipoCurso: "-1",
+    de: "-1",
+    a: "-1"
   };
 
   handleClick = () => {};
 
   handleClose = (event, reason) => {
-    if (reason === 'clickaway') {
+    if (reason === "clickaway") {
       return;
     }
     this.props.changeStateToast();
@@ -206,13 +204,13 @@ class Test extends React.Component {
   onSubmit = e => {
     e.preventDefault();
     if (
-      this.state.tipoCurso != '-1'
-      && this.state.de != '-1'
-      && this.state.a != '-1'
+      this.state.tipoCurso != "-1" &&
+      this.state.de != "-1" &&
+      this.state.a != "-1"
     ) {
       this.props.addFichaInscripcion(this.state);
     }
-    dispatch(reset('ficha_inscripcion'));
+    window.location.reload();
   };
 
   handleDateChange = date => {
@@ -256,12 +254,12 @@ class Test extends React.Component {
       [name]: event.target.value
     });
     this.setState({
-      a: '-1'
+      a: "-1"
     });
     this.setState({
-      de: '-1'
+      de: "-1"
     });
-    console.log('in handle change select curso');
+    console.log("in handle change select curso");
     this.props.changeStateDe({ curso: event.target.value });
   };
 
@@ -270,9 +268,9 @@ class Test extends React.Component {
       [name]: event.target.value
     });
     this.setState({
-      a: '-1'
+      a: "-1"
     });
-    console.log('in handle change select de');
+    console.log("in handle change select de");
     console.log({ curso: this.state.tipoCurso, de: event.target.value });
     this.props.changeStateA({
       curso: this.state.tipoCurso,
@@ -292,13 +290,13 @@ class Test extends React.Component {
       [name]: event.target.value
     });
     this.setState({
-      provincia: '-1'
+      provincia: "-1"
     });
     this.setState({
-      distrito: '-1'
+      distrito: "-1"
     });
     this.props.getProvincias(event.target.value);
-    this.props.getDistritos('-1');
+    this.props.getDistritos("-1");
   };
 
   handleChangeSelectProv = name => event => {
@@ -307,7 +305,7 @@ class Test extends React.Component {
       [name]: event.target.value
     });
     this.setState({
-      distrito: '-1'
+      distrito: "-1"
     });
     this.props.getDistritos(event.target.value);
   };
@@ -321,20 +319,20 @@ class Test extends React.Component {
   componentDidMount() {
     this.props.getItems();
     this.props.getDepartamentos();
-    this.props.getProvincias('040000');
+    this.props.getProvincias("040000");
     this.props.getCursos();
     this.props.getLicencias();
     this.props.getEstado();
     this.props.getCursosLicencias();
-    const loguedUsername = localStorage.getItem('username');
+    const loguedUsername = localStorage.getItem("username");
 
     if (!loguedUsername) {
-      window.location.href = '/login';
+      window.location.href = "/login";
     } else if (
-      loguedUsername !== 'octavio'
-      && loguedUsername !== 'administracion'
+      loguedUsername !== "octavio" &&
+      loguedUsername !== "administracion"
     ) {
-      window.location.href = '/not-found';
+      window.location.href = "/not-found";
     }
   }
 
@@ -365,29 +363,29 @@ class Test extends React.Component {
     } = this.state;
 
     // console.log("in test")
-    console.log(this.props.item.get('open'));
-    console.log(this.props.item.get('toast'));
-    console.log(this.props.item.get('toastMessage'));
+    console.log(this.props.item.get("open"));
+    console.log(this.props.item.get("toast"));
+    console.log(this.props.item.get("toastMessage"));
     console.log(this.props.item);
-    const open = this.props.item.get('open');
-    const toast = this.props.item.get('toast');
-    const toastMessage = this.props.item.get('toastMessage');
+    const open = this.props.item.get("open");
+    const toast = this.props.item.get("toast");
+    const toastMessage = this.props.item.get("toastMessage");
 
     // console.log(this.props.item.get("items"));
-    const items = this.props.item.get('items');
-    const departamentos = this.props.item.get('departamentos');
-    const provincias = this.props.item.get('provincias');
-    const distritos = this.props.item.get('distritos');
-    const cursos = this.props.item.get('cursos');
-    const licencias = this.props.item.get('licencias');
-    const numeracion = this.props.item.get('numeracion');
-    const lde = this.props.item.get('de');
-    const la = this.props.item.get('a');
+    const items = this.props.item.get("items");
+    const departamentos = this.props.item.get("departamentos");
+    const provincias = this.props.item.get("provincias");
+    const distritos = this.props.item.get("distritos");
+    const cursos = this.props.item.get("cursos");
+    const licencias = this.props.item.get("licencias");
+    const numeracion = this.props.item.get("numeracion");
+    const lde = this.props.item.get("de");
+    const la = this.props.item.get("a");
     // console.log("out test");
     // console.log(items);
 
-    const title = 'ECIBAR S.A.C.. Blank Page';
-    const description = 'ECIBAR S.A.C.';
+    const title = "ECIBAR S.A.C.. Blank Page";
+    const description = "ECIBAR S.A.C.";
     return (
       <div>
         <Helmet>
@@ -408,8 +406,8 @@ class Test extends React.Component {
             <Fragment>
               <Snackbar
                 anchorOrigin={{
-                  vertical: 'bottom',
-                  horizontal: 'right'
+                  vertical: "bottom",
+                  horizontal: "right"
                 }}
                 open={open}
                 autoHideDuration={6000}
@@ -431,8 +429,7 @@ class Test extends React.Component {
                 >
                   <FormControl className={classes.formControl}>
                     <InputLabel htmlFor="name-simple">
-                      N° Expediente:
-                      {' '}
+                      N° Expediente:{" "}
                     </InputLabel>
                     <Input id="numeracion" value={numeracion} />
                   </FormControl>
@@ -449,10 +446,10 @@ class Test extends React.Component {
                         mask={[
                           /\d/,
                           /\d/,
-                          '/',
+                          "/",
                           /\d/,
                           /\d/,
-                          '/',
+                          "/",
                           /\d/,
                           /\d/,
                           /\d/,
@@ -487,7 +484,7 @@ class Test extends React.Component {
                         shrink: true
                       }}
                       value={dni}
-                      onChange={this.handleChangeInput('dni')}
+                      onChange={this.handleChangeInput("dni")}
                       required
                     />
                     <TextField
@@ -502,7 +499,7 @@ class Test extends React.Component {
                         shrink: true
                       }}
                       value={nombres}
-                      onChange={this.handleChangeInput('nombres')}
+                      onChange={this.handleChangeInput("nombres")}
                       required
                     />
                     <TextField
@@ -517,7 +514,7 @@ class Test extends React.Component {
                         shrink: true
                       }}
                       value={aPaterno}
-                      onChange={this.handleChangeInput('aPaterno')}
+                      onChange={this.handleChangeInput("aPaterno")}
                       required
                     />
                     <TextField
@@ -532,7 +529,7 @@ class Test extends React.Component {
                         shrink: true
                       }}
                       value={aMaterno}
-                      onChange={this.handleChangeInput('aMaterno')}
+                      onChange={this.handleChangeInput("aMaterno")}
                       required
                     />
                     <div
@@ -544,14 +541,14 @@ class Test extends React.Component {
                           keyboard
                           label="Fecha de Nacimiento"
                           format="DD/MM/YYYY"
-                          date={new Date('01-01-2000')}
+                          date={new Date("01-01-2000")}
                           mask={[
                             /\d/,
                             /\d/,
-                            '/',
+                            "/",
                             /\d/,
                             /\d/,
-                            '/',
+                            "/",
                             /\d/,
                             /\d/,
                             /\d/,
@@ -578,7 +575,7 @@ class Test extends React.Component {
                         shrink: true
                       }}
                       value={domicilio}
-                      onChange={this.handleChangeInput('domicilio')}
+                      onChange={this.handleChangeInput("domicilio")}
                     />
                     <TextField
                       id="outlined-full-width"
@@ -591,7 +588,7 @@ class Test extends React.Component {
                         shrink: true
                       }}
                       value={celTel}
-                      onChange={this.handleChangeInput('celTel')}
+                      onChange={this.handleChangeInput("celTel")}
                     />
                     <div className={classes.fieldBasic} style={{ margin: 8 }}>
                       <FormLabel component="label">Sexo</FormLabel>
@@ -630,7 +627,7 @@ class Test extends React.Component {
                       label="Departamento"
                       className={classes.textField}
                       value={departamento}
-                      onChange={this.handleChangeSelectDep('departamento')}
+                      onChange={this.handleChangeSelectDep("departamento")}
                       SelectProps={{
                         MenuProps: {
                           className: classes.menu
@@ -640,14 +637,14 @@ class Test extends React.Component {
                       variant="outlined"
                     >
                       <MenuItem key="-1" value="-1">
-                        {''}
+                        {""}
                       </MenuItem>
                       {departamentos.map(option => (
                         <MenuItem
-                          key={option.get('id')}
-                          value={option.get('id')}
+                          key={option.get("id")}
+                          value={option.get("id")}
                         >
-                          {option.get('name')}
+                          {option.get("name")}
                         </MenuItem>
                       ))}
                     </TextField>
@@ -659,7 +656,7 @@ class Test extends React.Component {
                       label="Provincia"
                       className={classes.textField}
                       value={provincia}
-                      onChange={this.handleChangeSelectProv('provincia')}
+                      onChange={this.handleChangeSelectProv("provincia")}
                       SelectProps={{
                         MenuProps: {
                           className: classes.menu
@@ -669,14 +666,14 @@ class Test extends React.Component {
                       variant="outlined"
                     >
                       <MenuItem key="-1" value="-1">
-                        {'Seleccione'}
+                        {"Seleccione"}
                       </MenuItem>
                       {provincias.map(option => (
                         <MenuItem
-                          key={option.get('id')}
-                          value={option.get('id')}
+                          key={option.get("id")}
+                          value={option.get("id")}
                         >
-                          {option.get('name')}
+                          {option.get("name")}
                         </MenuItem>
                       ))}
                     </TextField>
@@ -688,7 +685,7 @@ class Test extends React.Component {
                       label="Distrito"
                       className={classes.textField}
                       value={distrito}
-                      onChange={this.handleChangeSelect('distrito')}
+                      onChange={this.handleChangeSelect("distrito")}
                       SelectProps={{
                         MenuProps: {
                           className: classes.menu
@@ -698,14 +695,14 @@ class Test extends React.Component {
                       variant="outlined"
                     >
                       <MenuItem key="-1" value="-1">
-                        {'Seleccione'}
+                        {"Seleccione"}
                       </MenuItem>
                       {distritos.map(option => (
                         <MenuItem
-                          key={option.get('id')}
-                          value={option.get('id')}
+                          key={option.get("id")}
+                          value={option.get("id")}
                         >
-                          {option.get('name')}
+                          {option.get("name")}
                         </MenuItem>
                       ))}
                     </TextField>
@@ -723,14 +720,13 @@ class Test extends React.Component {
                 >
                   <Grid item md={4} className={classes.demo}>
                     <TextField
-
                       select
                       fullWidth
                       style={{ margin: 8 }}
                       label="Tipo de Curso"
                       className={classes.textField}
                       value={tipoCurso}
-                      onChange={this.handleChangeSelectCurso('tipoCurso')}
+                      onChange={this.handleChangeSelectCurso("tipoCurso")}
                       SelectProps={{
                         MenuProps: {
                           className: classes.menu
@@ -740,14 +736,14 @@ class Test extends React.Component {
                       variant="outlined"
                     >
                       <MenuItem key="-1" value="-1">
-                        {'Seleccione'}
+                        {"Seleccione"}
                       </MenuItem>
                       {cursos.map(option => (
                         <MenuItem
-                          key={option.get('_id')}
-                          value={option.get('_id')}
+                          key={option.get("_id")}
+                          value={option.get("_id")}
                         >
-                          {option.get('nombre')}
+                          {option.get("nombre")}
                         </MenuItem>
                       ))}
                     </TextField>
@@ -766,19 +762,19 @@ class Test extends React.Component {
                         }
                       }}
                       value={de}
-                      onChange={this.handleChangeSelectDe('de')}
+                      onChange={this.handleChangeSelectDe("de")}
                       margin="normal"
                       variant="outlined"
                     >
                       <MenuItem key="-1" value="-1">
-                        {'Seleccione'}
+                        {"Seleccione"}
                       </MenuItem>
                       {lde.map(option => (
                         <MenuItem
-                          key={option.get('_id')}
-                          value={option.get('_id')}
+                          key={option.get("_id")}
+                          value={option.get("_id")}
                         >
-                          {option.get('nombre')}
+                          {option.get("nombre")}
                         </MenuItem>
                       ))}
                     </TextField>
@@ -797,19 +793,19 @@ class Test extends React.Component {
                         }
                       }}
                       value={a}
-                      onChange={this.handleChangeSelect('a')}
+                      onChange={this.handleChangeSelect("a")}
                       margin="normal"
                       variant="outlined"
                     >
                       <MenuItem key="-1" value="-1">
-                        {'Seleccione'}
+                        {"Seleccione"}
                       </MenuItem>
                       {la.map(option => (
                         <MenuItem
-                          key={option.get('_id')}
-                          value={option.get('_id')}
+                          key={option.get("_id")}
+                          value={option.get("_id")}
                         >
-                          {option.get('nombre')}
+                          {option.get("nombre")}
                         </MenuItem>
                       ))}
                     </TextField>
@@ -855,11 +851,11 @@ Test.propTypes = {
 };
 // console.log(state);
 const mapStateToProps = state => ({
-  item: state.get('item')
+  item: state.get("item")
 });
 // export default Test;
 export default reduxForm({
-  form: 'ficha_inscripcion'
+  form: "ficha_inscripcion"
 })(
   connect(
     mapStateToProps,
