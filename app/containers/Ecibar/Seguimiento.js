@@ -65,6 +65,19 @@ class BlankPage extends React.Component {
     dni: ""
   };
 
+  componentDidMount() {
+    const loguedUsername = localStorage.getItem("username");
+    if (!loguedUsername) {
+      window.location.href = "/login";
+    } else if (
+      loguedUsername !== "octavio" &&
+      loguedUsername !== "direccion" &&
+      loguedUsername !== "administracion"
+    ) {
+      window.location.href = "/not-found";
+    }
+  }
+
   handleChangeInput = name => event => {
     this.setState({
       [name]: event.target.value

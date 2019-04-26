@@ -1,30 +1,42 @@
-import React from 'react';
-import { Helmet } from 'react-helmet';
-import brand from 'dan-api/dummy/brand';
-import PropTypes from 'prop-types';
-import Typography from '@material-ui/core/Typography';
-import Hidden from '@material-ui/core/Hidden';
-import { withStyles } from '@material-ui/core/styles';
-import { LoginFormV2 } from 'dan-components';
-import styles from 'dan-components/Forms/user-jss';
+/* eslint-disable */
+import React from "react";
+import { Helmet } from "react-helmet";
+import brand from "dan-api/dummy/brand";
+import PropTypes from "prop-types";
+import Typography from "@material-ui/core/Typography";
+import Hidden from "@material-ui/core/Hidden";
+import { withStyles } from "@material-ui/core/styles";
+import { LoginFormV2 } from "dan-components";
+import styles from "dan-components/Forms/user-jss";
+import axios from "axios";
 
 class LoginApp extends React.Component {
   state = {
-    valueForm: []
-  }
+    errorMessage: ""
+  };
 
-  submitForm(values) {
-    const { valueForm } = this.state;
-    setTimeout(() => {
-      this.setState({ valueForm: values });
-      console.log(`You submitted:\n\n${valueForm}`);
-      window.location.href = '/app';
-    }, 500); // simulate server latency
-  }
+  submitForm = params => {
+    axios
+      .post("/api/tramitador/login", {
+        username: params.get("email"),
+        password: params.get("password")
+      })
+      .then(response => {
+        if (response.data.status === true) {
+          localStorage.setItem("username", response.data.username);
+          window.location.href = "/app";
+        }
+        this.setState({
+          errorMessage: response.data.error
+        });
+      })
+      .catch(error => {
+        console.log(error);
+      });
+  };
 
   render() {
-    console.log('hello from login new');
-    const title = brand.name + ' - Login Version 2';
+    const title = brand.name + " - Login Version 2";
     const description = brand.desc;
     const { classes } = this.props;
     return (
@@ -40,15 +52,30 @@ class LoginApp extends React.Component {
         <div className={classes.containerSide}>
           <Hidden smDown>
             <div className={classes.opening}>
-              <Typography variant="h3" component="h1" className={classes.opening} gutterBottom>
-                Welcome to&nbsp;
+              <Typography
+                variant="h3"
+                component="h1"
+                className={classes.opening}
+                gutterBottom
+              >
+                Bienvenido a&nbsp;
                 {brand.name}
               </Typography>
-              <Typography variant="h6" component="p" className={classes.subpening}>Please sign in to continue</Typography>
+              <Typography
+                variant="h6"
+                component="p"
+                className={classes.subpening}
+              >
+                Por favor inicie sesión
+              </Typography>
             </div>
           </Hidden>
+          {this.props.errorMessage && <p>{this.props.errorMessage}</p>}
           <div className={classes.sideFormWrap}>
-            <LoginFormV2 onSubmit={(values) => this.submitForm(values)} />
+            <LoginFormV2
+              propiedades={{ errorMessage: this.state.errorMessage }}
+              onSubmit={values => this.submitForm(values)}
+            />
           </div>
         </div>
       </div>
@@ -57,7 +84,7 @@ class LoginApp extends React.Component {
 }
 
 LoginApp.propTypes = {
-  classes: PropTypes.object.isRequired,
+  classes: PropTypes.object.isRequired
 };
 
 export default withStyles(styles)(LoginApp);

@@ -192,16 +192,13 @@ class Test extends React.Component {
     a: "-1"
   };
 
-  handleClick = () => {
-    // this.setState({ open: true });
-  };
+  handleClick = () => {};
 
   handleClose = (event, reason) => {
     if (reason === "clickaway") {
       return;
     }
     this.props.changeStateToast();
-    // this.setState({ open: false });
   };
 
   onSubmit = e => {
@@ -211,15 +208,9 @@ class Test extends React.Component {
       this.state.de != "-1" &&
       this.state.a != "-1"
     ) {
-      // this.setState({ toast: 'success' });
-      // this.setState({ toastMessage: 'Se registró correctamento!' });
-      // this.setState({ toast: 'error' });
-      // this.setState({ toastMessage: 'Ocurrió un error durante el registro!' });
-      // this.setState({ open: true });
-      // console.log(this.state);
       this.props.addFichaInscripcion(this.state);
     }
-    // dispatch(reset("ficha_inscripcion"));
+    dispatch(reset("ficha_inscripcion"));
   };
 
   handleDateChange = date => {
@@ -320,16 +311,12 @@ class Test extends React.Component {
   };
 
   handleChangeRadio = event => {
-    // console.log("hh");
-    // console.log(event[0]);
     this.setState({
       sexo: event[0]
     });
   };
 
   componentDidMount() {
-    // console.log("in")
-    // console.log(this);040000
     this.props.getItems();
     this.props.getDepartamentos();
     this.props.getProvincias("040000");
@@ -337,20 +324,15 @@ class Test extends React.Component {
     this.props.getLicencias();
     this.props.getEstado();
     this.props.getCursosLicencias();
-    // this.props.getProvincias("040000");
+    const loguedUsername = localStorage.getItem("username");
+    if (loguedUsername === null) {
+      window.location.href = "/login";
+    } else if (loguedUsername !== "octavio") {
+      window.location.href = "/not-found";
+    }
   }
-  /* constructor(props) {
-    console.log("IN")
-    console.log(props);
-    super(props);
-    this.state = {
-      item: []
-    };
-  } */
 
   render() {
-    // this.generarpdf4();
-    // console.log(classes);
     const { classes } = this.props;
     const {
       name,

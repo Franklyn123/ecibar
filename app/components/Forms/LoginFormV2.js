@@ -1,38 +1,32 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import { withStyles } from '@material-ui/core/styles';
-import classNames from 'classnames';
-import { NavLink } from 'react-router-dom';
-import { Field, reduxForm } from 'redux-form/immutable';
-import { Checkbox, TextField } from 'redux-form-material-ui';
-import Button from '@material-ui/core/Button';
-import { connect } from 'react-redux';
-import IconButton from '@material-ui/core/IconButton';
-import Visibility from '@material-ui/icons/Visibility';
-import VisibilityOff from '@material-ui/icons/VisibilityOff';
-import InputAdornment from '@material-ui/core/InputAdornment';
-import Typography from '@material-ui/core/Typography';
-import FormControl from '@material-ui/core/FormControl';
-import FormControlLabel from '@material-ui/core/FormControlLabel';
-import ArrowForward from '@material-ui/icons/ArrowForward';
-import Paper from '@material-ui/core/Paper';
-import Icon from '@material-ui/core/Icon';
-import brand from 'dan-api/dummy/brand';
-import logo from 'dan-images/logo.svg';
-import styles from './user-jss';
+/* eslint-disable */
+import React from "react";
+import PropTypes from "prop-types";
+import { withStyles } from "@material-ui/core/styles";
+import classNames from "classnames";
+import { NavLink } from "react-router-dom";
+import { Field, reduxForm } from "redux-form/immutable";
+import { TextField } from "redux-form-material-ui";
+import Button from "@material-ui/core/Button";
+import { connect } from "react-redux";
+import IconButton from "@material-ui/core/IconButton";
+import Visibility from "@material-ui/icons/Visibility";
+import VisibilityOff from "@material-ui/icons/VisibilityOff";
+import InputAdornment from "@material-ui/core/InputAdornment";
+import Typography from "@material-ui/core/Typography";
+import FormControl from "@material-ui/core/FormControl";
+import ArrowForward from "@material-ui/icons/ArrowForward";
+import Paper from "@material-ui/core/Paper";
+import brand from "dan-api/dummy/brand";
+import logo from "dan-images/logo.svg";
+import styles from "./user-jss";
 
 // validation functions
-const required = value => (value == null ? 'Required' : undefined);
-const email = value => (
-  value && !/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(value)
-    ? 'Invalid email'
-    : undefined
-);
+const required = value => (value == null ? "Required" : undefined);
 
 class LoginFormV2 extends React.Component {
   state = {
     showPassword: false
-  }
+  };
 
   handleClickShowPassword = () => {
     const { showPassword } = this.state;
@@ -50,8 +44,10 @@ class LoginFormV2 extends React.Component {
       pristine,
       submitting,
       deco,
+      propiedades
     } = this.props;
     const { showPassword } = this.state;
+
     return (
       <Paper className={classNames(classes.sideWrap, deco && classes.petal)}>
         <div className={classes.topBar}>
@@ -59,16 +55,9 @@ class LoginFormV2 extends React.Component {
             <img src={logo} alt={brand.name} />
             {brand.name}
           </NavLink>
-          <Button size="small" className={classes.buttonLink} component={NavLink} to="/register-v2">
-            <Icon className={classes.icon}>arrow_forward</Icon>
-            Create new account
-          </Button>
         </div>
         <Typography variant="h4" className={classes.title} gutterBottom>
-          Sign In
-        </Typography>
-        <Typography variant="caption" className={classes.subtitle} gutterBottom align="center">
-          Lorem ipsum dolor sit amet
+          Iniciar sesión
         </Typography>
         <section className={classes.pageFormSideWrap}>
           <form onSubmit={handleSubmit}>
@@ -77,10 +66,9 @@ class LoginFormV2 extends React.Component {
                 <Field
                   name="email"
                   component={TextField}
-                  placeholder="Your Email"
-                  label="Your Email"
+                  placeholder="Usuario"
+                  label="Usuario"
                   required
-                  validate={[required, email]}
                   className={classes.field}
                 />
               </FormControl>
@@ -90,8 +78,8 @@ class LoginFormV2 extends React.Component {
                 <Field
                   name="password"
                   component={TextField}
-                  type={showPassword ? 'text' : 'password'}
-                  label="Your Password"
+                  type={showPassword ? "text" : "password"}
+                  label="Contraseña"
                   InputProps={{
                     endAdornment: (
                       <InputAdornment position="end">
@@ -111,14 +99,32 @@ class LoginFormV2 extends React.Component {
                 />
               </FormControl>
             </div>
+
             <div className={classes.optArea}>
-              <FormControlLabel className={classes.label} control={<Field name="checkbox" component={Checkbox} />} label="Remember" />
-              <Button size="small" component={NavLink} to="/reset-password" className={classes.buttonLink}>Forgot Password</Button>
+              {propiedades.errorMessage && (
+                <p
+                  style={{
+                    color: "#D8000C",
+                    backgroundColor: "#FFBABA"
+                  }}
+                >
+                  {propiedades.errorMessage}
+                </p>
+              )}
             </div>
             <div className={classes.btnArea}>
-              <Button variant="contained" fullWidth color="primary" size="large" type="submit">
-                Continue
-                <ArrowForward className={classNames(classes.rightIcon, classes.iconSmall)} disabled={submitting || pristine} />
+              <Button
+                variant="contained"
+                fullWidth
+                color="primary"
+                size="large"
+                type="submit"
+              >
+                Continuar
+                <ArrowForward
+                  className={classNames(classes.rightIcon, classes.iconSmall)}
+                  disabled={submitting || pristine}
+                />
               </Button>
             </div>
           </form>
@@ -133,22 +139,20 @@ LoginFormV2.propTypes = {
   handleSubmit: PropTypes.func.isRequired,
   pristine: PropTypes.bool.isRequired,
   submitting: PropTypes.bool.isRequired,
-  deco: PropTypes.bool.isRequired,
+  deco: PropTypes.bool.isRequired
 };
 
 const LoginFormReduxed = reduxForm({
-  form: 'immutableExample',
-  enableReinitialize: true,
+  form: "immutableExample",
+  enableReinitialize: true
 })(LoginFormV2);
 
-const reducerLogin = 'login';
-const reducerUi = 'ui';
-const FormInit = connect(
-  state => ({
-    force: state,
-    initialValues: state.getIn([reducerLogin, 'usersLogin']),
-    deco: state.getIn([reducerUi, 'decoration'])
-  }),
-)(LoginFormReduxed);
+const reducerLogin = "login";
+const reducerUi = "ui";
+const FormInit = connect(state => ({
+  force: state,
+  initialValues: state.getIn([reducerLogin, "usersLogin"]),
+  deco: state.getIn([reducerUi, "decoration"])
+}))(LoginFormReduxed);
 
 export default withStyles(styles)(FormInit);

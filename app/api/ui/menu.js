@@ -1,45 +1,38 @@
 module.exports = [
-
   {
-    key: 'asistencia',
-    name: 'Asistencia',
-    icon: 'ios-apps-outline',
-    link: '/app/ecibar/asistencia'
+    key: "asistencia",
+    name: "Asistencia",
+    icon: "ios-apps-outline",
+    link: "/app/ecibar/asistencia"
   },
   {
-    key: 'ficha_inscripcion',
-    name: 'Ficha de Inscripción',
-    icon: 'ios-apps-outline',
-    link: '/app/ecibar/ficha-inscripcion'
+    key: "ficha_inscripcion",
+    name: "Ficha de Inscripción",
+    icon: "ios-apps-outline",
+    link: "/app/ecibar/ficha-inscripcion"
   },
   {
-    key: 'seguimiento',
-    name: 'Seguimiento',
-    icon: 'ios-apps-outline',
-    link: '/app/ecibar/seguimiento'
+    key: "seguimiento",
+    name: "Seguimiento",
+    icon: "ios-apps-outline",
+    link: "/app/ecibar/seguimiento"
   },
   {
-    key: 'historialexterno',
-    name: 'Historial Externo',
-    icon: 'ios-apps-outline',
-    link: '/app/ecibar/historial-ventas-externas'
+    key: "Alumnos",
+    name: "Alumnos",
+    icon: "ios-apps-outline",
+    link: "/app/ecibar/alumnos"
   },
   {
-    key: 'listarhistorialexterno',
-    name: 'Listar Historial Externo',
-    icon: 'ios-apps-outline',
-    link: '/app/ecibar/listar-historial'
+    key: "historialexterno",
+    name: "Historial Externo",
+    icon: "ios-apps-outline",
+    link: "/app/ecibar/historial-ventas-externas"
   },
   {
-    key: 'Alumnos',
-    name: 'Alumnos',
-    icon: 'ios-apps-outline',
-    link: '/app/ecibar/alumnos'
-  },
-  {
-    key: 'instructores',
-    name: 'Instructores',
-    icon: 'ios-apps-outline',
-    link: '/app/ecibar/instructores'
-  },
+    key: "listarhistorialexterno",
+    name: "Listar Historial Externo",
+    icon: "ios-apps-outline",
+    link: "/app/ecibar/listar-historial"
+  }
 ];

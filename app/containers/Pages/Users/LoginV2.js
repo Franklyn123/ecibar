@@ -1,29 +1,29 @@
-import React from 'react';
-import { Helmet } from 'react-helmet';
-import brand from 'dan-api/dummy/brand';
-import PropTypes from 'prop-types';
-import Typography from '@material-ui/core/Typography';
-import Hidden from '@material-ui/core/Hidden';
-import { withStyles } from '@material-ui/core/styles';
-import { LoginFormV2 } from 'dan-components';
-import styles from 'dan-components/Forms/user-jss';
+import React from "react";
+import { Helmet } from "react-helmet";
+import brand from "dan-api/dummy/brand";
+import PropTypes from "prop-types";
+import Typography from "@material-ui/core/Typography";
+import Hidden from "@material-ui/core/Hidden";
+import { withStyles } from "@material-ui/core/styles";
+import { LoginFormV2 } from "dan-components";
+import styles from "dan-components/Forms/user-jss";
 
 class LoginV2 extends React.Component {
   state = {
     valueForm: []
-  }
+  };
 
   submitForm(values) {
     const { valueForm } = this.state;
     setTimeout(() => {
       this.setState({ valueForm: values });
       console.log(`You submitted:\n\n${valueForm}`);
-      window.location.href = '/app';
+      window.location.href = "/app";
     }, 500);
   }
 
   render() {
-    const title = brand.name + ' - Login Version 2';
+    const title = brand.name + " - Login Version 2";
     const description = brand.desc;
     const { classes } = this.props;
     return (
@@ -39,15 +39,26 @@ class LoginV2 extends React.Component {
         <div className={classes.containerSide}>
           <Hidden smDown>
             <div className={classes.opening}>
-              <Typography variant="h3" component="h1" className={classes.opening} gutterBottom>
-                Welcome to&nbsp;
+              <Typography
+                variant="h3"
+                component="h1"
+                className={classes.opening}
+                gutterBottom
+              >
+                Bienvenido a&nbsp;
                 {brand.name}
               </Typography>
-              <Typography variant="h6" component="p" className={classes.subpening}>Please sign in to continue</Typography>
+              <Typography
+                variant="h6"
+                component="p"
+                className={classes.subpening}
+              >
+                Please sign in to continue
+              </Typography>
             </div>
           </Hidden>
           <div className={classes.sideFormWrap}>
-            <LoginFormV2 onSubmit={(values) => this.submitForm(values)} />
+            <LoginFormV2 onSubmit={values => this.submitForm(values)} />
           </div>
         </div>
       </div>
@@ -56,7 +67,7 @@ class LoginV2 extends React.Component {
 }
 
 LoginV2.propTypes = {
-  classes: PropTypes.object.isRequired,
+  classes: PropTypes.object.isRequired
 };
 
 export default withStyles(styles)(LoginV2);
