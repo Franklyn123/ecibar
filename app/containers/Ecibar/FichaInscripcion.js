@@ -180,7 +180,7 @@ class Test extends React.Component {
     nombres: "",
     aPaterno: "",
     aMaterno: "",
-    selectedDate: new Date(),
+    selectedDate: new Date("01-01-2000"),
     domicilio: "",
     celTel: "",
     sexo: "",

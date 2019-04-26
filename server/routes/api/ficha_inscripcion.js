@@ -72,12 +72,14 @@ router.get("/prueba", async (req, res) => {
   });
 });
 //db.col.find().sort({"datetime": -1}).limit(1)
+
 router.get("/estado", async (req, res) => {
   const num = await Expediente.find()
     .sort({ numeracion: -1 })
     .limit(1);
   res.json({ numeracion: num[0].numeracion + 1 });
 });
+
 router.get("/alumnos", async (req, res) => {
   res.json([
     { nombres: "Cahuana Rojas, Frankyln", dni: "73464646" },
@@ -167,6 +169,7 @@ router.post("/ficha_inscripcion", async (req, res) => {
             e = 'T';
         }
         */
+    console.log(req.body);
 
     let nuevoExpediente = {};
     if (alumnoEncontrado.length > 0 && cursoLicencia.length > 0) {
