@@ -96,7 +96,7 @@ export function generar_reportes(datos) {
       case "AIV":
         break;
     }
-  } else if (datos.curso === "SENSIBILIZACIÓN") {
+  } else if (datos.curso === "TALLER CAMBIEMOS DE ACTITUD") {
     tca_ract.tca_RACT(datos);
     tca_fiac.tca_FIAC(datos);
     tca_raet.tca_RAET(datos);

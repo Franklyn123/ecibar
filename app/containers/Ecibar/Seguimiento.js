@@ -130,7 +130,7 @@ class BlankPage extends React.Component {
   }
 
   onPrintExamenes() {
-    if (datos.curso === "SENSIBILIZACIÓN") {
+    if (datos.curso === "TALLER CAMBIEMOS DE ACTITUD") {
       window.open(
         "/examenes/taller_cambiemos_actitud/EXAMENES.pdf",
         "_blank",
@@ -314,7 +314,7 @@ class BlankPage extends React.Component {
           datos.clases_manejo = expediente
             .get("exp")
             .get("asistencias_manejo")._tail.array;
-        } else if (temp_curso === "SENSIBILIZACIÓN") {
+        } else if (temp_curso === "TALLER CAMBIEMOS DE ACTITUD") {
           datos.expediente = expediente
             .get("exp")
             .get("numeracion")

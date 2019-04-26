@@ -313,7 +313,7 @@ export function ficha_inscripcion(datos) {
         columnWidth: "wrap"
       }
     });
-    doc.autoTable([{ title: "RECATEGORIZACION", dataKey: "cp" }], rows, {
+    doc.autoTable([{ title: "RECATEGORIZACIÓN", dataKey: "cp" }], rows, {
       margin: { horizontal: 175, top: finalY6 + 1 },
       columnStyles: {
         cp: { columnWidth: 100 }
@@ -355,7 +355,7 @@ export function ficha_inscripcion(datos) {
         columnWidth: "wrap"
       }
     });
-    doc.autoTable([{ title: "SENSIBILIZACION", dataKey: "cp" }], rows, {
+    doc.autoTable([{ title: "TALLER CAMBIEMOS DE ACTITUD", dataKey: "cp" }], rows, {
       margin: { horizontal: 175, top: finalY7 + 1 },
       columnStyles: {
         cp: { columnWidth: 100 }
