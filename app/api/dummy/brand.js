@@ -1,7 +1,7 @@
 module.exports = {
   name: 'ECIBAR',
-  desc: 'Dandelion Pro - React Website Template',
-  prefix: 'dandelion',
-  footerText: 'Dandelion Pro All Rights Reserved 2018',
-  logoText: 'Dandelion Pro',
+  desc: 'ECIBAR S.A.C.',
+  prefix: 'ECIBAR',
+  footerText: 'ECIBAR All Rights Reserved 2018',
+  logoText: 'ECIBAR S.A.C.',
 };

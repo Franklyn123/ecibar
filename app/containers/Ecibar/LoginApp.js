@@ -36,7 +36,7 @@ class LoginApp extends React.Component {
   };
 
   render() {
-    const title = brand.name + " - Login Version 2";
+    const title = brand.name + " - Login";
     const description = brand.desc;
     const { classes } = this.props;
     return (
