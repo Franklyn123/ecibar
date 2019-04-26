@@ -4,7 +4,7 @@
     "fecha": "",
     "horaentrada": "08:00",
     "horasalida": "14:00",
-    "nombreCurso": "Normas de tránsito y seguridad vial, aplicación practica de normas de tránsito y mecanica automotriz                                                                                                                                                                                                                                                   ",
+    "nombreCurso": "Urbanidad y trato al usuario principios de salud ocupacional aplicadas al transporte, normas de seguridad y calidad que regulan la prestación del servicio de transportes de personas y mercaderías                                                                                                                                                    ",
     "horas": "8"
   },
   {
@@ -12,7 +12,7 @@
     "fecha": "",
     "horaentrada": "08:00",
     "horasalida": "14:00",
-    "nombreCurso": "Normas de tránsito y seguridad vial, aplicación practica de normas de tránsito y mecanica automotriz                                                                                                                                                                                                                                                   ",
+    "nombreCurso": "Mecánica automotriz avanzada según la categoría del vehículo que corresponda. Principios de salud ocupacional aplicada al transporte de normas de seguridad y calidad que regulan la prestación del transporte de pesronass y mercancias                                                                                                               ",
     "horas": "8"
   },
   {
@@ -20,7 +20,7 @@
     "fecha": "",
     "horaentrada": "08:00",
     "horasalida": "14:00",
-    "nombreCurso": "Normas de tránsito y seguridad vial, aplicación practica de normas de tránsito y mecanica automotriz                                                                                                                                                                                                                                                   ",
+    "nombreCurso": "Normas básicas sobre clasificación vehícular, urbanidad y trato al usuario, mecánica automotriz avanzada según la categoría del vehículo que corresponda                                                                                                                                                                                               ",
     "horas": "8"
   },
   {
@@ -28,7 +28,7 @@
     "fecha": "",
     "horaentrada": "08:00",
     "horasalida": "12:30",
-    "nombreCurso": "Normas de tránsito y seguridad vial, aplicación practica de normas de tránsito y mecanica automotriz                                                                                                                                                                                                                                                   ",
+    "nombreCurso": "Uso de la tecnología aplicada al transporte de mercancias y personas. Manejo correcto de la carga. Pesos y dimensiones vehículares (vehículos de tranposrte de personas y mercancias).                                                                                                                                                                 ",
     "horas": "8"
   },
   {
@@ -36,7 +36,7 @@
     "fecha": "",
     "horaentrada": "08:00",
     "horasalida": "12:30",
-    "nombreCurso": "Normas de tránsito y seguridad vial, aplicación practica de normas de tránsito y mecanica automotriz                                                                                                                                                                                                                                                   ",
+    "nombreCurso": "Manejo correcto de la carga. Principios de salud ocupacional aplicadas al transporte. Pesos y dimensiones vehículares (vehículos de transporte de personas y mercancias).                                                                                                                                                                              ",
     "horas": "8"
   },
   {
@@ -44,7 +44,7 @@
     "fecha": "",
     "horaentrada": "08:00",
     "horasalida": "12:30",
-    "nombreCurso": "Normas de tránsito y seguridad vial, aplicación practica de normas de tránsito y mecanica automotriz                                                                                                                                                                                                                                                   ",
+    "nombreCurso": "Normas de seguridad y calidad que regulan la prestanción del servicio de transporte de personas y mercancias. Normas básicas sobre clasificación vehícular, pesos y dimensiones vehículares (vehículo de transporte de personas y mercancias).                                                                                                          ",
     "horas": "8"
   },
   {
@@ -52,7 +52,23 @@
     "fecha": "",
     "horaentrada": "08:00",
     "horasalida": "12:30",
-    "nombreCurso": "Normas de tránsito y seguridad vial, aplicación practica de normas de tránsito y mecanica automotriz                                                                                                                                                                                                                                                   ",
+    "nombreCurso": "Enseñanza de normas tributarias sobre el uso de las guías de remisión del transportista. Normas de seguridad y calidad que regulan la prestación del servicio de tranposrte de personas y mercancias. Normas básicas sobre clasificación vehicular.                                                                                                     ",
+    "horas": "8"
+  },
+  {
+    "nro": 8,
+    "fecha": "",
+    "horaentrada": "08:00",
+    "horasalida": "12:30",
+    "nombreCurso": "Enseñanza de normas tributarias sobre el uso de las guías de remisión del transportista. Uso de la tecnología aplicable al transporte de mercancias y personas. Ejercicio sobre la aplicación práctica de mecánica automotriz.                                                                                                                          ",
+    "horas": "8"
+  },
+  {
+    "nro": 9,
+    "fecha": "",
+    "horaentrada": "08:00",
+    "horasalida": "12:30",
+    "nombreCurso": "Ejercicio sobre aplicación práctica de los conocimientos de señalización de transito. Ejercicio sobre aplicación práctica de primeros auxilios.                                                                                                                                                                                                         ",
     "horas": "6"
   }
 ]

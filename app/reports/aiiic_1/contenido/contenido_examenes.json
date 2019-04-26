@@ -2,7 +2,7 @@
   {
     "nro": 1,
     "fecha": "",
-    "tipoexamen": "Exámenes de Reglamento nacional de transito, Normas de seguridad y calidad que regulan la prestación de servicio de transporte de personas, Técnica de conducción a la defensiva, Sensibilización sobre accidentes de  tránsito, Aplicación práctica en señalización de tránsito, Normas tributarias en transporte",
+    "tipoexamen": "Exámenes señalización de transito, normas de clasificación vehícular, peso y dimensión vehícular en el transporte de personas y mercancias Normas de seguridad y calidad que regulan la prestación de servicio de transporte de personas, Técnica de conducción a la defensiva",
     "nota": "",
     "promedio": "",
     "resultado": ""
@@ -10,7 +10,7 @@
   {
     "nro": 2,
     "fecha": "",
-    "tipoexamen": "Examen De Mecanica Automotriz Basica, Aplicación Practica, Funcionamiento De Vehiculo Motorizado,  Normas Sobre Limites Maximos Peremisibles De Emisiones De Gases Contaminantes En Vehiculos",
+    "tipoexamen": "Normas de seguridad y calidad que regulan la prestación del servicio de transporte de personas y mercancias, uso de tecnología aplicada al transporte, manejo correcto de la carga, normas tributarias en transporte.",
     "nota": "",
     "promedio": "",
     "resultado": ""
@@ -18,9 +18,18 @@
   {
     "nro": 3,
     "fecha": "",
+    "tipoexamen": "Examen de mecánica de automotriz avanzada, aplicación práctica, funcionamiento de vehículo motorizado, normas sobre limites máximos permisibles de emisiones de gases contaminantes en vehículos",
+    "nota": "",
+    "promedio": "",
+    "resultado": ""
+  },
+  {
+    "nro": 4,
+    "fecha": "",
     "tipoexamen": "Exámenes de Urbanidad, trato al usuario, Principios de salud ocupacional, Primeros auxilios, Aplicación práctica de primeros auxilios",
     "nota": "",
     "promedio": "",
     "resultado": ""
   }
 ]
+
