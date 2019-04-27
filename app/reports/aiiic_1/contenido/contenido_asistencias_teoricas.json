@@ -4,7 +4,7 @@
     "fecha": "",
     "horaentrada": "08:00",
     "horasalida": "14:00",
-    "nombreCurso": "Normas de tránsito y seguridad vial, aplicación practica de normas de tránsito y mecanica automotriz",
+    "nombreCurso": "Normas de tránsito y seguridad vial, aplicación practica de normas de tránsito y mecanica automotriz                                                                                                                                                                                                                                                   ",
     "horas": "8"
   },
   {
@@ -12,7 +12,7 @@
     "fecha": "",
     "horaentrada": "08:00",
     "horasalida": "14:00",
-    "nombreCurso": "Normas de tránsito y seguridad vial, aplicación practica de normas de tránsito y mecanica automotriz",
+    "nombreCurso": "Normas de tránsito y seguridad vial, aplicación practica de normas de tránsito y mecanica automotriz                                                                                                                                                                                                                                                   ",
     "horas": "8"
   },
   {
@@ -20,7 +20,7 @@
     "fecha": "",
     "horaentrada": "08:00",
     "horasalida": "14:00",
-    "nombreCurso": "Normas de tránsito y seguridad vial, aplicación practica de normas de tránsito y mecanica automotriz",
+    "nombreCurso": "Normas de tránsito y seguridad vial, aplicación practica de normas de tránsito y mecanica automotriz                                                                                                                                                                                                                                                   ",
     "horas": "8"
   },
   {
@@ -28,7 +28,31 @@
     "fecha": "",
     "horaentrada": "08:00",
     "horasalida": "12:30",
-    "nombreCurso": "Normas de tránsito y seguridad vial, aplicación practica de normas de tránsito y mecanica automotriz",
+    "nombreCurso": "Normas de tránsito y seguridad vial, aplicación practica de normas de tránsito y mecanica automotriz                                                                                                                                                                                                                                                   ",
+    "horas": "6"
+  },
+  {
+    "nro": 5,
+    "fecha": "",
+    "horaentrada": "08:00",
+    "horasalida": "12:30",
+    "nombreCurso": "Normas de tránsito y seguridad vial, aplicación practica de normas de tránsito y mecanica automotriz                                                                                                                                                                                                                                                   ",
+    "horas": "6"
+  },
+  {
+    "nro": 6,
+    "fecha": "",
+    "horaentrada": "08:00",
+    "horasalida": "12:30",
+    "nombreCurso": "Normas de tránsito y seguridad vial, aplicación practica de normas de tránsito y mecanica automotriz                                                                                                                                                                                                                                                   ",
+    "horas": "6"
+  },
+  {
+    "nro": 7,
+    "fecha": "",
+    "horaentrada": "08:00",
+    "horasalida": "12:30",
+    "nombreCurso": "Normas de tránsito y seguridad vial, aplicación practica de normas de tránsito y mecanica automotriz                                                                                                                                                                                                                                                   ",
     "horas": "6"
   }
 ]

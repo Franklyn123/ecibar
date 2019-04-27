@@ -276,7 +276,7 @@ export function aiii_c_FIAC(datos) {
         styles: {
           fontSize: 6.5,
           columnWidth: "wrap",
-          halign: "center",
+          halign: "left",
           overflow: "linebreak"
         },
         columnStyles: {
@@ -327,157 +327,11 @@ export function aiii_c_FIAC(datos) {
       doc.text(580, 540, "___________________________");
       doc.text(580, 551, "      FIRMA DEL DIRECTOR");
 
-      doc.addPage();
+      //doc.addPage();
 
       /********************/
       /***** PAGINA 2 *****/
       /********************/
-      console.log(img.src);
-
-      doc.addImage(imagen0, "JPEG", 40, 40, 107, 23);
-      doc.addImage(imagen1, "JPEG", 660, 40, 115, 29);
-
-      doc.setFont("helvetica");
-      doc.setFontType("bold");
-      doc.setFontSize(16);
-
-      doc.text(235, 60, "FICHA INDIVIDUAL DEL ALUMNO CAPACITADO");
-
-      doc.setFontSize(8);
-      doc.setFillColor(41, 128, 186);
-
-      // Nombres y apellidos
-      doc.autoTable(colnom, rows, {
-        margin: { horizontal: 40, top: 70 },
-        columnStyles: {
-          nombre: { columnWidth: 135 }
-        },
-        styles: {
-          fontSize: 8,
-          columnWidth: "wrap",
-          overflow: "linebreak"
-        }
-      });
-      doc.text(
-        185,
-        83,
-        datos.alumno.a_paterno +
-          " " +
-          datos.alumno.a_materno +
-          " " +
-          datos.alumno.nombres
-      );
-
-      // DNI
-      doc.autoTable(coldoc, rows, {
-        margin: { horizontal: 40, top: finalY0 + 3 },
-        columnStyles: {
-          n_dni: { columnWidth: 135 }
-        },
-        styles: {
-          fontSize: 8,
-          columnWidth: "wrap",
-          overflow: "linebreak"
-        }
-      });
-      doc.text(185, finalY0 + 16, datos.alumno.dni);
-
-      // Fecha de inicio
-      doc.autoTable(colfechai, rows, {
-        margin: { horizontal: 40, top: finalY1 + 3 },
-        columnStyles: {
-          fechainicio: { columnWidth: 135 }
-        },
-        styles: {
-          fontSize: 8,
-          columnWidth: "wrap",
-          overflow: "linebreak"
-        }
-      });
-      doc.text(
-        185,
-        finalY1 + 16,
-        date_converter.convertDate(new Date(teoria[0].fecha))
-      );
-
-      // Fecha fin
-      doc.autoTable(colfechaf, rows, {
-        margin: { horizontal: 40, top: finalYY2 + 3 },
-        columnStyles: {
-          fechafin: { columnWidth: 135 }
-        },
-        styles: {
-          fontSize: 8,
-          columnWidth: "wrap",
-          overflow: "linebreak"
-        }
-      });
-      doc.text(
-        185,
-        finalYY2 + 16,
-        date_converter.convertDate(new Date(manejo[3].fecha))
-      );
-
-      // N expediente
-      doc.autoTable(
-        [{ title: "NRO DE EXPEDIENTE", dataKey: "expediente" }],
-        rows,
-        {
-          margin: { horizontal: 400, top: 70 },
-          columnStyles: {
-            cp: { columnWidth: 205 }
-          },
-          styles: {
-            fontSize: 8,
-            columnWidth: "wrap",
-            overflow: "linebreak"
-          }
-        }
-      );
-      doc.text(505, 83, datos.expediente);
-
-      // ENCABEZADO DEL SEGUNDO SECTOR
-      // Licencia que posee
-      doc.autoTable(colCT, rows, {
-        margin: { horizontal: 400, top: finalY0 + 3 },
-        columnStyles: {
-          cp: { columnWidth: 210 }
-        },
-        styles: {
-          fontSize: 8,
-          columnWidth: "wrap",
-          overflow: "linebreak"
-        }
-      });
-      doc.text(620, finalY0 + 16, datos.licencia_actual);
-
-      // Licencia a la que postula
-      doc.autoTable(colCP, rows, {
-        margin: { horizontal: 400, top: finalY1 + 3 },
-        columnStyles: {
-          cp: { columnWidth: 210 }
-        },
-        styles: {
-          fontSize: 8,
-          columnWidth: "wrap",
-          overflow: "linebreak"
-        }
-      });
-      doc.text(620, finalY1 + 16, datos.licencia_postula);
-
-      // Licencia en tramite
-      doc.autoTable(colPE, rows, {
-        margin: { horizontal: 400, top: finalYY2 + 3 },
-        columnStyles: {
-          cp: { columnWidth: 210 }
-        },
-        styles: {
-          fontSize: 8,
-          columnWidth: "wrap",
-          overflow: "linebreak"
-        }
-      });
-      doc.text(620, finalYY2 + 16, datos.curso);
 
       doc.text(120, 540, "__________________________________");
       doc.text(120, 551, "      FIRMA DEL ALUMNO(HUELLA)");

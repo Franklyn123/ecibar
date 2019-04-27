@@ -58,5 +58,50 @@
     "firmaInstructor": "",
     "firmaAlumno": "",
     "huellaAlumno": ""
+  },
+  {
+    "nro": 5,
+    "fecha": "",
+    "Hinicio": "8:00",
+    "Hfinal": "9:30",
+    "nhoras": "2",
+    "clases": "Inicio  e ingreso al circuito, circulacion a la izquierda, circulacion  con jiba, circulacion a la derecha, se detiene el vehiculo,  circulacion con crucero de peatones, circulacion en rotonda, detencion del vehiculo (5Seg) circulacion ala izquierda, circulacion en retroceso, reinicio de marcha a, circulacion a  la izquierda, examen de parqueo, circulacion y salida del circuito",
+    "circuito": "Av. Sepulveda s/n Helipuerto Salaverry, Cuartel salaverry. Miraflores Arequipa",
+    "Kinicio": "",
+    "Ktermino": "",
+    "instructor": "",
+    "firmaInstructor": "",
+    "firmaAlumno": "",
+    "huellaAlumno": ""
+  },
+  {
+    "nro": 6,
+    "fecha": "",
+    "Hinicio": "8:00",
+    "Hfinal": "9:30",
+    "nhoras": "2",
+    "clases": "Inicio  e ingreso al circuito, circulacion a la izquierda, circulacion  con jiba, circulacion a la derecha, se detiene el vehiculo,  circulacion con crucero de peatones, circulacion en rotonda, detencion del vehiculo (5Seg) circulacion ala izquierda, circulacion en retroceso, reinicio de marcha a, circulacion a  la izquierda, examen de parqueo, circulacion y salida del circuito",
+    "circuito": "Av. Sepulveda s/n Helipuerto Salaverry, Cuartel salaverry. Miraflores Arequipa",
+    "Kinicio": "",
+    "Ktermino": "",
+    "instructor": "",
+    "firmaInstructor": "",
+    "firmaAlumno": "",
+    "huellaAlumno": ""
+  },
+  {
+    "nro": 7,
+    "fecha": "",
+    "Hinicio": "8:00",
+    "Hfinal": "9:30",
+    "nhoras": "2",
+    "clases": "Inicio  e ingreso al circuito, circulacion a la izquierda, circulacion  con jiba, circulacion a la derecha, se detiene el vehiculo,  circulacion con crucero de peatones, circulacion en rotonda, detencion del vehiculo (5Seg) circulacion ala izquierda, circulacion en retroceso, reinicio de marcha a, circulacion a  la izquierda, examen de parqueo, circulacion y salida del circuito",
+    "circuito": "Av. Sepulveda s/n Helipuerto Salaverry, Cuartel salaverry. Miraflores Arequipa",
+    "Kinicio": "",
+    "Ktermino": "",
+    "instructor": "",
+    "firmaInstructor": "",
+    "firmaAlumno": "",
+    "huellaAlumno": ""
   }
 ]
