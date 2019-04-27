@@ -77,6 +77,7 @@ router.get("/estado", async (req, res) => {
     .sort({ numeracion: -1 })
     .limit(1);
   res.json({ numeracion: num[0].numeracion + 1 });
+  console.log(num[0].numeracion);
 });
 router.get("/alumnos", async (req, res) => {
   res.json([
@@ -91,10 +92,13 @@ router.post("/ficha_inscripcion", async (req, res) => {
     const dep = await Departamento.find({ id: req.body.departamento });
     const pro = await Provincia.find({ id: req.body.provincia });
     const dis = await Distrito.find({ id: req.body.distrito });
+
     let counterExpediente;
-    Expediente.count({}, (error, counter) => {
-      counterExpediente = counter;
-    });
+    const num = await Expediente.find()
+      .sort({ numeracion: -1 })
+      .limit(1);
+    counterExpediente = num[0].numeracion + 1;
+
     const cursoLicencia = await CursoLicencia.find({
       curso: req.body.tipoCurso,
       licencia_actual: req.body.de,
@@ -171,7 +175,7 @@ router.post("/ficha_inscripcion", async (req, res) => {
     let nuevoExpediente = {};
     if (alumnoEncontrado.length > 0 && cursoLicencia.length > 0) {
       nuevoExpediente = new Expediente({
-        numeracion: counterExpediente + 1,
+        numeracion: counterExpediente,
         alumno: alumnoEncontrado[0]._id,
         curso_licencia: cursoLicencia[0]._id,
         fecha_registro_expediente: req.body.fechaRegistro,

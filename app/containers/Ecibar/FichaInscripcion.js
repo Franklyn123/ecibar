@@ -51,6 +51,10 @@ import {
   changeStateDe,
   changeStateA
 } from "../../actions2/itemActions";
+
+var numeracion = 0;
+var eventoForm = false;
+
 const renderRadioGroup = ({ input, ...rest }) => (
   <RadioGroup
     {...input}
@@ -200,6 +204,19 @@ class Test extends React.Component {
     }
     this.props.changeStateToast();
   };
+  componentDidUpdate() {
+    if (eventoForm == true) {
+      console.log("actualizando datos");
+      this.props.getItems();
+      this.props.getDepartamentos();
+      this.props.getProvincias("040000");
+      this.props.getCursos();
+      this.props.getLicencias();
+      this.props.getEstado();
+      this.props.getCursosLicencias();
+      eventoForm = false;
+    }
+  }
 
   onSubmit = e => {
     e.preventDefault();
@@ -209,8 +226,31 @@ class Test extends React.Component {
       this.state.a != "-1"
     ) {
       this.props.addFichaInscripcion(this.state);
+      eventoForm = true;
+
+      this.setState({
+        toast: "error",
+        toastMessage: "Error",
+        open: false,
+        name: "Composed TextField",
+        currency: "",
+        fechaRegistro: new Date(),
+        dni: "",
+        nombres: "",
+        aPaterno: "",
+        aMaterno: "",
+        selectedDate: new Date(),
+        domicilio: "",
+        celTel: "",
+        sexo: "",
+        departamento: "040000",
+        provincia: "-1",
+        distrito: "-1",
+        tipoCurso: "-1",
+        de: "-1",
+        a: "-1"
+      });
     }
-    window.location.reload();
   };
 
   handleDateChange = date => {
@@ -238,7 +278,6 @@ class Test extends React.Component {
   };
 
   handleChange = event => {
-    console.log(this);
     this.setState({ name: event.target.value });
   };
 
@@ -317,6 +356,7 @@ class Test extends React.Component {
   };
 
   componentDidMount() {
+    eventoForm = false;
     this.props.getItems();
     this.props.getDepartamentos();
     this.props.getProvincias("040000");
@@ -342,7 +382,6 @@ class Test extends React.Component {
       name,
       submitting,
       pristine,
-      reset,
       handleSubmit,
       dni,
       nombres,
@@ -362,28 +401,19 @@ class Test extends React.Component {
       currency
     } = this.state;
 
-    // console.log("in test")
-    console.log(this.props.item.get("open"));
-    console.log(this.props.item.get("toast"));
-    console.log(this.props.item.get("toastMessage"));
-    console.log(this.props.item);
     const open = this.props.item.get("open");
     const toast = this.props.item.get("toast");
     const toastMessage = this.props.item.get("toastMessage");
 
-    // console.log(this.props.item.get("items"));
     const items = this.props.item.get("items");
     const departamentos = this.props.item.get("departamentos");
     const provincias = this.props.item.get("provincias");
     const distritos = this.props.item.get("distritos");
     const cursos = this.props.item.get("cursos");
     const licencias = this.props.item.get("licencias");
-    const numeracion = this.props.item.get("numeracion");
     const lde = this.props.item.get("de");
     const la = this.props.item.get("a");
-    // console.log("out test");
-    // console.log(items);
-
+    numeracion = this.props.item.get("numeracion");
     const title = "ECIBAR S.A.C.. Blank Page";
     const description = "ECIBAR S.A.C.";
     return (
@@ -824,14 +854,7 @@ class Test extends React.Component {
                     type="submit"
                     disabled={submitting}
                   >
-                    Submit
-                  </Button>
-                  <Button
-                    type="button"
-                    disabled={pristine || submitting}
-                    onClick={reset}
-                  >
-                    Reset
+                    GUARDAR
                   </Button>
                 </Grid>
               </form>
@@ -843,13 +866,12 @@ class Test extends React.Component {
   }
 }
 
-// console.log(Test.propTypes);
 Test.propTypes = {
   getItems: PropTypes.func.isRequired,
   history: PropTypes.object.isRequired,
   item: PropTypes.object.isRequired
 };
-// console.log(state);
+
 const mapStateToProps = state => ({
   item: state.get("item")
 });
