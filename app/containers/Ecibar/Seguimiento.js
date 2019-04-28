@@ -556,7 +556,7 @@ class BlankPage extends React.Component {
                 <TableRow key={item.get("fecha")}>
                   <TableCell padding="dense">
                     {new Date(item.get("fecha")).getDate()} -{" "}
-                    {new Date(item.get("fecha")).getMonth()} -{" "}
+                    {new Date(item.get("fecha")).getMonth() + 1} -{" "}
                     {new Date(item.get("fecha")).getFullYear()}
                   </TableCell>
                   <TableCell padding="dense">

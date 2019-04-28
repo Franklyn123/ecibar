@@ -1,0 +1,10 @@
+{"_id":{"$oid":"5c80263a76f1c31190dfa4b2"},"placa":"V1-6266","clase":"L5","km":"10000","marca":"MOTOKAR","n_chasis":"8V2KGA01040401501","n_motor":"JC30E44401501","fecha_fabricacion":"2004","modelo":"CG125 TITAN KS"}
+{"_id":{"$oid":"5c802c9ff65377119089897f"},"placa":"V6K-379","clase":"M1","km":"10016","marca":"CHEVROLET","n_chasis":"KL1MM6A01EC013425","n_motor":"B10S1132800083","fecha_fabricacion":"2013","modelo":"SPARK LITE"}
+{"_id":{"$oid":"5c802cf0f653771190898980"},"placa":"V6P-162","clase":"M1","km":"27722","marca":"CHEVROLET","n_chasis":"KL1MM6AC4EC045415","n_motor":"B10S1141530042","fecha_fabricacion":"2014","modelo":"SPARK LITE"}
+{"_id":{"$oid":"5c802d2df653771190898981"},"placa":"AMC-475","clase":"M1","km":"10000","marca":"CHEVROLET","n_chasis":"KL1MM6A01EC045467","n_motor":"B10S1141500359","fecha_fabricacion":"2014","modelo":"SPARK LITE"}
+{"_id":{"$oid":"5c802d6cf653771190898982"},"placa":"V2Q-957","clase":"M2","km":"150922","marca":"HYUNDAI","n_chasis":"KMJWA37HABU313263","n_motor":"D4BHA0600219","fecha_fabricacion":"2010","modelo":"H-1 M/BUS"}
+{"_id":{"$oid":"5c802dacf653771190898983"},"placa":"V2T-951","clase":"M3","km":"10016","marca":"HYUNDAI","n_chasis":"KMJHG17BPBCO50024","n_motor":"D4DBA452307","fecha_fabricacion":"2010","modelo":"COUNTY"}
+{"_id":{"$oid":"5c802ddbf653771190898984"},"placa":"Z5N-803","clase":"N1","km":"10000","marca":"FOTON","n_chasis":"BAFER12F55J33374","n_motor":"C36184191","fecha_fabricacion":"2005","modelo":"OLLIN"}
+{"_id":{"$oid":"5c802f45f653771190898985"},"placa":"A1V-866","clase":"N2","km":"193516","marca":"MITSUBISHI","n_chasis":"FE84PEU00707","n_motor":"4D34M08363","fecha_fabricacion":"2008","modelo":"CANTER TURBO TD T5 A TON"}
+{"_id":{"$oid":"5c802f80f653771190898986"},"placa":"A9O-815","clase":"N3","km":"13375","marca":"VOLVO","n_chasis":"YV2A4CEC92A549468","n_motor":"D12288687D1A","fecha_fabricacion":"2002","modelo":"FH12"}
+{"_id":{"$oid":"5cc31825437db40bb82badd1"},"placa":"AUY-866","clase":"N2","km":"7642","marca":"JMC","n_chasis":"LETAECG209HN00834","n_motor":"7D005478","fecha_fabricacion":"2008","modelo":"NKR LWB"}

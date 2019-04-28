@@ -111,7 +111,7 @@ export function aiii_c_EPM(datos) {
       doc.text(
         185,
         finalY1 + 16,
-        date_converter.convertDate(new Date(manejo[3].fecha))
+        date_converter.convertDate(new Date(manejo[4].fecha))
       );
       var finalY2 = doc.autoTable.previous.finalY;
 

@@ -89,8 +89,9 @@ export function generar_reportes(datos) {
           // aiiic_1_raet.aiii_c_RAET(datos);
           // aiiic_1_ract.aiii_c_RACT(datos);
           // aiiic_1_ftma.aiii_c_FTMA(datos);
-          aiiic_1_fiac.aiii_c_FIAC(datos);
-          // aiiic_1_epm.aiii_c_EPM(datos);
+          // aiiic_1_fiac.aiii_c_FIAC(datos);
+
+          aiiic_1_epm.aiii_c_EPM(datos);
         }
         break;
       case "AIV":

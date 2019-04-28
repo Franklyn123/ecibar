@@ -1,5 +1,3 @@
-{"_id":{"$oid":"5c6fa3a22aad9799bce79ac2"},"nombre":"Nuevo"}
-{"_id":{"$oid":"5c6fa3a22aad9799bce79ac3"},"nombre":"AIV"}
 {"_id":{"$oid":"5c6fa3a22aad9799bce79ac4"},"nombre":"AII-B"}
 {"_id":{"$oid":"5c6fa3a22aad9799bce79ac5"},"nombre":"AI"}
 {"_id":{"$oid":"5c6fa3a22aad9799bce79ac6"},"nombre":"AII-A"}
@@ -7,3 +5,4 @@
 {"_id":{"$oid":"5c6fa3a22aad9799bce79ac8"},"nombre":"AIII-C"}
 {"_id":{"$oid":"5c6fa3a22aad9799bce79ac9"},"nombre":"AIII-A"}
 {"_id":{"$oid":"5c781d45e977b7025434cc36"},"nombre":"AII-C"}
+{"_id":{"$oid":"5c6fa3a22aad9799bce79ac3"},"nombre":"AIV"}
