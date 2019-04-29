@@ -1,3 +1,3 @@
 @echo off
-npm run start:prod
+npm run start
 exit
