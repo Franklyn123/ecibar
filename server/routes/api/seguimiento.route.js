@@ -7,6 +7,9 @@ const TipoLicencia = require("../../models/tipo_licencia.model.js");
 const Alumno = require("../../models/alumno.model.js");
 const Vehiculo = require("../../models/vehiculo.model.js");
 const Instructor = require("../../models/instructor.model.js");
+const Departamento = require("../../models/departamento.model.js");
+const Provincia = require("../../models/provincia.model.js");
+const Distrito = require("../../models/distrito.model.js");
 
 router.post("/expediente", async (req, res) => {
   var expedientes = [];
@@ -82,6 +85,16 @@ router.post("/expediente", async (req, res) => {
     const instructor = await Instructor.find({
       _id: expedientes[0].instructor
     });
+    const departamento = await Departamento.find({
+      _id: expedientes[0].alumno.departamento
+    });
+    const provincia = await Provincia.find({
+      _id: expedientes[0].alumno.provincia
+    });
+    const distrito = await Distrito.find({
+      _id: expedientes[0].alumno.distrito
+    });
+
     res.json({
       exp: expedientes[0],
       curso: curso[0].nombre,
@@ -89,6 +102,9 @@ router.post("/expediente", async (req, res) => {
       lpostula: lpostula[0].nombre,
       vehiculo: vehiculo[0],
       instructor: instructor[0],
+      departamento: departamento[0].name,
+      provincia: provincia[0].name,
+      distrito: distrito[0].name,
       state: true
     });
   } else {

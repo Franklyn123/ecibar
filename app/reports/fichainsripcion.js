@@ -22,7 +22,11 @@ export function ficha_inscripcion(datos) {
   }
 
   const datosNombres = [
-    { AP: datos.a_paterno, AM: datos.a_materno, NM: datos.nombres }
+    {
+      AP: datos.alumno.a_paterno,
+      AM: datos.alumno.a_materno,
+      NM: datos.alumno.nombres
+    }
   ];
   var rows = [];
   var rowsNomb = [];
@@ -35,16 +39,17 @@ export function ficha_inscripcion(datos) {
     doc.setFont("helvetica");
     doc.setFontType("bold");
     doc.setFontSize(16);
-    doc.text(275, 55, "OFICINA DE ADMISION");
+    doc.text(340, 55, "OFICINA DE ADMISIÓN");
     doc.setFontSize(10);
-    doc.text(275, 72, "FICHA DE INSCRIPCION");
+    doc.text(368, 72, "FICHA DE INSCRIPCIÓN");
 
-    doc.setFontSize(8);
+    doc.setFontSize(9);
+    doc.setFontType("normal");
 
     var colnom = [{ title: "REGISTRO GENERAL ", dataKey: "nombre" }];
     var colDatosPersonales = [
       {
-        title: "1.- DATOS DEL ALUMNO (INFORMACION QUE REGISTRA ADMISION)",
+        title: "1.- DATOS DEL ALUMNO (INFORMACIÓN QUE REGISTRA ADMISIÓN)",
         dataKey: "DPersonales"
       }
     ];
@@ -84,6 +89,7 @@ export function ficha_inscripcion(datos) {
       },
       styles: {
         fontSize: 10,
+        halign: "center",
         columnWidth: "wrap"
       }
     });
@@ -101,16 +107,16 @@ export function ficha_inscripcion(datos) {
       },
       styles: {
         fontSize: 8,
-        columnWidth: "wrap"
+        halign: "center"
       }
     });
     let finalY1 = doc.autoTable.previous.finalY;
     //doc.text(180, 156, $scope.fechainicio);
     //encabezado de fecha fin
     doc.autoTable(colsex, rows, {
-      margin: { horizontal: 55, top: finalY1 },
+      margin: { horizontal: 70, top: finalY1 },
       columnStyles: {
-        sx: { columnWidth: 55 }
+        sx: { columnWidth: 50 }
       },
       styles: {
         fontSize: 8,
@@ -147,7 +153,7 @@ export function ficha_inscripcion(datos) {
     }
 
     doc.autoTable(colfechaN, rows, {
-      margin: { horizontal: 220, top: finalY1 },
+      margin: { horizontal: 210, top: finalY1 },
       columnStyles: {
         fechaN: { columnWidth: 90 }
       },
@@ -158,16 +164,16 @@ export function ficha_inscripcion(datos) {
       }
     });
     doc.text(
-      320,
+      310,
       finalY1 + 15,
       date_converter.convertDate(new Date(datos.alumno.fecha_nacimiento))
     );
 
     //doc.text(420, 130, $scope.licTramite);
     doc.autoTable(colLNacimiento, rows, {
-      margin: { horizontal: 440, top: finalY1 },
+      margin: { horizontal: 420, top: finalY1 },
       columnStyles: {
-        cp: { columnWidth: 150 }
+        cp: { columnWidth: 180 }
       },
       styles: {
         fontSize: 8,
@@ -178,9 +184,9 @@ export function ficha_inscripcion(datos) {
     let finalY2 = doc.autoTable.previous.finalY;
     //doc.text(420, 153, $scope.licTramite);
     doc.autoTable(colDNI, rows, {
-      margin: { horizontal: 55, top: finalY2 + 1 },
+      margin: { horizontal: 70, top: finalY2 + 1 },
       columnStyles: {
-        cp: { columnWidth: 55 }
+        cp: { columnWidth: 50 }
       },
       styles: {
         fontSize: 8,
@@ -188,10 +194,10 @@ export function ficha_inscripcion(datos) {
         overflowColumns: "linebreak"
       }
     });
-    doc.text(120, finalY2 + 15, datos.alumno.dni);
+    doc.text(130, finalY2 + 15, datos.alumno.dni);
 
     doc.autoTable(colLugarDNI, rows, {
-      margin: { horizontal: 220, top: finalY2 + 1 },
+      margin: { horizontal: 210, top: finalY2 + 1 },
       columnStyles: {
         cp: { columnWidth: 90 }
       },
@@ -201,10 +207,10 @@ export function ficha_inscripcion(datos) {
         overflowColumns: "linebreak"
       }
     });
-    doc.text(320, finalY2 + 15, "dep");
+    doc.text(310, finalY2 + 15, datos.alumno.departamento);
 
     doc.autoTable(colLugarDEP, rows, {
-      margin: { horizontal: 440, top: finalY2 + 1 },
+      margin: { horizontal: 420, top: finalY2 + 1 },
       columnStyles: {
         cp: { columnWidth: 90 }
       },
@@ -214,13 +220,13 @@ export function ficha_inscripcion(datos) {
         overflowColumns: "linebreak"
       }
     });
-    doc.text(540, finalY2 + 15, "LIMA");
+    doc.text(520, finalY2 + 15, datos.alumno.departamento);
 
     let finalY3 = doc.autoTable.previous.finalY;
     doc.autoTable([{ title: "EDAD", dataKey: "cp" }], rows, {
-      margin: { horizontal: 55, top: finalY3 + 1 },
+      margin: { horizontal: 70, top: finalY3 + 1 },
       columnStyles: {
-        cp: { columnWidth: 55 }
+        cp: { columnWidth: 50 }
       },
       styles: {
         fontSize: 8,
@@ -228,10 +234,14 @@ export function ficha_inscripcion(datos) {
         overflowColumns: "linebreak"
       }
     });
-    doc.text(120, finalY3 + 15, "40");
+    doc.text(
+      130,
+      finalY3 + 15,
+      date_converter.calcularEdad(datos.alumno.fecha_nacimiento).toString()
+    );
 
-    doc.autoTable([{ title: "DOMICILIO", dataKey: "cp" }], rows, {
-      margin: { horizontal: 220, top: finalY3 + 1 },
+    doc.autoTable([{ title: "CELULAR", dataKey: "cp" }], rows, {
+      margin: { horizontal: 210, top: finalY3 + 1 },
       columnStyles: {
         cp: { columnWidth: 90 }
       },
@@ -241,10 +251,10 @@ export function ficha_inscripcion(datos) {
         overflowColumns: "linebreak"
       }
     });
-    doc.text(220, finalY3 + 35, datos.alumno.domicilio);
+    doc.text(310, finalY3 + 15, datos.alumno.cel_tel);
 
     doc.autoTable([{ title: "PROVINCIA", dataKey: "cp" }], rows, {
-      margin: { horizontal: 440, top: finalY3 + 1 },
+      margin: { horizontal: 420, top: finalY3 + 1 },
       columnStyles: {
         cp: { columnWidth: 90 }
       },
@@ -254,13 +264,13 @@ export function ficha_inscripcion(datos) {
         overflowColumns: "linebreak"
       }
     });
-    doc.text(540, finalY3 + 15, "pro");
+    doc.text(520, finalY3 + 15, datos.alumno.provincia);
 
     let finalY4 = doc.autoTable.previous.finalY;
-    doc.autoTable([{ title: "TELÉFONO", dataKey: "cp" }], rows, {
-      margin: { horizontal: 55, top: finalY4 + 1 },
+    doc.autoTable([{ title: "DOMICILIO", dataKey: "cp" }], rows, {
+      margin: { horizontal: 70, top: finalY4 + 1 },
       columnStyles: {
-        cp: { columnWidth: 55 }
+        cp: { columnWidth: 50 }
       },
       styles: {
         fontSize: 8,
@@ -268,10 +278,10 @@ export function ficha_inscripcion(datos) {
         overflowColumns: "linebreak"
       }
     });
-    doc.text(120, finalY4 + 15, datos.alumno.cel_tel);
+    doc.text(130, finalY4 + 15, datos.alumno.domicilio);
 
     doc.autoTable([{ title: "DISTRITO", dataKey: "cp" }], rows, {
-      margin: { horizontal: 440, top: finalY4 + 1 },
+      margin: { horizontal: 420, top: finalY4 + 1 },
       columnStyles: {
         cp: { columnWidth: 90 }
       },
@@ -281,7 +291,8 @@ export function ficha_inscripcion(datos) {
         overflowColumns: "linebreak"
       }
     });
-    doc.text(540, finalY4 + 15, "dist");
+    doc.text(520, finalY4 + 15, datos.alumno.distrito);
+
     let finalY5 = doc.autoTable.previous.finalY;
     doc.autoTable(
       [
@@ -298,33 +309,36 @@ export function ficha_inscripcion(datos) {
         },
         styles: {
           fontSize: 10,
+          halign: "center",
           columnWidth: "wrap"
         }
       }
     );
+
     let finalY6 = doc.autoTable.previous.finalY;
     doc.autoTable([{ title: "REVALIDACION", dataKey: "cp" }], rows, {
-      margin: { horizontal: 55, top: finalY6 + 1 },
+      margin: { horizontal: 70, top: finalY6 + 1 },
       columnStyles: {
-        cp: { columnWidth: 90 }
+        cp: { columnWidth: 110 }
       },
       styles: {
         fontSize: 8,
         columnWidth: "wrap"
       }
     });
+
     doc.autoTable([{ title: "RECATEGORIZACIÓN", dataKey: "cp" }], rows, {
-      margin: { horizontal: 175, top: finalY6 + 1 },
+      margin: { horizontal: 210, top: finalY6 + 1 },
       columnStyles: {
-        cp: { columnWidth: 100 }
+        cp: { columnWidth: 110 }
       },
       styles: {
         fontSize: 8,
         columnWidth: "wrap"
       }
     });
-    doc.autoTable([{ title: "PROFESIONALIZACION", dataKey: "cp" }], rows, {
-      margin: { horizontal: 305, top: finalY6 + 1 },
+    doc.autoTable([{ title: "PROFESIONALIZACIÓN", dataKey: "cp" }], rows, {
+      margin: { horizontal: 350, top: finalY6 + 1 },
       columnStyles: {
         cp: { columnWidth: 110 }
       },
@@ -335,9 +349,9 @@ export function ficha_inscripcion(datos) {
     });
     //doc.line(15, finalY6 + 100, 100, finalY6 + 100)
     doc.autoTable([{ title: "REFORZAMIENTO", dataKey: "cp" }], rows, {
-      margin: { horizontal: 445, top: finalY6 + 1 },
+      margin: { horizontal: 490, top: finalY6 + 1 },
       columnStyles: {
-        cp: { columnWidth: 90 }
+        cp: { columnWidth: 110 }
       },
       styles: {
         fontSize: 8,
@@ -346,27 +360,7 @@ export function ficha_inscripcion(datos) {
     });
     let finalY7 = doc.autoTable.previous.finalY;
     doc.autoTable([{ title: "TOLERANCIA CERO", dataKey: "cp" }], rows, {
-      margin: { horizontal: 55, top: finalY7 + 1 },
-      columnStyles: {
-        cp: { columnWidth: 90 }
-      },
-      styles: {
-        fontSize: 8,
-        columnWidth: "wrap"
-      }
-    });
-    doc.autoTable([{ title: "TALLER CAMBIEMOS DE ACTITUD", dataKey: "cp" }], rows, {
-      margin: { horizontal: 175, top: finalY7 + 1 },
-      columnStyles: {
-        cp: { columnWidth: 100 }
-      },
-      styles: {
-        fontSize: 8,
-        columnWidth: "wrap"
-      }
-    });
-    doc.autoTable([{ title: "OTROS", dataKey: "cp" }], rows, {
-      margin: { horizontal: 305, top: finalY7 + 1 },
+      margin: { horizontal: 70, top: finalY7 + 1 },
       columnStyles: {
         cp: { columnWidth: 110 }
       },
@@ -375,19 +369,50 @@ export function ficha_inscripcion(datos) {
         columnWidth: "wrap"
       }
     });
+    doc.autoTable(
+      [
+        {
+          title: "TALLER CAMBIEMOS DE ACTITUD (SENSIBILIZACIÓN)",
+          dataKey: "cp"
+        }
+      ],
+      rows,
+      {
+        margin: { horizontal: 210, top: finalY7 + 1 },
+        columnStyles: {
+          cp: { columnWidth: 250 }
+        },
+        styles: {
+          fontSize: 8,
+          columnWidth: "wrap"
+        }
+      }
+    );
+
+    doc.autoTable([{ title: "OTROS", dataKey: "cp" }], rows, {
+      margin: { horizontal: 490, top: finalY7 + 1 },
+      columnStyles: {
+        cp: { columnWidth: 110 }
+      },
+      styles: {
+        fontSize: 8,
+        columnWidth: "wrap"
+      }
+    });
+
+    switch (datos.curso) {
+      case "RECATEGORIZACIÓN":
+        doc.text(330, finalY6 + 15, "X");
+        break;
+
+      case "TALLER CAMBIEMOS DE ACTITUD":
+        doc.text(470, finalY7 + 15, "X");
+        break;
+    }
+
     let finalY8 = doc.autoTable.previous.finalY;
     doc.autoTable([{ title: "LICENCIA QUE POSEE", dataKey: "cp" }], rows, {
-      margin: { horizontal: 55, top: finalY8 + 1 },
-      columnStyles: {
-        cp: { columnWidth: 105 }
-      },
-      styles: {
-        fontSize: 8,
-        columnWidth: "wrap"
-      }
-    });
-    doc.autoTable([{ title: "LICENCIA QUE ASPIRA", dataKey: "cp" }], rows, {
-      margin: { horizontal: 290, top: finalY8 + 1 },
+      margin: { horizontal: 70, top: finalY8 + 1 },
       columnStyles: {
         cp: { columnWidth: 110 }
       },
@@ -396,11 +421,25 @@ export function ficha_inscripcion(datos) {
         columnWidth: "wrap"
       }
     });
+    doc.text(190, finalY8 + 15, datos.licencia_actual);
+
+    doc.autoTable([{ title: "LICENCIA QUE ASPIRA", dataKey: "cp" }], rows, {
+      margin: { horizontal: 350, top: finalY8 + 1 },
+      columnStyles: {
+        cp: { columnWidth: 110 }
+      },
+      styles: {
+        fontSize: 8,
+        columnWidth: "wrap"
+      }
+    });
+    doc.text(470, finalY8 + 15, datos.licencia_postula);
+
     let finalY9 = doc.autoTable.previous.finalY;
     doc.autoTable([{ title: "TURNO ELEGIDO", dataKey: "cp" }], rows, {
-      margin: { horizontal: 55, top: finalY9 + 1 },
+      margin: { horizontal: 70, top: finalY9 + 1.5 },
       columnStyles: {
-        cp: { columnWidth: 90 }
+        cp: { columnWidth: 110 }
       },
       styles: {
         fontSize: 8,
@@ -408,7 +447,7 @@ export function ficha_inscripcion(datos) {
       }
     });
     doc.autoTable([{ title: "MAÑANA", dataKey: "cp" }], rows, {
-      margin: { horizontal: 160, top: finalY9 + 1 },
+      margin: { horizontal: 210, top: finalY9 + 1.5 },
       columnStyles: {
         cp: { columnWidth: 50 }
       },
@@ -418,7 +457,7 @@ export function ficha_inscripcion(datos) {
       }
     });
     doc.autoTable([{ title: "TARDE", dataKey: "cp" }], rows, {
-      margin: { horizontal: 240, top: finalY9 + 1 },
+      margin: { horizontal: 350, top: finalY9 + 1.5 },
       columnStyles: {
         cp: { columnWidth: 50 }
       },
@@ -428,7 +467,7 @@ export function ficha_inscripcion(datos) {
       }
     });
     doc.autoTable([{ title: "NOCHE", dataKey: "cp" }], rows, {
-      margin: { horizontal: 320, top: finalY9 + 1 },
+      margin: { horizontal: 490, top: finalY9 + 1.5 },
       columnStyles: {
         cp: { columnWidth: 50 }
       },
@@ -437,29 +476,38 @@ export function ficha_inscripcion(datos) {
         columnWidth: "wrap"
       }
     });
-    doc.autoTable([{ title: "FECHA INSCRIPCION", dataKey: "cp" }], rows, {
-      margin: { horizontal: 400, top: finalY9 + 1 },
-      columnStyles: {
-        cp: { columnWidth: 100 }
-      },
-      styles: {
-        fontSize: 8,
-        columnWidth: "wrap"
-      }
-    });
+
     let finalY10 = doc.autoTable.previous.finalY;
-    doc.text(510, finalY10 - 5, date_converter.convertDate(Date.now()));
+
     doc.autoTable([{ title: "REGISTRADO POR", dataKey: "cp" }], rows, {
-      margin: { horizontal: 55, top: finalY10 + 1 },
+      margin: { horizontal: 70, top: finalY10 + 1.5 },
       columnStyles: {
-        cp: { columnWidth: 90 }
+        cp: { columnWidth: 110 }
       },
       styles: {
         fontSize: 8,
         columnWidth: "wrap"
       }
     });
-    doc.text(161, finalY10 + 15, "MAX MINO MIRO");
+    doc.text(190, finalY10 + 15, "OCTAVIO");
+
+    doc.autoTable([{ title: "FECHA INSCRIPCION", dataKey: "cp" }], rows, {
+      margin: { horizontal: 350, top: finalY10 + 1 },
+      columnStyles: {
+        cp: { columnWidth: 110 }
+      },
+      styles: {
+        fontSize: 8,
+        columnWidth: "wrap"
+      }
+    });
+
+    doc.text(
+      470,
+      finalY10 + 15,
+      date_converter.convertDate(new Date(datos.fecha_registro_expediente))
+    );
+
     let finalY11 = doc.autoTable.previous.finalY;
     doc.autoTable(
       [{ title: "3.- AREA PROCESAMIENTO DE EXPEDIENTES", dataKey: "cp" }],
@@ -471,135 +519,107 @@ export function ficha_inscripcion(datos) {
         },
         styles: {
           fontSize: 10,
+          halign: "center",
           columnWidth: "wrap"
         }
       }
     );
     let finalY12 = doc.autoTable.previous.finalY;
     doc.autoTable([{ title: "INICIA TEORIA", dataKey: "cp" }], rows, {
-      margin: { horizontal: 55, top: finalY12 + 1 },
+      margin: { horizontal: 70, top: finalY12 + 1 },
       columnStyles: {
-        cp: { columnWidth: 90 }
+        cp: { columnWidth: 110 }
       },
       styles: {
         fontSize: 8,
         columnWidth: "wrap"
       }
     });
-    doc.autoTable([{ title: "DIA", dataKey: "cp" }], rows, {
-      margin: { horizontal: 160, top: finalY12 + 1 },
-      columnStyles: {
-        cp: { columnWidth: 45 }
-      },
-      styles: {
-        fontSize: 8,
-        columnWidth: "wrap"
-      }
-    });
-    doc.autoTable([{ title: "MES", dataKey: "cp" }], rows, {
-      margin: { horizontal: 225, top: finalY12 + 1 },
-      columnStyles: {
-        cp: { columnWidth: 45 }
-      },
-      styles: {
-        fontSize: 8,
-        columnWidth: "wrap"
-      }
-    });
+    doc.text(
+      190,
+      finalY12 + 15,
+      date_converter.convertDate(datos.fecha_inicio_teoria).toString()
+    );
+
     doc.autoTable([{ title: "FIN TEORIA", dataKey: "cp" }], rows, {
-      margin: { horizontal: 335, top: finalY12 + 1 },
+      margin: { horizontal: 350, top: finalY12 + 1 },
       columnStyles: {
-        cp: { columnWidth: 90 }
+        cp: { columnWidth: 110 }
       },
       styles: {
         fontSize: 8,
         columnWidth: "wrap"
       }
     });
-    doc.autoTable([{ title: "DIA", dataKey: "cp" }], rows, {
-      margin: { horizontal: 445, top: finalY12 + 1 },
-      columnStyles: {
-        cp: { columnWidth: 45 }
-      },
-      styles: {
-        fontSize: 8,
-        columnWidth: "wrap"
-      }
-    });
-    doc.autoTable([{ title: "MES", dataKey: "cp" }], rows, {
-      margin: { horizontal: 510, top: finalY12 + 1 },
-      columnStyles: {
-        cp: { columnWidth: 45 }
-      },
-      styles: {
-        fontSize: 8,
-        columnWidth: "wrap"
-      }
-    });
+
+    doc.text(
+      470,
+      finalY12 + 15,
+      date_converter.convertDate(datos.fecha_fin_teoria).toString()
+    );
+
     let finalY13 = doc.autoTable.previous.finalY;
     doc.autoTable([{ title: "INICIA MANEJO", dataKey: "cp" }], rows, {
-      margin: { horizontal: 55, top: finalY13 + 1 },
+      margin: { horizontal: 70, top: finalY13 + 1.5 },
       columnStyles: {
-        cp: { columnWidth: 90 }
+        cp: { columnWidth: 110 }
       },
       styles: {
         fontSize: 8,
         columnWidth: "wrap"
       }
     });
-    doc.autoTable([{ title: "DIA", dataKey: "cp" }], rows, {
-      margin: { horizontal: 160, top: finalY13 + 1 },
-      columnStyles: {
-        cp: { columnWidth: 45 }
-      },
-      styles: {
-        fontSize: 8,
-        columnWidth: "wrap"
-      }
-    });
-    doc.autoTable([{ title: "MES", dataKey: "cp" }], rows, {
-      margin: { horizontal: 225, top: finalY13 + 1 },
-      columnStyles: {
-        cp: { columnWidth: 45 }
-      },
-      styles: {
-        fontSize: 8,
-        columnWidth: "wrap"
-      }
-    });
+
+    doc.text(
+      190,
+      finalY13 + 15,
+      date_converter.convertDate(datos.fecha_inicio_manejo).toString()
+    );
+
     doc.autoTable([{ title: "FIN MANEJO", dataKey: "cp" }], rows, {
-      margin: { horizontal: 335, top: finalY13 + 1 },
+      margin: { horizontal: 350, top: finalY13 + 1.5 },
       columnStyles: {
-        cp: { columnWidth: 90 }
+        cp: { columnWidth: 110 }
       },
       styles: {
         fontSize: 8,
         columnWidth: "wrap"
       }
     });
-    doc.autoTable([{ title: "DIA", dataKey: "cp" }], rows, {
-      margin: { horizontal: 445, top: finalY13 + 1 },
-      columnStyles: {
-        cp: { columnWidth: 45 }
-      },
-      styles: {
-        fontSize: 8,
-        columnWidth: "wrap"
-      }
-    });
-    doc.autoTable([{ title: "MES", dataKey: "cp" }], rows, {
-      margin: { horizontal: 510, top: finalY13 + 1 },
-      columnStyles: {
-        cp: { columnWidth: 45 }
-      },
-      styles: {
-        fontSize: 8,
-        columnWidth: "wrap"
-      }
-    });
+
+    doc.text(
+      470,
+      finalY13 + 15,
+      date_converter.convertDate(datos.fecha_fin_manejo).toString()
+    );
+
     let finalY14 = doc.autoTable.previous.finalY;
     doc.autoTable([{ title: "HORAS TEORIA", dataKey: "cp" }], rows, {
-      margin: { horizontal: 55, top: finalY14 + 1 },
+      margin: { horizontal: 70, top: finalY14 + 1 },
+      columnStyles: {
+        cp: { columnWidth: 110 }
+      },
+      styles: {
+        fontSize: 8,
+        columnWidth: "wrap"
+      }
+    });
+    doc.text(190, finalY14 + 15, datos.horas_teoria);
+
+    doc.autoTable([{ title: "HORAS PRACTICA MANEJO", dataKey: "cp" }], rows, {
+      margin: { horizontal: 270, top: finalY14 + 1 },
+      columnStyles: {
+        cp: { columnWidth: 140 }
+      },
+      styles: {
+        fontSize: 8,
+        columnWidth: "wrap"
+      }
+    });
+    doc.text(420, finalY14 + 15, datos.horas_manejo);
+
+    doc.autoTable([{ title: "TOTAL DE HORAS", dataKey: "cp" }], rows, {
+      margin: { horizontal: 490, top: finalY14 + 1 },
       columnStyles: {
         cp: { columnWidth: 90 }
       },
@@ -608,31 +628,13 @@ export function ficha_inscripcion(datos) {
         columnWidth: "wrap"
       }
     });
-    doc.autoTable([{ title: "HORAS PRACTICA MANEJO", dataKey: "cp" }], rows, {
-      margin: { horizontal: 205, top: finalY14 + 1 },
-      columnStyles: {
-        cp: { columnWidth: 130 }
-      },
-      styles: {
-        fontSize: 8,
-        columnWidth: "wrap"
-      }
-    });
-    doc.autoTable([{ title: "TOTAL DE HORAS", dataKey: "cp" }], rows, {
-      margin: { horizontal: 425, top: finalY14 + 1 },
-      columnStyles: {
-        cp: { columnWidth: 130 }
-      },
-      styles: {
-        fontSize: 8,
-        columnWidth: "wrap"
-      }
-    });
+    doc.text(590, finalY14 + 15, datos.total_horas);
+
     let finalY15 = doc.autoTable.previous.finalY;
     doc.autoTable([{ title: "OBSERVACIONES", dataKey: "cp" }], rows, {
-      margin: { horizontal: 55, top: finalY15 + 1 },
+      margin: { horizontal: 70, top: finalY15 + 1 },
       columnStyles: {
-        cp: { columnWidth: 90 }
+        cp: { columnWidth: 110 }
       },
       styles: {
         fontSize: 8,
@@ -650,6 +652,7 @@ export function ficha_inscripcion(datos) {
         },
         styles: {
           fontSize: 10,
+          halign: "center",
           columnWidth: "wrap"
         }
       }
@@ -659,9 +662,9 @@ export function ficha_inscripcion(datos) {
       [{ title: "NOMBRE DEL CURSO EN EL SISTEMA", dataKey: "cp" }],
       rows,
       {
-        margin: { horizontal: 55, top: finalY17 + 1 },
+        margin: { horizontal: 70, top: finalY17 + 1 },
         columnStyles: {
-          cp: { columnWidth: 180 }
+          cp: { columnWidth: 160 }
         },
         styles: {
           fontSize: 8,
@@ -669,19 +672,19 @@ export function ficha_inscripcion(datos) {
         }
       }
     );
+    doc.text(240, finalY17 + 15, datos.curso);
+
     doc.autoTable([{ title: "CERTIFICADO Nº", dataKey: "cp" }], rows, {
-      margin: { horizontal: 380, top: finalY17 + 1 },
+      margin: { horizontal: 490, top: finalY17 + 1 },
       columnStyles: {
-        cp: { columnWidth: 120 }
+        cp: { columnWidth: 80 }
       },
       styles: {
         fontSize: 8,
         columnWidth: "wrap"
       }
     });
-    //SEGUNDO BLOQUE
-    //let finalY = doc.autoTable.previous.finalY;
-    //doc.text(160, finalY - 8, $scope.rgeneral);
+
     doc.autoTable([{ title: "FIRMA DE RESPONSABLES", dataKey: "cp" }], rows, {
       margin: { horizontal: 640, top: finalY + 6 },
       columnStyles: {
@@ -790,6 +793,6 @@ export function ficha_inscripcion(datos) {
     });
 
     //FIN SEGUNDO BLOQUE
-    doc.save("_FI.pdf");
+    doc.save(datos.expediente + "_FI.pdf");
   });
 }
