@@ -139,7 +139,7 @@ export function tca_RACT(datos) {
     doc.setFontSize(8);
     var finalY = doc.autoTable.previous.finalY;
     doc.text(450, finalY + 10, "TOTAL MINUTOS: ");
-    doc.text(623, finalY + 10, "30");
+    doc.text(623, finalY + 10, "300");
 
     doc.text(120, 540, "__________________________________");
 

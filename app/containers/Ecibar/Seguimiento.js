@@ -463,18 +463,20 @@ class BlankPage extends React.Component {
           .toString();
       }
 
-      if (expediente.get("vehiculo").get("placa")) {
+      if (expediente.get("vehiculo")) {
+
+        if(expediente.get("vehiculo").get("placa"))
         datos.vehiculo = expediente.get("vehiculo").get("placa");
+
+        if (expediente.get("vehiculo").get("clase")) {
+          datos.clase_vehiculo = expediente.get("vehiculo").get("clase");
+        }
       }
 
-      if (expediente.get("vehiculo").get("clase")) {
-        datos.clase_vehiculo = expediente.get("vehiculo").get("clase");
-      }
+      
 
       if (
-        expediente.get("instructor").get("a_paterno") &&
-        expediente.get("instructor").get("a_materno") &&
-        expediente.get("instructor").get("nombres")
+        expediente.get("instructor")
       ) {
         datos.instructor = (
           expediente.get("instructor").get("a_paterno") +
