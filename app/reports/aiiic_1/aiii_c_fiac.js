@@ -18,11 +18,11 @@ export function aiii_c_FIAC(datos) {
 
   // Genera arreglo de objetos JSON de dias de manejo
   var manejo = [];
-  for (var i = 0; i < datos.clases_manejo.length; i++) {
+  for (var i = 0; i < datos.clases_manejo.size; i++) {
     manejo.push({
-      fecha: datos.clases_manejo[i]._root.entries[0][1],
-      km_inicio: datos.clases_manejo[i]._root.entries[1][1],
-      km_fin: datos.clases_manejo[i]._root.entries[2][1]
+      fecha: datos.clases_manejo._tail.array[i]._root.entries[0][1],
+      km_inicio: datos.clases_manejo._tail.array[i]._root.entries[1][1],
+      km_fin: datos.clases_manejo._tail.array[i]._root.entries[2][1]
     });
   }
 

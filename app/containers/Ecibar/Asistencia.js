@@ -96,16 +96,16 @@ class Asistencia extends React.Component {
                 <Grid item xs={12} sm container>
                   <Grid item xs container direction="column" spacing={16}>
                     <Grid item xs>
-                      <Typography gutterBottom variant="subtitle1">
+                      <Typography color="textSecondary">
                         DNI:
                       </Typography>
-                      <Typography color="textSecondary">
+                      <Typography gutterBottom variant="subtitle1">
                         {exp.get("alumno").get("dni")}
                       </Typography>
-                      <Typography gutterBottom variant="subtitle1">
+                      <Typography color="textSecondary">
                         Apellidos y Nombres:
                       </Typography>
-                      <Typography color="textSecondary">
+                      <Typography gutterBottom variant="subtitle1">
                         {exp.get("alumno").get("a_paterno")}{" "}
                         {exp.get("alumno").get("a_materno")},{" "}
                         {exp.get("alumno").get("nombres")}

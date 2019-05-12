@@ -2,141 +2,141 @@
   {
     "nro": 1,
     "param": "Encendido de Vehículo:",
-    "op1": " ",
+    "op1": "X",
     "op2": " ",
     "op3": ""
   },
   {
     "nro": 2,
     "param": "Uso de Pedales de Inicio de Conducción:",
-    "op1": " ",
+    "op1": "X",
     "op2": " ",
-    "op3": ""
+    "op3": " "
   },
   {
     "nro": 3,
     "param": "Conducción en Ruta Determinada y Control de Velocidad:",
-    "op1": " ",
+    "op1": "X",
     "op2": " ",
-    "op3": ""
+    "op3": " "
   },
   {
     "nro": 4,
     "param": "Cambios de Velocidad 1ra, 2da, 3ra, 4ta, 5ta:",
-    "op1": " ",
+    "op1": "X",
     "op2": " ",
-    "op3": ""
+    "op3": " "
   },
   {
     "nro": 5,
     "param": "Marcha atrás y Maniobras: ",
-    "op1": " ",
+    "op1": "X",
     "op2": " ",
-    "op3": ""
+    "op3": " "
   },
   {
     "nro": 6,
     "param": "Respeta las Señales de Transito, Semáforos, Señales en la Vía",
-    "op1": " ",
+    "op1": "X",
     "op2": " ",
-    "op3": ""
+    "op3": " "
   },
   {
     "nro": 7,
     "param": "Uso de Dirección:",
-    "op1": " ",
+    "op1": "X",
     "op2": " ",
-    "op3": ""
+    "op3": " "
   },
   {
     "nro": 8,
     "param": "Viraje a la Derecha, Izquierda, en U con Precaución:",
-    "op1": " ",
+    "op1": "X",
     "op2": " ",
-    "op3": ""
+    "op3": " "
   },
   {
     "nro": 9,
     "param": "Estacionamiento con Señalización: ",
-    "op1": " ",
+    "op1": "X",
     "op2": " ",
-    "op3": ""
+    "op3": " "
   },
   {
     "nro": 10,
     "param": "Estacionamiento en Paralelo:",
-    "op1": " ",
+    "op1": "X",
     "op2": " ",
-    "op3": ""
+    "op3": " "
   },
   {
     "nro": 11,
     "param": "Estacionamiento en Diagonal",
-    "op1": " ",
+    "op1": "X",
     "op2": " ",
-    "op3": ""
+    "op3": " "
   },
   {
     "nro": 12,
     "param": "Mantiene su derecha",
-    "op1": " ",
+    "op1": "X",
     "op2": " ",
-    "op3": ""
+    "op3": " "
   },
   {
     "nro": 13,
     "param": "Cruce de Vías y Adelantamiento:",
-    "op1": " ",
+    "op1": "X",
     "op2": " ",
-    "op3": ""
+    "op3": " "
   },
   {
     "nro": 14,
     "param": "Salida y baja de Pendientes:",
-    "op1": " ",
+    "op1": "X",
     "op2": " ",
-    "op3": ""
+    "op3": " "
   },
   {
     "nro": 15,
     "param": "Utilización Adecuada de Bocina:",
-    "op1": " ",
+    "op1": "X",
     "op2": " ",
-    "op3": ""
+    "op3": " "
   },
   {
     "nro": 16,
     "param": "Señales de Brazo:",
-    "op1": " ",
+    "op1": "X",
     "op2": " ",
-    "op3": ""
+    "op3": " "
   },
   {
     "nro": 17,
     "param": "Distancia Segura de Seguimiento:",
-    "op1": " ",
+    "op1": "X",
     "op2": " ",
-    "op3": ""
+    "op3": " "
   },
   {
     "nro": 18,
     "param": "Derecho de Paso",
-    "op1": " ",
+    "op1": "X",
     "op2": " ",
-    "op3": ""
+    "op3": " "
   },
   {
     "nro": 19,
     "param": "Actitud de Manejo:",
-    "op1": " ",
+    "op1": "X",
     "op2": " ",
-    "op3": ""
+    "op3": " "
   },
   {
     "nro": 20,
     "param": "Observación en Ángulos Muertos:",
-    "op1": " ",
+    "op1": "X",
     "op2": " ",
-    "op3": ""
+    "op3": " "
   }
 ]

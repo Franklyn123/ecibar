@@ -100,7 +100,8 @@ const styles = theme => ({
 class BlankPage extends React.Component {
   state = {
     numeracion: "",
-    dni: ""
+    dni: "",
+
   };
 
   componentDidMount() {

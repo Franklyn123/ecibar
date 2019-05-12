@@ -20,14 +20,14 @@ export function aii_b_FTMA(datos) {
 
   // Genera arreglo de objetos JSON de dias de manejo
   var manejo = [];
-  for (var i = 0; i < datos.clases_manejo.length; i++) {
+
+  for (var i = 0; i < datos.clases_manejo.size; i++) {
     manejo.push({
-      fecha: datos.clases_manejo[i]._root.entries[0][1],
-      km_inicio: datos.clases_manejo[i]._root.entries[1][1],
-      km_fin: datos.clases_manejo[i]._root.entries[2][1]
+      fecha: datos.clases_manejo._tail.array[i]._root.entries[0][1],
+      km_inicio: datos.clases_manejo._tail.array[i]._root.entries[1][1],
+      km_fin: datos.clases_manejo._tail.array[i]._root.entries[2][1]
     });
   }
-
   var filas = generador.generar(manejo, datos.instructor);
 
   var doc = new jsPDF("l", "pt");
@@ -298,12 +298,12 @@ export function aii_b_FTMA(datos) {
           title: "CIRCUITO/ VIAS CUANDO SE LLEVE A CABO EM VIAS, INDICAR",
           dataKey: "circuito"
         },
-        { title: "KILOMETRAJE INICIO", dataKey: "Kinicio" },
-        { title: "KILOMETRAJE TERMINO", dataKey: "Ktermino" },
+        { title: "KM INICIO", dataKey: "Kinicio" },
+        { title: "KM TERMINO", dataKey: "Ktermino" },
         { title: "APELLIDOS Y NOMBRES DEL INSTRUCTOR", dataKey: "instructor" },
         { title: "FIRMA DEL INSTRUCTOR", dataKey: "firmaInstructor" },
-        { title: "FIRMA ALUMNO", dataKey: "firmaAlumno" },
-        { title: "HUELLA ALUMNO", dataKey: "huellaAlumno" }
+        { title: "FIRMA DEL ALUMNO", dataKey: "firmaAlumno" },
+        { title: "HUELLA DEL ALUMNO", dataKey: "huellaAlumno" }
       ];
 
       for (var key in filas) {
@@ -329,13 +329,14 @@ export function aii_b_FTMA(datos) {
           Hfinal: { columnWidth: 40 },
           clases: { columnWidth: 200, fontSize: 6 },
           circuito: { columnWidth: 80, fontSize: 6 },
-          Kinicio: { columnWidth: 60 },
-          Ktermino: { columnWidth: 60 },
+          Kinicio: { columnWidth: 50 },
+          Ktermino: { columnWidth: 50 },
           instructor: { columnWidth: 80 },
-          firmaInstructor: { columnWidth: 60 },
-          firmaAlumno: { columnWidth: 60 },
+          firmaInstructor: { columnWidth: 70 },
+          firmaAlumno: { columnWidth: 70 },
           huellaAlumno: { columnWidth: 60 }
-        }
+        },
+        theme: 'grid'
       });
       doc.setFontSize(8);
 

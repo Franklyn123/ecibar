@@ -35,6 +35,8 @@ class Test extends React.Component {
     this.props.getItems();
   }
 
+ 
+
   /* constructor(props) {
     console.log("IN")
     console.log(props);

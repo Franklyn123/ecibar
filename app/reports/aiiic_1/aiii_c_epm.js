@@ -8,11 +8,11 @@ const img2 = new Image();
 export function aiii_c_EPM(datos) {
   // Genera arreglo de objetos JSON de dias de manejo
   var manejo = [];
-  for (var i = 0; i < datos.clases_manejo.length; i++) {
+  for (var i = 0; i < datos.clases_manejo.size; i++) {
     manejo.push({
-      fecha: datos.clases_manejo[i]._root.entries[0][1],
-      km_inicio: datos.clases_manejo[i]._root.entries[1][1],
-      km_fin: datos.clases_manejo[i]._root.entries[2][1]
+      fecha: datos.clases_manejo._tail.array[i]._root.entries[0][1],
+      km_inicio: datos.clases_manejo._tail.array[i]._root.entries[1][1],
+      km_fin: datos.clases_manejo._tail.array[i]._root.entries[2][1]
     });
   }
 
@@ -111,7 +111,7 @@ export function aiii_c_EPM(datos) {
       doc.text(
         185,
         finalY1 + 16,
-        date_converter.convertDate(new Date(manejo[4].fecha))
+        date_converter.convertDate(new Date(manejo[3].fecha))
       );
       var finalY2 = doc.autoTable.previous.finalY;
 
@@ -363,6 +363,12 @@ export function aiii_c_EPM(datos) {
         }
       });
 
+      
+      doc.setFontSize(6);
+      doc.setFontType("normal");
+      doc.text(240,finalY10+15,"X");
+      doc.setFontType("bold");
+
       var col1 = [
         { title: "EVALUACION", dataKey: "evaluacion" },
         { title: "TIPO EXAMEN", dataKey: "tipoexamen" },
@@ -392,8 +398,8 @@ export function aiii_c_EPM(datos) {
       doc.setFontSize(8);
       doc.text(50, 790, "__________________________________");
       doc.text(50, 801, "     FIRMA DEL ALUMNO(HUELLA)");
-      doc.text(420, 790, "_________________________");
-      doc.text(420, 801, "     FIRMA DEL DIRECTOR");
+      doc.text(420, 790, "___________________________");
+      doc.text(420, 801, "     FIRMA DEL INSTRUCTOR");
       doc.save(datos.expediente + "_EPM.pdf");
     });
   });
