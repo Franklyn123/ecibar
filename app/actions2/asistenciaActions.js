@@ -7,7 +7,6 @@ import {
 
 
 export const getAlumnosEnProceso = () => dispatch => {
-  // console.log("get_item in");
   dispatch(setItemsLoading());
   axios.get('/api/asistencia/alumnos_en_proceso').then(res => dispatch({
     type: GET_ALUMNOS_EN_PROCESO,
@@ -18,13 +17,6 @@ export const getAlumnosEnProceso = () => dispatch => {
 
 
 export const marcarAsistencia = id => dispatch => {
-  // console.log("get_item in");
-  /* axios.get('/api/fi/alumnos').then(res =>
-      dispatch({
-        type: GET_ALUMNOS_EN_PROCESO,
-        payload: res.data
-      })
-    ); */
   axios.get(`/api/asistencia/marcar_asistencia/${id}`).then(res => dispatch({
     type: MARCAR_ASISTENCIA,
     payload: id

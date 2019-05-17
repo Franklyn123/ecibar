@@ -158,7 +158,7 @@ export function aiii_a_EPM(datos) {
           }
         }
       );
-      doc.text(185, finalY4 + 16, "3:00");
+      doc.text(185, finalY4 + 16, "8:00");
       var finalY5 = doc.autoTable.previous.finalY;
 
       // Hora de fin
@@ -172,7 +172,7 @@ export function aiii_a_EPM(datos) {
           columnWidth: "wrap"
         }
       });
-      doc.text(476, finalY4 + 16, "5:00");
+      doc.text(476, finalY4 + 16, "9:30");
 
       // Via de circulacion
       var finalY02 = doc.autoTable.previous.finalY;

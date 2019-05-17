@@ -65,79 +65,15 @@ class ListarHistorialExterno extends React.Component {
       {
         name: "Apellido Materno",
         options: {
-          filter: false,
-          customBodyRender: value => (
-            <LinearProgress
-              variant="determinate"
-              color="secondary"
-              value={value}
-            />
-          )
+          filter: true,
         }
       },
       {
         name: "Nombres",
         options: {
           filter: true,
-          customBodyRender: value => {
-            if (value === "active") {
-              return <Chip label="Active" color="secondary" />;
-            }
-            if (value === "non-active") {
-              return <Chip label="Non Active" color="primary" />;
-            }
-            return <Chip label="Unknown" />;
-          }
         }
       },
-      {
-        name: "Fecha registro expediente",
-        options: {
-          filter: true,
-          customBodyRender: value => {
-            const nf = new Intl.NumberFormat("en-US", {
-              style: "currency",
-              currency: "USD",
-              minimumFractionDigits: 2,
-              maximumFractionDigits: 2
-            });
-
-            return nf.format(value);
-          }
-        }
-      },
-      {
-        name: "Licencia postula",
-        options: {
-          filter: true,
-          customBodyRender: value => {
-            const nf = new Intl.NumberFormat("en-US", {
-              style: "currency",
-              currency: "USD",
-              minimumFractionDigits: 2,
-              maximumFractionDigits: 2
-            });
-
-            return nf.format(value);
-          }
-        }
-      },
-      {
-        name: "Licencia actual",
-        options: {
-          filter: true,
-          customBodyRender: value => {
-            const nf = new Intl.NumberFormat("en-US", {
-              style: "currency",
-              currency: "USD",
-              minimumFractionDigits: 2,
-              maximumFractionDigits: 2
-            });
-
-            return nf.format(value);
-          }
-        }
-      }
     ],
     data: []
   };
@@ -167,32 +103,12 @@ class ListarHistorialExterno extends React.Component {
     const { classes } = this.props;
     const alumnos = props.historialext.get("alumnos");
 
-    console.log("----------");
-    console.log(alumnos);
-
     alumnos.map(alumno => {
-      let fechaRegistroExpediente = "";
-      let licenciaPostula = "";
-      let licenciaActual = "";
-      if (alumno.expediente) {
-        fechaRegistroExpediente = moment(
-          alumno.expediente.fecha_registro_expediente
-        ).format("MMM Do YY");
-      }
-      if (alumno.licencia_postula) {
-        licenciaPostula = alumno.licencia_postula.nombre;
-      }
-      if (alumno.licencia_actual) {
-        licenciaActual = alumno.licencia_actual.nombre;
-      }
       data.push([
         alumno.dni,
         alumno.a_paterno,
         alumno.a_materno,
         alumno.nombres,
-        fechaRegistroExpediente,
-        licenciaPostula,
-        licenciaActual
       ]);
       return true;
     });
