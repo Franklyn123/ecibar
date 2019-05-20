@@ -2,6 +2,18 @@ const express = require("express");
 const router = express.Router();
 const Tramitadores = require("../../models/tramitador.model");
 const User = require("../../models/user.model.js");
+const datos = require("./datos.json");
+
+router.get("/reniec/:dni", (req, res) => {
+  const dni = req.params.dni;
+  if (dni == datos.result.nuDni) {
+    res.json(datos);
+  } else {
+    res.json({
+      estado: "no coincide"
+    });
+  }
+});
 
 router.post("/guardar_usuario", async (req, res) => {
   const nuevoUsuario = new User({

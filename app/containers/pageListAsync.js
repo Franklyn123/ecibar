@@ -28,6 +28,11 @@ export const Seguimiento = Loadable({
   loading: Loading
 });
 
+export const RENIEC = Loadable({
+  loader: () => import("./Ecibar/reniec"),
+  loading: Loading
+});
+
 export const HistorialExt = Loadable({
   loader: () => import("./Ecibar/historialExterno"),
   loading: Loading

@@ -14,7 +14,8 @@ import {
   HistorialExt,
   ListarHistorialExterno,
   Alumnos,
-  Instructores
+  Instructores,
+  RENIEC
 } from "../pageListAsync";
 
 class Application extends React.Component {
@@ -31,6 +32,7 @@ class Application extends React.Component {
           />
           <Route path="/app/ecibar/asistencia" component={Asistencia} />
           <Route path="/app/ecibar/seguimiento" component={Seguimiento} />
+          <Route exact path="/app/ecibar/reniec" component={RENIEC} />
           <Route
             path="/app/ecibar/historial-ventas-externas"
             component={HistorialExt}

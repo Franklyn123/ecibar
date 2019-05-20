@@ -116,6 +116,7 @@
     "draft-js-plugins-editor": "^2.1.1",
     "draftjs-to-html": "^0.8.3",
     "draftjs-to-markdown": "^0.5.1",
+    "exceljs": "^1.11.0",
     "express": "4.16.4",
     "fontfaceobserver": "2.0.13",
     "fs": "0.0.1-security",
@@ -189,7 +190,8 @@
     "slick-carousel": "^1.8.1",
     "tunnel-agent": "^0.6.0",
     "uuid": "^3.3.2",
-    "warning": "4.0.2"
+    "warning": "4.0.2",
+    "xlsx-populate": "^1.19.1"
   },
   "devDependencies": {
     "@babel/cli": "7.1.2",

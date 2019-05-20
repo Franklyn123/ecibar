@@ -81,7 +81,7 @@ router.get("/asistencia", async (req, res) => {
 
 router.get("/marcar_asistencia/:id", async (req, res) => {
   try {
-    const expedientes = await Expediente.find({
+    const expedientes = await Expediente.find({ 
       numeracion: req.params.id
     }).populate("curso_licencia");
     if (!expedientes) {

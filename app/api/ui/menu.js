@@ -18,6 +18,12 @@ module.exports = [
     link: "/app/ecibar/seguimiento"
   },
   {
+    key: "RENIEC",
+    name: "RENIEC",
+    icon: "ios-apps-outline",
+    link: "/app/ecibar/RENIEC"
+  },
+  {
     key: "Alumnos",
     name: "Alumnos",
     icon: "ios-apps-outline",

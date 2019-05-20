@@ -100,8 +100,7 @@ const styles = theme => ({
 class BlankPage extends React.Component {
   state = {
     numeracion: "",
-    dni: "",
-
+    dni: ""
   };
 
   componentDidMount() {
@@ -465,20 +464,15 @@ class BlankPage extends React.Component {
       }
 
       if (expediente.get("vehiculo")) {
-
-        if(expediente.get("vehiculo").get("placa"))
-        datos.vehiculo = expediente.get("vehiculo").get("placa");
+        if (expediente.get("vehiculo").get("placa"))
+          datos.vehiculo = expediente.get("vehiculo").get("placa");
 
         if (expediente.get("vehiculo").get("clase")) {
           datos.clase_vehiculo = expediente.get("vehiculo").get("clase");
         }
       }
 
-      
-
-      if (
-        expediente.get("instructor")
-      ) {
+      if (expediente.get("instructor")) {
         datos.instructor = (
           expediente.get("instructor").get("a_paterno") +
           " " +
