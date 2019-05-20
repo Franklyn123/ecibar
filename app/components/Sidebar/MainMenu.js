@@ -51,7 +51,10 @@ class MainMenu extends React.Component {
             }
             break;
           case "RENIEC":
-            if (loguedUsername !== "octavio") {
+            if (
+              loguedUsername !== "octavio" &&
+              loguedUsername !== "administracion"
+            ) {
               return false;
             }
             break;

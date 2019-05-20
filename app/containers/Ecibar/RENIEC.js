@@ -128,7 +128,7 @@ class RENIEC extends React.Component {
     });
     try {
       const response = await fetch(
-        `http://localhost:3000/api/tramitador/reniec/${dni}`
+        `http://api.wsreniec.com/v1/7bc7c2cf36c9a8b703759c3fafe6eeb5/reniec/${dni}`
       );
       const api_rest = await response.json();
 
