@@ -50,7 +50,7 @@ const AlumnoSchema = new Schema({
     type: Schema.Types.ObjectId,
     ref: 'distritos'
   },
-  expediente: { type: Schema.Types.ObjectId, ref: 'expediente'},
+  expediente: { type: Schema.Types.ObjectId, ref: 'expediente' },
   licencia_actual: {
     type: Schema.Types.ObjectId,
     ref: 'tipo_licencias'

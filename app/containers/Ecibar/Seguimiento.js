@@ -1,66 +1,66 @@
-import React from "react";
-import { Helmet } from "react-helmet";
-import brand from "dan-api/dummy/brand";
-import { PapperBlock } from "dan-components";
-import Typography from "@material-ui/core/Typography";
-import Grid from "@material-ui/core/Grid";
-import { withStyles } from "@material-ui/core/styles";
-import TextField from "@material-ui/core/TextField";
+import React from 'react';
+import { Helmet } from 'react-helmet';
+import brand from 'dan-api/dummy/brand';
+import { PapperBlock } from 'dan-components';
+import Typography from '@material-ui/core/Typography';
+import Grid from '@material-ui/core/Grid';
+import { withStyles } from '@material-ui/core/styles';
+import TextField from '@material-ui/core/TextField';
 
-import Button from "@material-ui/core/Button";
-import Table from "@material-ui/core/Table";
-import TableBody from "@material-ui/core/TableBody";
-import TableCell from "@material-ui/core/TableCell";
-import TableHead from "@material-ui/core/TableHead";
-import TableRow from "@material-ui/core/TableRow";
-import { connect } from "react-redux";
-import { getExpediente } from "../../actions2/seguimiento.action";
+import Button from '@material-ui/core/Button';
+import Table from '@material-ui/core/Table';
+import TableBody from '@material-ui/core/TableBody';
+import TableCell from '@material-ui/core/TableCell';
+import TableHead from '@material-ui/core/TableHead';
+import TableRow from '@material-ui/core/TableRow';
+import { connect } from 'react-redux';
+import { getExpediente } from '../../actions2/seguimiento.action';
 
-import * as ficha from "../../reports/fichainsripcion";
+import * as ficha from '../../reports/fichainsripcion';
 
-import * as reportes from "./Reportes";
+import * as reportes from './Reportes';
 
-let datos = {
-  estado: "",
-  expediente: "",
+const datos = {
+  estado: '',
+  expediente: '',
   alumno: {
-    dni: "",
-    nombres: "",
-    a_paterno: "",
-    a_materno: "",
-    sexo: "",
-    domicilio: "",
-    cel_tel: "",
-    fecha_nacimiento: "",
-    departamento: "",
-    provincia: "",
-    distrito: ""
+    dni: '',
+    nombres: '',
+    a_paterno: '',
+    a_materno: '',
+    sexo: '',
+    domicilio: '',
+    cel_tel: '',
+    fecha_nacimiento: '',
+    departamento: '',
+    provincia: '',
+    distrito: ''
   },
-  fecha_registro_expediente: "",
-  fecha_inicio_teoria: "",
-  fecha_fin_teoria: "",
-  fecha_inicio_manejo: "",
-  fecha_fin_manejo: "",
-  km_inicio: "",
-  km_fin: "",
-  vehiculo: "",
-  clase_vehiculo: "",
-  instructor: "",
-  curso: "",
-  licencia_actual: "",
-  licencia_postula: "",
+  fecha_registro_expediente: '',
+  fecha_inicio_teoria: '',
+  fecha_fin_teoria: '',
+  fecha_inicio_manejo: '',
+  fecha_fin_manejo: '',
+  km_inicio: '',
+  km_fin: '',
+  vehiculo: '',
+  clase_vehiculo: '',
+  instructor: '',
+  curso: '',
+  licencia_actual: '',
+  licencia_postula: '',
   clases_teoricas: [],
   clases_manejo: [],
-  dias_manejo: "",
-  horas_manejo: "",
-  dias_teoria: "",
-  horas_teoria: "",
-  total_horas: ""
+  dias_manejo: '',
+  horas_manejo: '',
+  dias_teoria: '',
+  horas_teoria: '',
+  total_horas: ''
 };
 
 const styles = theme => ({
   demo: {
-    height: "auto"
+    height: 'auto'
   },
   divider: {
     margin: `${theme.spacing.unit * 3}px 0`
@@ -69,8 +69,8 @@ const styles = theme => ({
     margin: theme.spacing.unit * 3
   },
   container: {
-    display: "flex",
-    flexWrap: "wrap"
+    display: 'flex',
+    flexWrap: 'wrap'
   },
   formControl: {
     margin: theme.spacing.unit * 3
@@ -86,8 +86,8 @@ const styles = theme => ({
     margin: `${theme.spacing.unit * 3}px 5px`
   },
   inlineWrap: {
-    display: "flex",
-    flexDirection: "row"
+    display: 'flex',
+    flexDirection: 'row'
   },
   rightIcon: {
     marginLeft: theme.spacing.unit
@@ -99,20 +99,20 @@ const styles = theme => ({
 
 class BlankPage extends React.Component {
   state = {
-    numeracion: "",
-    dni: ""
+    numeracion: '',
+    dni: ''
   };
 
   componentDidMount() {
-    const loguedUsername = localStorage.getItem("username");
+    const loguedUsername = localStorage.getItem('username');
     if (!loguedUsername) {
-      window.location.href = "/login";
+      window.location.href = '/login';
     } else if (
-      loguedUsername !== "octavio" &&
-      loguedUsername !== "direccion" &&
-      loguedUsername !== "administracion"
+      loguedUsername !== 'octavio'
+      && loguedUsername !== 'direccion'
+      && loguedUsername !== 'administracion'
     ) {
-      window.location.href = "/not-found";
+      window.location.href = '/not-found';
     }
   }
 
@@ -136,28 +136,28 @@ class BlankPage extends React.Component {
   }
 
   onPrintExamenes() {
-    if (datos.curso === "TALLER CAMBIEMOS DE ACTITUD") {
+    if (datos.curso === 'TALLER CAMBIEMOS DE ACTITUD') {
       window.open(
-        "/examenes/taller_cambiemos_actitud/EXAMENES.pdf",
-        "_blank",
-        "toolbar=yes,scrollbars=yes,resizable=yes,top=500,left=500,width=800,height=800"
+        '/examenes/taller_cambiemos_actitud/EXAMENES.pdf',
+        '_blank',
+        'toolbar=yes,scrollbars=yes,resizable=yes,top=500,left=500,width=800,height=800'
       );
-    } else if (datos.curso === "RECATEGORIZACIÓN") {
+    } else if (datos.curso === 'RECATEGORIZACIÓN') {
       window.open(
-        "/examenes/aiia/EXAMENES.pdf",
-        "_blank",
-        "toolbar=yes,scrollbars=yes,resizable=yes,top=500,left=500,width=800,height=800"
+        '/examenes/aiia/EXAMENES.pdf',
+        '_blank',
+        'toolbar=yes,scrollbars=yes,resizable=yes,top=500,left=500,width=800,height=800'
       );
     }
   }
 
   render() {
     const props = { ...this.props };
-    const title = brand.name + " - Blank Page";
+    const title = brand.name + ' - Blank Page';
     const description = brand.desc;
     const { numeracion, dni } = this.state;
 
-    const expediente = props.seguimiento.get("expediente");
+    const expediente = props.seguimiento.get('expediente');
 
     /*eslint-disable */
     const dias = new Array(
@@ -171,340 +171,343 @@ class BlankPage extends React.Component {
     );
 
     /* eslint-enable */
-    if (expediente != null && expediente.get("state")) {
+    if (expediente != null && expediente.get('state')) {
       // Estado
-      if (expediente.get("exp").get("estado")) {
-        datos.estado = expediente.get("exp").get("estado");
+      if (expediente.get('exp').get('estado')) {
+        datos.estado = expediente.get('exp').get('estado');
       }
 
       // Numero expediente
-      if (expediente.get("exp").get("numeracion")) {
+      if (expediente.get('exp').get('numeracion')) {
         datos.expediente = expediente
-          .get("exp")
-          .get("numeracion")
+          .get('exp')
+          .get('numeracion')
           .toString();
       }
 
-      //****************/
-      //**** ALUMNO ****/
-      //****************/
+      //* ***************/
+      //* *** ALUMNO ****/
+      //* ***************/
 
       // DNI
       if (
         expediente
-          .get("exp")
-          .get("alumno")
-          .get("dni")
+          .get('exp')
+          .get('alumno')
+          .get('dni')
       ) {
         datos.alumno.dni = expediente
-          .get("exp")
-          .get("alumno")
-          .get("dni");
+          .get('exp')
+          .get('alumno')
+          .get('dni');
       }
 
       // Nombres
       if (
         expediente
-          .get("exp")
-          .get("alumno")
-          .get("nombres")
+          .get('exp')
+          .get('alumno')
+          .get('nombres')
       ) {
         datos.alumno.nombres = expediente
-          .get("exp")
-          .get("alumno")
-          .get("nombres")
+          .get('exp')
+          .get('alumno')
+          .get('nombres')
           .toUpperCase();
       }
 
       // Apellido Paterno
       if (
         expediente
-          .get("exp")
-          .get("alumno")
-          .get("a_paterno")
+          .get('exp')
+          .get('alumno')
+          .get('a_paterno')
       ) {
         datos.alumno.a_paterno = expediente
-          .get("exp")
-          .get("alumno")
-          .get("a_paterno")
+          .get('exp')
+          .get('alumno')
+          .get('a_paterno')
           .toUpperCase();
       }
 
       // Apellido Materno
       if (
         expediente
-          .get("exp")
-          .get("alumno")
-          .get("a_materno")
+          .get('exp')
+          .get('alumno')
+          .get('a_materno')
       ) {
         datos.alumno.a_materno = expediente
-          .get("exp")
-          .get("alumno")
-          .get("a_materno")
+          .get('exp')
+          .get('alumno')
+          .get('a_materno')
           .toUpperCase();
       }
 
       // Sexo
       if (
         expediente
-          .get("exp")
-          .get("alumno")
-          .get("sexo")
+          .get('exp')
+          .get('alumno')
+          .get('sexo')
       ) {
         datos.alumno.sexo = expediente
-          .get("exp")
-          .get("alumno")
-          .get("sexo")
+          .get('exp')
+          .get('alumno')
+          .get('sexo')
           .toUpperCase();
       }
 
       // Domicilio
       if (
         expediente
-          .get("exp")
-          .get("alumno")
-          .get("domicilio")
+          .get('exp')
+          .get('alumno')
+          .get('domicilio')
       ) {
         datos.alumno.domicilio = expediente
-          .get("exp")
-          .get("alumno")
-          .get("domicilio")
+          .get('exp')
+          .get('alumno')
+          .get('domicilio')
           .toUpperCase();
       }
 
       // Celular Telefono
       if (
         expediente
-          .get("exp")
-          .get("alumno")
-          .get("cel_tel")
+          .get('exp')
+          .get('alumno')
+          .get('cel_tel')
       ) {
         datos.alumno.cel_tel = expediente
-          .get("exp")
-          .get("alumno")
-          .get("cel_tel")
+          .get('exp')
+          .get('alumno')
+          .get('cel_tel')
           .toString();
       }
 
       // Fecha de Nacimiento
       if (
         expediente
-          .get("exp")
-          .get("alumno")
-          .get("fecha_nacimiento")
+          .get('exp')
+          .get('alumno')
+          .get('fecha_nacimiento')
       ) {
         datos.alumno.fecha_nacimiento = expediente
-          .get("exp")
-          .get("alumno")
-          .get("fecha_nacimiento");
+          .get('exp')
+          .get('alumno')
+          .get('fecha_nacimiento');
       }
 
       // Departamento
-      if (expediente.get("departamento")) {
+      if (expediente.get('departamento')) {
         datos.alumno.departamento = expediente
-          .get("departamento")
+          .get('departamento')
           .toUpperCase()
           .toString();
       }
 
       // Provincia
-      if (expediente.get("provincia")) {
+      if (expediente.get('provincia')) {
         datos.alumno.provincia = expediente
-          .get("provincia")
+          .get('provincia')
           .toUpperCase()
           .toString();
       }
 
       // Distrito
-      if (expediente.get("distrito")) {
+      if (expediente.get('distrito')) {
         datos.alumno.distrito = expediente
-          .get("distrito")
+          .get('distrito')
           .toUpperCase()
           .toString();
       }
 
-      /********************/
-      /**** EXPEDIENTE ****/
-      /********************/
+      /** ***************** */
+      /** ** EXPEDIENTE *** */
+      /** ***************** */
 
       // Fecha de Registro de Expediente
-      if (expediente.get("exp").get("fecha_registro_expediente")) {
+      if (expediente.get('exp').get('fecha_registro_expediente')) {
         datos.fecha_registro_expediente = expediente
-          .get("exp")
-          .get("fecha_registro_expediente")
+          .get('exp')
+          .get('fecha_registro_expediente')
           .toString();
       }
 
       // Curso
-      if (expediente.get("curso")) {
-        datos.curso = expediente.get("curso").toUpperCase();
+      if (expediente.get('curso')) {
+        datos.curso = expediente.get('curso').toUpperCase();
       }
 
       // Licencia Actual
-      if (expediente.get("lactual")) {
-        datos.licencia_actual = expediente.get("lactual");
+      if (expediente.get('lactual')) {
+        datos.licencia_actual = expediente.get('lactual');
       }
 
       // Licencia que Postula
-      if (expediente.get("lpostula")) {
-        datos.licencia_postula = expediente.get("lpostula");
+      if (expediente.get('lpostula')) {
+        datos.licencia_postula = expediente.get('lpostula');
       }
 
-      //*****************/
-      //**** TEORIA  ****/
-      //*****************/
+      //* ****************/
+      //* *** TEORIA  ****/
+      //* ****************/
 
       // Asistencias Teoricas
-      if (expediente.get("exp").get("asistencias_teoricas")) {
+      if (expediente.get('exp').get('asistencias_teoricas')) {
         datos.clases_teoricas = expediente
-          .get("exp")
-          .get("asistencias_teoricas");
+          .get('exp')
+          .get('asistencias_teoricas');
       }
 
       if (
         expediente
-          .get("exp")
-          .get("curso_licencia")
-          .get("dias_teoricas")
+          .get('exp')
+          .get('curso_licencia')
+          .get('dias_teoricas')
       ) {
         datos.dias_teoria = expediente
-          .get("exp")
-          .get("curso_licencia")
-          .get("dias_teoricas")
+          .get('exp')
+          .get('curso_licencia')
+          .get('dias_teoricas')
           .toString();
       }
 
       if (
         expediente
-          .get("exp")
-          .get("curso_licencia")
-          .get("horas_teoricas")
+          .get('exp')
+          .get('curso_licencia')
+          .get('horas_teoricas')
       ) {
         datos.horas_teoria = expediente
-          .get("exp")
-          .get("curso_licencia")
-          .get("horas_teoricas")
+          .get('exp')
+          .get('curso_licencia')
+          .get('horas_teoricas')
           .toString();
       }
 
-      if (expediente.get("exp").get("fecha_inicio_teoria")) {
+      if (expediente.get('exp').get('fecha_inicio_teoria')) {
         datos.fecha_inicio_teoria = expediente
-          .get("exp")
-          .get("fecha_inicio_teoria");
+          .get('exp')
+          .get('fecha_inicio_teoria');
       }
 
-      if (expediente.get("exp").get("fecha_fin_teoria")) {
-        datos.fecha_fin_teoria = expediente.get("exp").get("fecha_fin_teoria");
+      if (expediente.get('exp').get('fecha_fin_teoria')) {
+        datos.fecha_fin_teoria = expediente.get('exp').get('fecha_fin_teoria');
       }
 
-      //*****************/
-      //**** MANEJO  ****/
-      //*****************/
+      //* ****************/
+      //* *** MANEJO  ****/
+      //* ****************/
 
       // Asistencias Manejo
-      if (expediente.get("exp").get("asistencias_manejo")) {
-        datos.clases_manejo = expediente.get("exp").get("asistencias_manejo");
+      if (expediente.get('exp').get('asistencias_manejo')) {
+        datos.clases_manejo = expediente.get('exp').get('asistencias_manejo');
       }
 
-      if (expediente.get("lactual")) {
-        datos.licencia_actual = expediente.get("lactual");
+      if (expediente.get('lactual')) {
+        datos.licencia_actual = expediente.get('lactual');
       }
-      if (expediente.get("lpostula")) {
-        datos.licencia_postula = expediente.get("lpostula");
+      if (expediente.get('lpostula')) {
+        datos.licencia_postula = expediente.get('lpostula');
       }
 
       if (
         expediente
-          .get("exp")
-          .get("curso_licencia")
-          .get("dias_manejo")
+          .get('exp')
+          .get('curso_licencia')
+          .get('dias_manejo')
       ) {
         datos.dias_manejo = expediente
-          .get("exp")
-          .get("curso_licencia")
-          .get("dias_manejo")
+          .get('exp')
+          .get('curso_licencia')
+          .get('dias_manejo')
           .toString();
       }
 
       if (
         expediente
-          .get("exp")
-          .get("curso_licencia")
-          .get("horas_manejo")
+          .get('exp')
+          .get('curso_licencia')
+          .get('horas_manejo')
       ) {
         datos.horas_manejo = expediente
-          .get("exp")
-          .get("curso_licencia")
-          .get("horas_manejo")
+          .get('exp')
+          .get('curso_licencia')
+          .get('horas_manejo')
           .toString();
       }
 
-      if (expediente.get("exp").get("fecha_inicio_manejo")) {
+      if (expediente.get('exp').get('fecha_inicio_manejo')) {
         datos.fecha_inicio_manejo = expediente
-          .get("exp")
-          .get("fecha_inicio_manejo");
+          .get('exp')
+          .get('fecha_inicio_manejo');
       }
 
-      if (expediente.get("exp").get("fecha_fin_manejo")) {
-        datos.fecha_fin_manejo = expediente.get("exp").get("fecha_fin_manejo");
+      if (expediente.get('exp').get('fecha_fin_manejo')) {
+        datos.fecha_fin_manejo = expediente.get('exp').get('fecha_fin_manejo');
       }
 
-      if (expediente.get("exp").get("km_inicio")) {
+      if (expediente.get('exp').get('km_inicio')) {
         datos.km_inicio = expediente
-          .get("exp")
-          .get("km_inicio")
+          .get('exp')
+          .get('km_inicio')
           .toString();
       }
 
-      if (expediente.get("exp").get("km_fin")) {
+      if (expediente.get('exp').get('km_fin')) {
         datos.km_fin = expediente
-          .get("exp")
-          .get("km_fin")
+          .get('exp')
+          .get('km_fin')
           .toString();
       }
 
-      if (expediente.get("vehiculo")) {
-        if (expediente.get("vehiculo").get("placa"))
-          datos.vehiculo = expediente.get("vehiculo").get("placa");
+      if (expediente.get('vehiculo')) {
+        if (expediente.get('vehiculo').get('placa')) { datos.vehiculo = expediente.get('vehiculo').get('placa'); }
 
-        if (expediente.get("vehiculo").get("clase")) {
-          datos.clase_vehiculo = expediente.get("vehiculo").get("clase");
+        if (expediente.get('vehiculo').get('clase')) {
+          datos.clase_vehiculo = expediente
+            .get('vehiculo')
+            .get('clase')
+            .get('nombre')
+            .toString();
         }
       }
 
-      if (expediente.get("instructor")) {
+      if (expediente.get('instructor')) {
         datos.instructor = (
-          expediente.get("instructor").get("a_paterno") +
-          " " +
-          expediente.get("instructor").get("a_materno") +
-          " " +
-          expediente.get("instructor").get("nombres")
+          expediente.get('instructor').get('a_paterno')
+          + ' '
+          + expediente.get('instructor').get('a_materno')
+          + ' '
+          + expediente.get('instructor').get('nombres')
         ).toUpperCase();
       }
 
-      //*********************/
-      //**** ADICIONALES ****/
-      //*********************/
+      //* ********************/
+      //* *** ADICIONALES ****/
+      //* ********************/
 
       if (
         expediente
-          .get("exp")
-          .get("curso_licencia")
-          .get("horas_teoricas") &&
-        expediente
-          .get("exp")
-          .get("curso_licencia")
-          .get("horas_manejo")
+          .get('exp')
+          .get('curso_licencia')
+          .get('horas_teoricas')
+        && expediente
+          .get('exp')
+          .get('curso_licencia')
+          .get('horas_manejo')
       ) {
         datos.total_horas = (
           expediente
-            .get("exp")
-            .get("curso_licencia")
-            .get("horas_teoricas") +
-          expediente
-            .get("exp")
-            .get("curso_licencia")
-            .get("horas_manejo")
+            .get('exp')
+            .get('curso_licencia')
+            .get('horas_teoricas')
+          + expediente
+            .get('exp')
+            .get('curso_licencia')
+            .get('horas_manejo')
         ).toString();
       }
     }
@@ -537,7 +540,7 @@ class BlankPage extends React.Component {
                 shrink: true
               }}
               value={numeracion}
-              onChange={this.handleChangeInput("numeracion")}
+              onChange={this.handleChangeInput('numeracion')}
             />
             <TextField
               id="outlined-full-width"
@@ -550,7 +553,7 @@ class BlankPage extends React.Component {
                 shrink: true
               }}
               value={dni}
-              onChange={this.handleChangeInput("dni")}
+              onChange={this.handleChangeInput('dni')}
             />
             {/*eslint-disable */}
             <Button
@@ -663,21 +666,28 @@ class BlankPage extends React.Component {
               <TableRow>
                 <TableCell padding="dense">
                   Asistencias de Teroria(
-                  {datos.dias_teoria})
+                  {datos.dias_teoria}
+)
                 </TableCell>
                 <TableCell padding="dense">Dia</TableCell>
               </TableRow>
             </TableHead>
             <TableBody>
               {datos.clases_teoricas.map(item => (
-                <TableRow key={item.get("fecha")}>
+                <TableRow key={item.get('fecha')}>
                   <TableCell padding="dense">
-                    {new Date(item.get("fecha")).getDate()} -{" "}
-                    {new Date(item.get("fecha")).getMonth() + 1} -{" "}
-                    {new Date(item.get("fecha")).getFullYear()}
+                    {new Date(item.get('fecha')).getDate()}
+                    {' '}
+-
+                    {' '}
+                    {new Date(item.get('fecha')).getMonth() + 1}
+                    {' '}
+-
+                    {' '}
+                    {new Date(item.get('fecha')).getFullYear()}
                   </TableCell>
                   <TableCell padding="dense">
-                    {dias[new Date(item.get("fecha")).getDay()]}
+                    {dias[new Date(item.get('fecha')).getDay()]}
                   </TableCell>
                 </TableRow>
               ))}
@@ -686,21 +696,28 @@ class BlankPage extends React.Component {
               <TableRow>
                 <TableCell padding="dense">
                   Asistencias de Manejo(
-                  {datos.dias_manejo})
+                  {datos.dias_manejo}
+)
                 </TableCell>
                 <TableCell padding="dense">Dia</TableCell>
               </TableRow>
             </TableHead>
             <TableBody>
               {datos.clases_manejo.map(item => (
-                <TableRow key={item.get("fecha")}>
+                <TableRow key={item.get('fecha')}>
                   <TableCell padding="dense">
-                    {new Date(item.get("fecha")).getDate()} -{" "}
-                    {new Date(item.get("fecha")).getMonth()} -{" "}
-                    {new Date(item.get("fecha")).getFullYear()}
+                    {new Date(item.get('fecha')).getDate()}
+                    {' '}
+-
+                    {' '}
+                    {new Date(item.get('fecha')).getMonth()}
+                    {' '}
+-
+                    {' '}
+                    {new Date(item.get('fecha')).getFullYear()}
                   </TableCell>
                   <TableCell padding="dense">
-                    {dias[new Date(item.get("fecha")).getDay()]}
+                    {dias[new Date(item.get('fecha')).getDay()]}
                   </TableCell>
                 </TableRow>
               ))}
@@ -710,7 +727,7 @@ class BlankPage extends React.Component {
             variant="contained"
             color="primary"
             className={props.classes.button}
-            disabled={datos.estado == "R"}
+            disabled={datos.estado == 'R'}
             onClick={this.onPrintFichaInscripcion.bind(this, datos)}
           >
             FICHA DE INSCRIPCION
@@ -719,7 +736,7 @@ class BlankPage extends React.Component {
             variant="contained"
             color="primary"
             className={props.classes.button}
-            disabled={datos.estado == "R"}
+            disabled={datos.estado == 'R'}
             onClick={this.onPrintFichas.bind(this, datos)}
           >
             FICHAS TECNICAS
@@ -738,7 +755,7 @@ class BlankPage extends React.Component {
   }
 }
 const mapStateToProps = state => ({
-  seguimiento: state.get("seguimiento")
+  seguimiento: state.get('seguimiento')
 });
 export default connect(
   mapStateToProps,

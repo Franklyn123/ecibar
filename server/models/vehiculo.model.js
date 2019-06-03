@@ -9,6 +9,15 @@ const VehiculoSchema = new Schema({
     type: String,
     required: true
   },
+  clase: {
+    type: Schema.Types.ObjectId,
+    ref: 'tipo_clases'
+  },
+  km: {
+    type: String,
+    required: true
+  },
+  recorrido: [],
   modelo: {
     type: String,
     required: true
@@ -17,19 +26,11 @@ const VehiculoSchema = new Schema({
     type: String,
     required: true
   },
-  km: {
-    type: String,
-    required: true
-  },
-  clase: {
-    type: String,
-    required: true
-  },
+
   fecha: {
     type: Date,
     default: Date.now
   }
 });
-/*eslint-disable */
+
 module.exports = Vehiculo = mongoose.model('vehiculos', VehiculoSchema);
-/* eslint-enable */

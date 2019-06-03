@@ -1,14 +1,21 @@
 const mongoose = require('mongoose');
-/*eslint-disable */
+
 const Schema = mongoose.Schema;
-/* eslint-enable */
 
 const TipoLicenciaSchema = new Schema({
   nombre: {
     type: String,
     required: true
   },
+  clases: [
+    {
+      type: Schema.Types.ObjectId,
+      ref: 'tipo_clases'
+    }
+  ]
 });
-/*eslint-disable */
-module.exports = TipoLicencia = mongoose.model('tipo_licencias', TipoLicenciaSchema);
-/* eslint-enable */
+
+module.exports = TipoLicencia = mongoose.model(
+  'tipo_licencias',
+  TipoLicenciaSchema
+);
