@@ -23,10 +23,14 @@ const bodyParser = require("body-parser");
 const items = require("./routes/api/items");
 const fi = require("./routes/api/ficha_inscripcion");
 const asistencia = require("./routes/api/asistencia.route");
-const instructor = require("./routes/api/instructor.route");
 const seguimiento = require("./routes/api/seguimiento.route");
 const historialExterno = require("./routes/api/hvendedor_externo.js");
 const tramitador = require("./routes/api/tramitador.js");
+const expediente = require("./routes/api/expediente.route");
+const alumno = require("./routes/api/alumno.route");
+const vehiculo = require("./routes/api/vehiculo.route");
+const instructor = require("./routes/api/instructor.route");
+
 // seguimiento de peticiones
 app.use(morgan("dev"));
 // Bodyparser Middleware
@@ -51,6 +55,9 @@ app.use("/api/asistencia", asistencia);
 app.use("/api/seguimiento", seguimiento);
 app.use("/api/historialexterno", historialExterno);
 app.use("/api/tramitador", tramitador);
+app.use("/api/expediente", expediente);
+app.use("/api/alumno", alumno);
+app.use("/api/vehiculo", vehiculo);
 app.use("/api/instructor", instructor);
 
 // If you need a backend, e.g. an API, add your custom backend-specific middleware here

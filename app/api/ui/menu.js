@@ -2,7 +2,7 @@ module.exports = [
   {
     key: "asistencia",
     name: "Asistencia",
-    icon: "ios-apps-outline",
+    icon: "ios-photos-outline",
     link: "/app/ecibar/asistencia"
   },
   {
@@ -14,20 +14,38 @@ module.exports = [
   {
     key: "seguimiento",
     name: "Seguimiento",
-    icon: "ios-apps-outline",
+    icon: "ios-paper-outline",
     link: "/app/ecibar/seguimiento"
   },
   {
     key: "RENIEC",
     name: "RENIEC",
-    icon: "ios-apps-outline",
+    icon: "ios-appstore-outline",
     link: "/app/ecibar/RENIEC"
+  },
+  {
+    key: "Expedientes",
+    name: "Expedientes",
+    icon: "ios-grid-outline",
+    link: "/app/ecibar/expedientes"
   },
   {
     key: "Alumnos",
     name: "Alumnos",
-    icon: "ios-apps-outline",
+    icon: "ios-grid-outline",
     link: "/app/ecibar/alumnos"
+  },
+  {
+    key: "Vehiculos",
+    name: "Vehiculos",
+    icon: "ios-grid-outline",
+    link: "/app/ecibar/vehiculos"
+  },
+  {
+    key: "Instructores",
+    name: "Instructores",
+    icon: "ios-grid-outline",
+    link: "/app/ecibar/instructores"
   },
   {
     key: "historialexterno",
@@ -38,7 +56,7 @@ module.exports = [
   {
     key: "listarhistorialexterno",
     name: "Listar Historial Externo",
-    icon: "ios-apps-outline",
+    icon: "ios-grid-outline",
     link: "/app/ecibar/listar-historial"
   }
 ];

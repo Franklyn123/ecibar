@@ -305,7 +305,7 @@ router.get("/marcar_asistencia/:id", async (req, res) => {
     const dias_teoricas = curso_licencia.dias_teoricas;
     const dias_manejo = curso_licencia.dias_manejo;
 
-    let hoy = moment().format();
+    let hoy = new Date();
 
     // Asistencias de teoria
     if (dias_teoricas > expediente.asistencias_teoricas.length) {
@@ -350,7 +350,6 @@ router.get("/marcar_asistencia/:id", async (req, res) => {
               "El expediente no tiene asociado ningun (curso, licencia)";
             return res.status(404).json(errors);
           }
-
           // Licencia que postula
           let licencia_postula = await Licencia.findOne({
             _id: curso_licencia.licencia_postula

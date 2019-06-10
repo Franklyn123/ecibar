@@ -2,7 +2,7 @@
 {"_id":{"$oid":"5c803284f653771190898987"},"nombres":"Wilber Roberto","a_paterno":"Cruz","a_materno":"Cahuana","curso":"T"}
 {"_id":{"$oid":"5c8032a1f653771190898988"},"nombres":"Milagros","a_paterno":"Medina","a_materno":"Alcazar","curso":"T"}
 {"_id":{"$oid":"5c8032b9f653771190898989"},"nombres":"Ezequiel Hermilio","a_paterno":"Avalos","a_materno":"Bravo","curso":"M"}
-{"_id":{"$oid":"5c8032cdf65377119089898a"},"nombres":"Dante Luis","a_paterno":"Usca","a_materno":"Pereira","curso":"M"}
-{"_id":{"$oid":"5c8032e2f65377119089898b"},"nombres":"Ernesto Lupo","a_paterno":"Cuba","a_materno":"Bedregal","curso":"M"}
-{"_id":{"$oid":"5c8032fcf65377119089898c"},"nombres":"Lourdes Contreras","a_paterno":"Lazo","a_materno":"de Franco","curso":"M"}
-{"_id":{"$oid":"5cc3177d437db40bb82badd0"},"nombres":"Francisco Luis","a_paterno":"Chavez","a_materno":"Machado","curso":"M"}
+{"_id":{"$oid":"5c8032cdf65377119089898a"},"nombres":"Dante Luis","a_paterno":"Usca","a_materno":"Pereira","curso":"M","clases":[{"$oid":"5ce72c77aa7e97b1c2006983"},{"$oid":"5ce72c96aa7e97b1c2006998"},{"$oid":"5ce72cb4aa7e97b1c20069b5"}]}
+{"_id":{"$oid":"5c8032e2f65377119089898b"},"nombres":"Ernesto Lupo","a_paterno":"Cuba","a_materno":"Bedregal","curso":"M","clases":[{"$oid":"5ce72c77aa7e97b1c2006983"},{"$oid":"5ce72c96aa7e97b1c2006998"}]}
+{"_id":{"$oid":"5c8032fcf65377119089898c"},"nombres":"Lourdes Contreras","a_paterno":"Lazo","a_materno":"de Franco","curso":"M","clases":[{"$oid":"5ce72cacaa7e97b1c20069af"},{"$oid":"5ce72cb4aa7e97b1c20069b5"}]}
+{"_id":{"$oid":"5cc3177d437db40bb82badd0"},"nombres":"Francisco Luis","a_paterno":"Chavez","a_materno":"Machado","curso":"M","clases":[{"$oid":"5ce72c8eaa7e97b1c2006994"}]}

@@ -5,7 +5,7 @@ import LinearProgress from "@material-ui/core/LinearProgress";
 import Chip from "@material-ui/core/Chip";
 import MUIDataTable from "mui-datatables";
 import { connect } from "react-redux";
-import { getInstructores } from "../../actions2/instructorAction";
+import { getVehiculos } from "../../actions2/vehiculoAction";
 
 const styles = theme => ({
   table: {
@@ -23,45 +23,35 @@ const styles = theme => ({
   }
 });
 
-class Instructores extends React.Component {
+class Vehiculos extends React.Component {
   state = {
     columns: [
       {
-        name: "Nombres",
+        name: "Placa",
         options: {
           filter: true
         }
       },
       {
-        name: "Apellido Paterno",
+        name: "Clase",
         options: {
           filter: true
         }
       },
       {
-        name: "Apellido Materno",
-        options: {
-          filter: true
-        }
+        name: "Kilometraje"
       },
       {
-        name: "Clases de Vehiculos",
-        options: {
-          filter: true
-        }
-      },
-      {
-        name: "Curso",
+        name: "Marca",
         options: {
           filter: true
         }
       }
-    ],
-    data: []
+    ]
   };
 
   componentDidMount() {
-    this.props.getInstructores();
+    this.props.getVehiculos();
 
     const loguedUsername = localStorage.getItem("username");
     if (!loguedUsername) {
@@ -83,19 +73,13 @@ class Instructores extends React.Component {
       page: 1
     };
 
-    let instructores = [];
-    this.props.instructor.get("instructores").map(instructor => {
-      let clases = "";
-      instructor.clases.map(clase => {
-        clases = clases + " " + clase.nombre;
-      });
-
-      instructores.push([
-        instructor.nombres,
-        instructor.a_paterno,
-        instructor.a_materno,
-        clases,
-        instructor.curso == "T" ? "Teoría" : "Manejo"
+    let vehiculos = [];
+    this.props.vehiculo.get("vehiculos").map(vehiculo => {
+      vehiculos.push([
+        vehiculo.placa,
+        vehiculo.clase.nombre,
+        vehiculo.km,
+        vehiculo.marca
       ]);
       return true;
     });
@@ -103,8 +87,8 @@ class Instructores extends React.Component {
     return (
       <div className={classes.table}>
         <MUIDataTable
-          title="Instructores"
-          data={instructores}
+          title="Vehiculos"
+          data={vehiculos}
           columns={columns}
           options={options}
         />
@@ -113,13 +97,13 @@ class Instructores extends React.Component {
   }
 }
 
-Instructores.propTypes = {
+Vehiculos.propTypes = {
   classes: PropTypes.object.isRequired
 };
 const mapStateToProps = state => ({
-  instructor: state.get("instructor")
+  vehiculo: state.get("vehiculo")
 });
 export default connect(
   mapStateToProps,
-  { getInstructores }
-)(withStyles(styles)(Instructores));
+  { getVehiculos }
+)(withStyles(styles)(Vehiculos));

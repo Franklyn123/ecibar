@@ -41,6 +41,11 @@ import * as aiiic_1_ftma from "../../reports/aiiic_1/aiii_c_ftma";
 import * as aiiic_1_fiac from "../../reports/aiiic_1/aiii_c_fiac";
 import * as aiiic_1_epm from "../../reports/aiiic_1/aiii_c_epm";
 
+// AIV
+
+import * as aiv_fiac from "../../reports/aiv/aiv_fiac";
+import * as aiva_raet from "../../reports/aiv/aiv_raet";
+
 // TALLER CAMBIEMOS DE ACTITUD
 
 import * as tca_ract from "../../reports/taller_cambiemos_actitud/tca_ract";
@@ -86,15 +91,17 @@ export function generar_reportes(datos) {
           aiiic_2_fiac.aiii_c_FIAC(datos);
           aiiic_2_epm.aiii_c_EPM(datos);
         } else {
-          // aiiic_1_raet.aiii_c_RAET(datos);
-          // aiiic_1_ract.aiii_c_RACT(datos);
-          // aiiic_1_ftma.aiii_c_FTMA(datos);
-          // aiiic_1_fiac.aiii_c_FIAC(datos);
-
+          // AII-B a AIII-C
+          aiiic_1_raet.aiii_c_RAET(datos);
+          aiiic_1_ract.aiii_c_RACT(datos);
+          aiiic_1_ftma.aiii_c_FTMA(datos);
+          aiiic_1_fiac.aiii_c_FIAC(datos);
           aiiic_1_epm.aiii_c_EPM(datos);
         }
         break;
       case "AIV":
+        aiv_fiac.aiv_FIAC(datos);
+        aiva_raet.aiv_RAET(datos);
         break;
     }
   } else if (datos.curso === "TALLER CAMBIEMOS DE ACTITUD") {

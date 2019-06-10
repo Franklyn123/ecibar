@@ -1,30 +1,33 @@
 /**
  * Combine all reducers in this file and export the combined reducers.
  */
-import { reducer as form } from 'redux-form/immutable';
-import { combineReducers } from 'redux-immutable';
-import { connectRouter } from 'connected-react-router/immutable';
-import history from 'utils/history';
+import { reducer as form } from "redux-form/immutable";
+import { combineReducers } from "redux-immutable";
+import { connectRouter } from "connected-react-router/immutable";
+import history from "utils/history";
 
-import languageProviderReducer from 'containers/LanguageProvider/reducer';
-import uiReducer from './modules/ui';
-import treeTable from './modules/treeTable';
-import crudTable from './modules/crudTable';
-import crudTableForm from './modules/crudTableForm';
-import initval from './modules/initForm';
-import login from './modules/login';
-import socmed from './modules/socialMedia';
-import ecommerce from './modules/ecommerce';
-import contact from './modules/contact';
-import chat from './modules/chat';
-import email from './modules/email';
-import calendar from './modules/calendar';
-import taskboard from './modules/taskboard';
-import itemReducer from '../redux2/itemReducer';
-import asistenciaReducer from '../redux2/asistenciaReducer';
-import seguimientoReducer from '../redux2/seguimiento.reducer';
-import instructoresReducer from '../redux2/instructor.reducer';
-import historiaExtReducer from '../redux2/historiaExtReducer';
+import languageProviderReducer from "containers/LanguageProvider/reducer";
+import uiReducer from "./modules/ui";
+import treeTable from "./modules/treeTable";
+import crudTable from "./modules/crudTable";
+import crudTableForm from "./modules/crudTableForm";
+import initval from "./modules/initForm";
+import login from "./modules/login";
+import socmed from "./modules/socialMedia";
+import ecommerce from "./modules/ecommerce";
+import contact from "./modules/contact";
+import chat from "./modules/chat";
+import email from "./modules/email";
+import calendar from "./modules/calendar";
+import taskboard from "./modules/taskboard";
+import itemReducer from "../redux2/itemReducer";
+import asistenciaReducer from "../redux2/asistenciaReducer";
+import seguimientoReducer from "../redux2/seguimiento.reducer";
+import historiaExtReducer from "../redux2/historiaExtReducer";
+import expedienteReducer from "../redux2/expedienteReducer";
+import alumnoReducer from "../redux2/alumno.reducer";
+import vehiculoReducer from "../redux2/vehiculo.reducer";
+import instructorReducer from "../redux2/instructor.reducer";
 
 /**
  * Branching reducers to use one reducer for many components
@@ -51,7 +54,10 @@ export default function createReducer(injectedReducers = {}) {
     asistencia: asistenciaReducer,
     seguimiento: seguimientoReducer,
     historialext: historiaExtReducer,
-    instructores: instructoresReducer,
+    expediente: expedienteReducer,
+    alumno: alumnoReducer,
+    vehiculo: vehiculoReducer,
+    instructor: instructorReducer,
     ui: uiReducer,
     initval,
     login,
@@ -62,13 +68,13 @@ export default function createReducer(injectedReducers = {}) {
     chat,
     email,
     taskboard,
-    treeTableArrow: branchReducer(treeTable, 'treeTableArrow'),
-    treeTablePM: branchReducer(treeTable, 'treeTablePM'),
-    crudTableDemo: branchReducer(crudTable, 'crudTableDemo'),
+    treeTableArrow: branchReducer(treeTable, "treeTableArrow"),
+    treeTablePM: branchReducer(treeTable, "treeTablePM"),
+    crudTableDemo: branchReducer(crudTable, "crudTableDemo"),
     crudTableForm,
-    crudTbFrmDemo: branchReducer(crudTableForm, 'crudTbFrmDemo'),
+    crudTbFrmDemo: branchReducer(crudTableForm, "crudTbFrmDemo"),
     language: languageProviderReducer,
-    ...injectedReducers,
+    ...injectedReducers
   });
 
   // Wrap the root reducer and return a new root reducer with router state

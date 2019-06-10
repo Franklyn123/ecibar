@@ -13,8 +13,10 @@ import {
   Seguimiento,
   HistorialExt,
   ListarHistorialExterno,
+  Expedientes,
   Alumnos,
   Instructores,
+  Vehiculos,
   RENIEC
 } from "../pageListAsync";
 
@@ -41,14 +43,15 @@ class Application extends React.Component {
             path="/app/ecibar/listar-historial"
             component={ListarHistorialExterno}
           />
+          <Route path="/app/ecibar/expedientes" component={Expedientes} />
           <Route path="/app/ecibar/alumnos" component={Alumnos} />
           <Route path="/app/ecibar/instructores" component={Instructores} />
+          <Route path="/app/ecibar/vehiculos" component={Vehiculos} />
+
           {/* Pages */}
           <Route exact path="/app/pages" component={Parent} />
-
           <Route path="/app/pages/not-found" component={NotFound} />
           <Route path="/not-found" component={NotFound2} />
-
           <Route path="/app/pages/error" component={Error} />
 
           {/* Default */}

@@ -68,13 +68,27 @@ class MainMenu extends React.Component {
               return false;
             }
             break;
+          case "Expedientes":
+            if (loguedUsername !== "octavio" &&
+            loguedUsername !== "administracion") {
+              return false;
+            }
+            break;
           case "Alumnos":
-            if (loguedUsername !== "octavio") {
+            if (loguedUsername !== "octavio" &&
+            loguedUsername !== "administracion") {
+              return false;
+            }
+            break;
+          case "Vehiculos":
+            if (loguedUsername !== "octavio" &&
+            loguedUsername !== "administracion") {
               return false;
             }
             break;
           case "Instructores":
-            if (loguedUsername !== "octavio") {
+            if (loguedUsername !== "octavio" &&
+            loguedUsername !== "administracion") {
               return false;
             }
             break;

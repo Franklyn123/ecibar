@@ -5,7 +5,8 @@ import LinearProgress from "@material-ui/core/LinearProgress";
 import Chip from "@material-ui/core/Chip";
 import MUIDataTable from "mui-datatables";
 import { connect } from "react-redux";
-import { getInstructores } from "../../actions2/instructorAction";
+import { getExpedientes } from "../../actions2/expedienteAction";
+import moment from "moment";
 
 const styles = theme => ({
   table: {
@@ -23,45 +24,60 @@ const styles = theme => ({
   }
 });
 
-class Instructores extends React.Component {
+class Expedientes extends React.Component {
   state = {
     columns: [
       {
-        name: "Nombres",
+        name: "Numero",
         options: {
           filter: true
         }
       },
       {
-        name: "Apellido Paterno",
+        name: "DNI del Alumno",
         options: {
           filter: true
         }
       },
       {
-        name: "Apellido Materno",
+        name: "Licencia Actual",
         options: {
           filter: true
         }
       },
       {
-        name: "Clases de Vehiculos",
+        name: "Licencia que Postula",
         options: {
           filter: true
         }
       },
+
       {
-        name: "Curso",
+        name: "Estado",
+        options: {
+          filter: true,
+          customBodyRender: value => {
+            if (value === "R") {
+              return <Chip label="Registrado" color="secondary" />;
+            }
+            if (value === "T") {
+              return <Chip label="Terminado" color="primary" />;
+            }
+            return <Chip label="Unknown" />;
+          }
+        }
+      },
+      {
+        name: "Fecha de Registro",
         options: {
           filter: true
         }
       }
-    ],
-    data: []
+    ]
   };
 
   componentDidMount() {
-    this.props.getInstructores();
+    this.props.getExpedientes();
 
     const loguedUsername = localStorage.getItem("username");
     if (!loguedUsername) {
@@ -83,19 +99,15 @@ class Instructores extends React.Component {
       page: 1
     };
 
-    let instructores = [];
-    this.props.instructor.get("instructores").map(instructor => {
-      let clases = "";
-      instructor.clases.map(clase => {
-        clases = clases + " " + clase.nombre;
-      });
-
-      instructores.push([
-        instructor.nombres,
-        instructor.a_paterno,
-        instructor.a_materno,
-        clases,
-        instructor.curso == "T" ? "Teoría" : "Manejo"
+    let expedientes = [];
+    this.props.expediente.get("expedientes").map(expediente => {
+      expedientes.push([
+        expediente.numeracion,
+        expediente.alumno.dni,
+        expediente.curso_licencia.licencia_actual.nombre,
+        expediente.curso_licencia.licencia_postula.nombre,
+        expediente.estado,
+        moment(expediente.fecha).format("L")
       ]);
       return true;
     });
@@ -103,8 +115,8 @@ class Instructores extends React.Component {
     return (
       <div className={classes.table}>
         <MUIDataTable
-          title="Instructores"
-          data={instructores}
+          title="Expedientes"
+          data={expedientes}
           columns={columns}
           options={options}
         />
@@ -113,13 +125,13 @@ class Instructores extends React.Component {
   }
 }
 
-Instructores.propTypes = {
+Expedientes.propTypes = {
   classes: PropTypes.object.isRequired
 };
 const mapStateToProps = state => ({
-  instructor: state.get("instructor")
+  expediente: state.get("expediente")
 });
 export default connect(
   mapStateToProps,
-  { getInstructores }
-)(withStyles(styles)(Instructores));
+  { getExpedientes }
+)(withStyles(styles)(Expedientes));

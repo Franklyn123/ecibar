@@ -1,37 +1,13 @@
 import React from "react";
 import { withStyles } from "@material-ui/core/styles";
-
 import PropTypes from "prop-types";
 import LinearProgress from "@material-ui/core/LinearProgress";
 import Chip from "@material-ui/core/Chip";
 import MUIDataTable from "mui-datatables";
 import { connect } from "react-redux";
-import moment from "moment";
-import { getAlumnos } from "../../actions2/historialexterno";
+import { getAlumnos } from "../../actions2/alumnoAction";
 
 const styles = theme => ({
-  root: {
-    flexGrow: 1
-  },
-  paper: {
-    padding: theme.spacing.unit * 2,
-    margin: "auto",
-    maxWidth: 700
-  },
-  image: {
-    width: 128,
-    height: 128
-  },
-  img: {
-    margin: "auto",
-    display: "block",
-    maxWidth: "100%",
-    maxHeight: "100%"
-  },
-  marcar: {
-    width: 128,
-    height: 128
-  },
   table: {
     "& > div": {
       overflow: "auto"
@@ -47,11 +23,17 @@ const styles = theme => ({
   }
 });
 
-class ListarHistorialExterno extends React.Component {
+class Alumnos extends React.Component {
   state = {
     columns: [
       {
         name: "DNI",
+        options: {
+          filter: true
+        }
+      },
+      {
+        name: "Nombres",
         options: {
           filter: true
         }
@@ -65,33 +47,39 @@ class ListarHistorialExterno extends React.Component {
       {
         name: "Apellido Materno",
         options: {
-          filter: true,
+          filter: true
         }
       },
       {
-        name: "Nombres",
+        name: "Celular",
         options: {
-          filter: true,
+          filter: true
         }
       },
-    ],
-    data: []
+      {
+        name: "Domicilio",
+        options: {
+          filter: false
+        }
+      }
+    ]
   };
 
   componentDidMount() {
-    const props = { ...this.props };
-    props.getAlumnos();
-    const loguedUsername = localStorage.getItem("username");
+    this.props.getAlumnos();
 
+    const loguedUsername = localStorage.getItem("username");
     if (!loguedUsername) {
       window.location.href = "/login";
-    } else if (loguedUsername !== "octavio") {
+    } else if (loguedUsername !== "octavio" &&
+    loguedUsername !== "administracion") {
       window.location.href = "/not-found";
     }
   }
 
   render() {
-    const { columns, data } = this.state;
+    const { columns } = this.state;
+    const { classes } = this.props;
     const options = {
       filterType: "dropdown",
       responsive: "stacked",
@@ -99,16 +87,16 @@ class ListarHistorialExterno extends React.Component {
       rowsPerPage: 10,
       page: 1
     };
-    const props = { ...this.props };
-    const { classes } = this.props;
-    const alumnos = props.historialext.get("alumnos");
 
-    alumnos.map(alumno => {
-      data.push([
+    let alumnos = [];
+    this.props.alumno.get("alumnos").map(alumno => {
+      alumnos.push([
         alumno.dni,
+        alumno.nombres,
         alumno.a_paterno,
         alumno.a_materno,
-        alumno.nombres,
+        alumno.cel_tel,
+        alumno.domicilio
       ]);
       return true;
     });
@@ -117,7 +105,7 @@ class ListarHistorialExterno extends React.Component {
       <div className={classes.table}>
         <MUIDataTable
           title="Alumnos"
-          data={data}
+          data={alumnos}
           columns={columns}
           options={options}
         />
@@ -126,13 +114,13 @@ class ListarHistorialExterno extends React.Component {
   }
 }
 
-ListarHistorialExterno.propTypes = {
+Alumnos.propTypes = {
   classes: PropTypes.object.isRequired
 };
 const mapStateToProps = state => ({
-  historialext: state.get("historialext")
+  alumno: state.get("alumno")
 });
 export default connect(
   mapStateToProps,
   { getAlumnos }
-)(withStyles(styles)(ListarHistorialExterno));
+)(withStyles(styles)(Alumnos));

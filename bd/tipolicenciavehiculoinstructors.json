@@ -1,8 +1,0 @@
-{"_id":{"$oid":"5cb0dd704b202738e0260447"},"tipo_licencia":{"$oid":"5c6fa3a22aad9799bce79ac6"},"vehiculo":{"$oid":"5c802c9ff65377119089897f"},"instructor":{"$oid":"5c8032cdf65377119089898a"}}
-{"_id":{"$oid":"5cb0ddae4b202738e0260448"},"tipo_licencia":{"$oid":"5c6fa3a22aad9799bce79ac4"},"vehiculo":{"$oid":"5c802d6cf653771190898982"},"instructor":{"$oid":"5c8032e2f65377119089898b"}}
-{"_id":{"$oid":"5cb0de0d4b202738e0260449"},"tipo_licencia":{"$oid":"5c6fa3a22aad9799bce79ac4"},"vehiculo":{"$oid":"5c802f45f653771190898985"},"instructor":{"$oid":"5cc3177d437db40bb82badd0"}}
-{"_id":{"$oid":"5cb0dea54b202738e026044a"},"tipo_licencia":{"$oid":"5c6fa3a22aad9799bce79ac9"},"vehiculo":{"$oid":"5c802dacf653771190898983"},"instructor":{"$oid":"5c8032cdf65377119089898a"}}
-{"_id":{"$oid":"5cb0defc4b202738e026044b"},"tipo_licencia":{"$oid":"5c6fa3a22aad9799bce79ac7"},"vehiculo":{"$oid":"5c802f80f653771190898986"},"instructor":{"$oid":"5c8032fcf65377119089898c"}}
-{"_id":{"$oid":"5cb0df5a4b202738e026044d"},"tipo_licencia":{"$oid":"5c6fa3a22aad9799bce79ac8"},"vehiculo":{"$oid":"5c802dacf653771190898983"},"instructor":{"$oid":"5c8032fcf65377119089898c"}}
-{"_id":{"$oid":"5cb0df7f4b202738e026044e"},"tipo_licencia":{"$oid":"5c6fa3a22aad9799bce79ac8"},"vehiculo":{"$oid":"5c802f80f653771190898986"},"instructor":{"$oid":"5c8032fcf65377119089898c"}}
-{"_id":{"$oid":"5cc31ff8565be20bb83b8bae"},"tipo_licencia":{"$oid":"5c6fa3a22aad9799bce79ac4"},"vehiculo":{"$oid":"5c802cf0f653771190898980"},"instructor":{"$oid":"5c8032e2f65377119089898b"}}
