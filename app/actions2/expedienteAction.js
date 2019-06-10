@@ -1,10 +1,10 @@
-import axios from "axios";
-import { GET_EXPEDIENTES, ITEMS_LOADING } from "./types";
+import axios from 'axios';
+import { GET_EXPEDIENTES, ITEMS_LOADING } from './types';
 
 // Get Expedientes
 export const getExpedientes = () => dispatch => {
   dispatch(setItemsLoading());
-  axios.get("/api/expediente").then(res => {
+  axios.get('/api/expediente').then(res => {
     dispatch({
       type: GET_EXPEDIENTES,
       payload: res.data

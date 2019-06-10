@@ -1,22 +1,22 @@
-import React from "react";
-import { withStyles } from "@material-ui/core/styles";
-import PropTypes from "prop-types";
-import LinearProgress from "@material-ui/core/LinearProgress";
-import Chip from "@material-ui/core/Chip";
-import MUIDataTable from "mui-datatables";
-import { connect } from "react-redux";
-import { getExpedientes } from "../../actions2/expedienteAction";
-import moment from "moment";
+import React from 'react';
+import { withStyles } from '@material-ui/core/styles';
+import PropTypes from 'prop-types';
+import LinearProgress from '@material-ui/core/LinearProgress';
+import Chip from '@material-ui/core/Chip';
+import MUIDataTable from 'mui-datatables';
+import { connect } from 'react-redux';
+import moment from 'moment';
+import { getExpedientes } from '../../actions2/expedienteAction';
 
 const styles = theme => ({
   table: {
-    "& > div": {
-      overflow: "auto"
+    '& > div': {
+      overflow: 'auto'
     },
-    "& table": {
+    '& table': {
       minWidth: 500,
-      [theme.breakpoints.down("md")]: {
-        "& td": {
+      [theme.breakpoints.down('md')]: {
+        '& td': {
           height: 40
         }
       }
@@ -28,39 +28,39 @@ class Expedientes extends React.Component {
   state = {
     columns: [
       {
-        name: "Numero",
+        name: 'Numero',
         options: {
           filter: true
         }
       },
       {
-        name: "DNI del Alumno",
+        name: 'DNI del Alumno',
         options: {
           filter: true
         }
       },
       {
-        name: "Licencia Actual",
+        name: 'Licencia Actual',
         options: {
           filter: true
         }
       },
       {
-        name: "Licencia que Postula",
+        name: 'Licencia que Postula',
         options: {
           filter: true
         }
       },
 
       {
-        name: "Estado",
+        name: 'Estado',
         options: {
           filter: true,
           customBodyRender: value => {
-            if (value === "R") {
+            if (value === 'R') {
               return <Chip label="Registrado" color="secondary" />;
             }
-            if (value === "T") {
+            if (value === 'T') {
               return <Chip label="Terminado" color="primary" />;
             }
             return <Chip label="Unknown" />;
@@ -68,7 +68,7 @@ class Expedientes extends React.Component {
         }
       },
       {
-        name: "Fecha de Registro",
+        name: 'Fecha de Registro',
         options: {
           filter: true
         }
@@ -79,12 +79,12 @@ class Expedientes extends React.Component {
   componentDidMount() {
     this.props.getExpedientes();
 
-    const loguedUsername = localStorage.getItem("username");
+    const loguedUsername = localStorage.getItem('username');
     if (!loguedUsername) {
-      window.location.href = "/login";
-    } else if (loguedUsername !== "octavio" &&
-    loguedUsername !== "administracion") {
-      window.location.href = "/not-found";
+      window.location.href = '/login';
+    } else if (loguedUsername !== 'octavio'
+    && loguedUsername !== 'administracion') {
+      window.location.href = '/not-found';
     }
   }
 
@@ -92,22 +92,22 @@ class Expedientes extends React.Component {
     const { columns } = this.state;
     const { classes } = this.props;
     const options = {
-      filterType: "dropdown",
-      responsive: "stacked",
+      filterType: 'dropdown',
+      responsive: 'stacked',
       print: true,
       rowsPerPage: 10,
       page: 1
     };
 
-    let expedientes = [];
-    this.props.expediente.get("expedientes").map(expediente => {
+    const expedientes = [];
+    this.props.expediente.get('expedientes').map(expediente => {
       expedientes.push([
         expediente.numeracion,
         expediente.alumno.dni,
         expediente.curso_licencia.licencia_actual.nombre,
         expediente.curso_licencia.licencia_postula.nombre,
         expediente.estado,
-        moment(expediente.fecha).format("L")
+        moment(expediente.fecha).format('L')
       ]);
       return true;
     });
@@ -129,7 +129,7 @@ Expedientes.propTypes = {
   classes: PropTypes.object.isRequired
 };
 const mapStateToProps = state => ({
-  expediente: state.get("expediente")
+  expediente: state.get('expediente')
 });
 export default connect(
   mapStateToProps,

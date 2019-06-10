@@ -1,10 +1,10 @@
-import { fromJS, List } from "immutable";
+import { fromJS, List } from 'immutable';
 import {
   GET_HISTORIAL_EXTERNO,
   GET_ALUMNOS,
   GET_TRAMITADORES,
   GET_VEHICULOS
-} from "../actions2/types";
+} from '../actions2/types';
 
 const initialState = {
   historiales: List([]),
@@ -22,25 +22,25 @@ export default function reducer(state = initialImmutableState, action = {}) {
       return state.withMutations(mutableState => {
         const historiales = fromJS(action.payload);
         mutableState
-          .set("historiales", historiales)
-          .set("loading", fromJS(false));
+          .set('historiales', historiales)
+          .set('loading', fromJS(false));
       });
     case GET_ALUMNOS:
       return state.withMutations(mutableState => {
         const alumnos = action.payload;
-        mutableState.set("alumnos", alumnos).set("loading", false);
+        mutableState.set('alumnos', alumnos).set('loading', false);
       });
     case GET_VEHICULOS:
       return state.withMutations(mutableState => {
         const vehiculos = action.payload;
-        mutableState.set("vehiculos", vehiculos).set("loading", false);
+        mutableState.set('vehiculos', vehiculos).set('loading', false);
       });
     case GET_TRAMITADORES:
       return state.withMutations(mutableState => {
         const tramitadores = fromJS(action.payload);
         mutableState
-          .set("tramitadores", tramitadores)
-          .set("loading", fromJS(false));
+          .set('tramitadores', tramitadores)
+          .set('loading', fromJS(false));
       });
 
     default:

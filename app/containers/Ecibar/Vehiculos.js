@@ -1,21 +1,21 @@
-import React from "react";
-import { withStyles } from "@material-ui/core/styles";
-import PropTypes from "prop-types";
-import LinearProgress from "@material-ui/core/LinearProgress";
-import Chip from "@material-ui/core/Chip";
-import MUIDataTable from "mui-datatables";
-import { connect } from "react-redux";
-import { getVehiculos } from "../../actions2/vehiculoAction";
+import React from 'react';
+import { withStyles } from '@material-ui/core/styles';
+import PropTypes from 'prop-types';
+import LinearProgress from '@material-ui/core/LinearProgress';
+import Chip from '@material-ui/core/Chip';
+import MUIDataTable from 'mui-datatables';
+import { connect } from 'react-redux';
+import { getVehiculos } from '../../actions2/vehiculoAction';
 
 const styles = theme => ({
   table: {
-    "& > div": {
-      overflow: "auto"
+    '& > div': {
+      overflow: 'auto'
     },
-    "& table": {
+    '& table': {
       minWidth: 500,
-      [theme.breakpoints.down("md")]: {
-        "& td": {
+      [theme.breakpoints.down('md')]: {
+        '& td': {
           height: 40
         }
       }
@@ -27,22 +27,22 @@ class Vehiculos extends React.Component {
   state = {
     columns: [
       {
-        name: "Placa",
+        name: 'Placa',
         options: {
           filter: true
         }
       },
       {
-        name: "Clase",
+        name: 'Clase',
         options: {
           filter: true
         }
       },
       {
-        name: "Kilometraje"
+        name: 'Kilometraje'
       },
       {
-        name: "Marca",
+        name: 'Marca',
         options: {
           filter: true
         }
@@ -53,12 +53,12 @@ class Vehiculos extends React.Component {
   componentDidMount() {
     this.props.getVehiculos();
 
-    const loguedUsername = localStorage.getItem("username");
+    const loguedUsername = localStorage.getItem('username');
     if (!loguedUsername) {
-      window.location.href = "/login";
-    } else if (loguedUsername !== "octavio" &&
-    loguedUsername !== "administracion") {
-      window.location.href = "/not-found";
+      window.location.href = '/login';
+    } else if (loguedUsername !== 'octavio'
+    && loguedUsername !== 'administracion') {
+      window.location.href = '/not-found';
     }
   }
 
@@ -66,15 +66,15 @@ class Vehiculos extends React.Component {
     const { columns } = this.state;
     const { classes } = this.props;
     const options = {
-      filterType: "dropdown",
-      responsive: "stacked",
+      filterType: 'dropdown',
+      responsive: 'stacked',
       print: true,
       rowsPerPage: 10,
       page: 1
     };
 
-    let vehiculos = [];
-    this.props.vehiculo.get("vehiculos").map(vehiculo => {
+    const vehiculos = [];
+    this.props.vehiculo.get('vehiculos').map(vehiculo => {
       vehiculos.push([
         vehiculo.placa,
         vehiculo.clase.nombre,
@@ -101,7 +101,7 @@ Vehiculos.propTypes = {
   classes: PropTypes.object.isRequired
 };
 const mapStateToProps = state => ({
-  vehiculo: state.get("vehiculo")
+  vehiculo: state.get('vehiculo')
 });
 export default connect(
   mapStateToProps,

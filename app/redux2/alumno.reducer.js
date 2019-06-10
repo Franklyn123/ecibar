@@ -1,5 +1,5 @@
-import { fromJS, List } from "immutable";
-import { GET_ALUMNOS } from "../actions2/types";
+import { fromJS, List } from 'immutable';
+import { GET_ALUMNOS } from '../actions2/types';
 
 const initialState = {
   alumnos: List([]),
@@ -13,7 +13,7 @@ export default function reducer(state = initialImmutableState, action = {}) {
     case GET_ALUMNOS:
       return state.withMutations(mutableState => {
         const alumnos = action.payload;
-        mutableState.set("alumnos", alumnos).set("loading", fromJS(false));
+        mutableState.set('alumnos', alumnos).set('loading', fromJS(false));
       });
 
     default:
