@@ -270,7 +270,7 @@ export function ficha_inscripcion(datos) {
     doc.autoTable([{ title: "DOMICILIO", dataKey: "cp" }], rows, {
       margin: { horizontal: 70, top: finalY4 + 1 },
       columnStyles: {
-        cp: { columnWidth: 50 }
+        cp: { columnWidth: 70 }
       },
       styles: {
         fontSize: 8,
@@ -278,7 +278,7 @@ export function ficha_inscripcion(datos) {
         overflowColumns: "linebreak"
       }
     });
-    doc.text(130, finalY4 + 15, datos.alumno.domicilio);
+    doc.text(150, finalY4 + 15, datos.alumno.domicilio);
 
     doc.autoTable([{ title: "DISTRITO", dataKey: "cp" }], rows, {
       margin: { horizontal: 420, top: finalY4 + 1 },
@@ -316,7 +316,7 @@ export function ficha_inscripcion(datos) {
     );
 
     let finalY6 = doc.autoTable.previous.finalY;
-    doc.autoTable([{ title: "REVALIDACION", dataKey: "cp" }], rows, {
+    doc.autoTable([{ title: "REVALIDACIÓN", dataKey: "cp" }], rows, {
       margin: { horizontal: 70, top: finalY6 + 1 },
       columnStyles: {
         cp: { columnWidth: 110 }
@@ -389,7 +389,7 @@ export function ficha_inscripcion(datos) {
       }
     );
 
-    doc.autoTable([{ title: "OTROS", dataKey: "cp" }], rows, {
+    doc.autoTable([{ title: "OTROS (NUEVO)", dataKey: "cp" }], rows, {
       margin: { horizontal: 490, top: finalY7 + 1 },
       columnStyles: {
         cp: { columnWidth: 110 }
@@ -401,12 +401,17 @@ export function ficha_inscripcion(datos) {
     });
 
     switch (datos.curso) {
+      case "REVALIDACIÓN":
+        doc.text(190, finalY6 + 15, "X");
+        break;
       case "RECATEGORIZACIÓN":
         doc.text(330, finalY6 + 15, "X");
         break;
-
       case "TALLER CAMBIEMOS DE ACTITUD":
         doc.text(470, finalY7 + 15, "X");
+        break;
+      case "NUEVO":
+        doc.text(610, finalY7 + 15, "X");
         break;
     }
 
@@ -491,7 +496,7 @@ export function ficha_inscripcion(datos) {
     });
     doc.text(190, finalY10 + 15, "OCTAVIO");
 
-    doc.autoTable([{ title: "FECHA INSCRIPCION", dataKey: "cp" }], rows, {
+    doc.autoTable([{ title: "FECHA INSCRIPCIÓN", dataKey: "cp" }], rows, {
       margin: { horizontal: 350, top: finalY10 + 1 },
       columnStyles: {
         cp: { columnWidth: 110 }
@@ -525,7 +530,7 @@ export function ficha_inscripcion(datos) {
       }
     );
     let finalY12 = doc.autoTable.previous.finalY;
-    doc.autoTable([{ title: "INICIA TEORIA", dataKey: "cp" }], rows, {
+    doc.autoTable([{ title: "INICIA TEORÍA", dataKey: "cp" }], rows, {
       margin: { horizontal: 70, top: finalY12 + 1 },
       columnStyles: {
         cp: { columnWidth: 110 }
@@ -541,7 +546,7 @@ export function ficha_inscripcion(datos) {
       date_converter.convertDate(datos.fecha_inicio_teoria).toString()
     );
 
-    doc.autoTable([{ title: "FIN TEORIA", dataKey: "cp" }], rows, {
+    doc.autoTable([{ title: "FIN TEORÍA", dataKey: "cp" }], rows, {
       margin: { horizontal: 350, top: finalY12 + 1 },
       columnStyles: {
         cp: { columnWidth: 110 }
@@ -558,6 +563,22 @@ export function ficha_inscripcion(datos) {
       date_converter.convertDate(datos.fecha_fin_teoria).toString()
     );
 
+    /********************************/
+    /******  FECHAS DE MANEJO  ******/
+    /********************************/
+
+    // Verificar si tiene fechas de manejo
+    let fecha_inicio_manejo = "";
+    let fecha_fin_manejo = "";
+    if (datos.fecha_inicio_manejo != "" && datos.fecha_inicio_manejo != null)
+      fecha_inicio_manejo = date_converter
+        .convertDate(datos.fecha_inicio_manejo)
+        .toString();
+    if (datos.fecha_fin_manejo != "" && datos.fecha_fin_manejo != null)
+      fecha_fin_manejo = date_converter
+        .convertDate(datos.fecha_fin_manejo)
+        .toString();
+
     let finalY13 = doc.autoTable.previous.finalY;
     doc.autoTable([{ title: "INICIA MANEJO", dataKey: "cp" }], rows, {
       margin: { horizontal: 70, top: finalY13 + 1.5 },
@@ -570,11 +591,7 @@ export function ficha_inscripcion(datos) {
       }
     });
 
-    doc.text(
-      190,
-      finalY13 + 15,
-      date_converter.convertDate(datos.fecha_inicio_manejo).toString()
-    );
+    doc.text(190, finalY13 + 15, fecha_inicio_manejo);
 
     doc.autoTable([{ title: "FIN MANEJO", dataKey: "cp" }], rows, {
       margin: { horizontal: 350, top: finalY13 + 1.5 },
@@ -587,14 +604,10 @@ export function ficha_inscripcion(datos) {
       }
     });
 
-    doc.text(
-      470,
-      finalY13 + 15,
-      date_converter.convertDate(datos.fecha_fin_manejo).toString()
-    );
+    doc.text(470, finalY13 + 15, fecha_fin_manejo);
 
     let finalY14 = doc.autoTable.previous.finalY;
-    doc.autoTable([{ title: "HORAS TEORIA", dataKey: "cp" }], rows, {
+    doc.autoTable([{ title: "HORAS TEORÍA", dataKey: "cp" }], rows, {
       margin: { horizontal: 70, top: finalY14 + 1 },
       columnStyles: {
         cp: { columnWidth: 110 }

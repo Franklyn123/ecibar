@@ -147,7 +147,7 @@ export function aii_a_RAET(datos) {
     doc.setFontSize(8);
     var finalY = doc.autoTable.previous.finalY;
     doc.text(540, finalY + 10, "PROMEDIO FINAL: ");
-    doc.text(690, finalY + 10, "18");
+    doc.text(690, finalY + 10, "");
 
     doc.text(120, 540, "__________________________________");
 

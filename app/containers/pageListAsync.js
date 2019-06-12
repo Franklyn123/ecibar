@@ -1,73 +1,73 @@
-import Loadable from 'react-loadable';
-import Loading from 'dan-components/Loading';
+import Loadable from "react-loadable";
+import Loading from "dan-components/Loading";
 
 // Other
 export const Error = Loadable({
-  loader: () => import('./Pages/Error'),
+  loader: () => import("./Pages/Error"),
   loading: Loading
 });
 
 export const Parent = Loadable({
-  loader: () => import('./Parent'),
+  loader: () => import("./Parent"),
   loading: Loading
 });
 export const Test = Loadable({
-  loader: () => import('./Ecibar/Test'),
+  loader: () => import("./Ecibar/Test"),
   loading: Loading
 });
 export const NotFound = Loadable({
-  loader: () => import('./NotFound/NotFound'),
+  loader: () => import("./NotFound/NotFound"),
   loading: Loading
 });
 
 // Dashboard
 export const FichaInscripcion = Loadable({
-  loader: () => import('./Ecibar/FichaInscripcion'),
+  loader: () => import("./Ecibar/FichaInscripcion"),
   loading: Loading
 });
 export const Asistencia = Loadable({
-  loader: () => import('./Ecibar/Asistencia'),
+  loader: () => import("./Ecibar/Asistencia"),
   loading: Loading
 });
 export const Seguimiento = Loadable({
-  loader: () => import('./Ecibar/Seguimiento'),
+  loader: () => import("./Ecibar/Seguimiento"),
   loading: Loading
 });
 export const RENIEC = Loadable({
-  loader: () => import('./Ecibar/reniec'),
+  loader: () => import("./Ecibar/reniec"),
   loading: Loading
 });
 export const HistorialExt = Loadable({
-  loader: () => import('./Ecibar/historialExterno'),
+  loader: () => import("./Ecibar/historialExterno"),
   loading: Loading
 });
 export const ListarHistorialExterno = Loadable({
-  loader: () => import('./Ecibar/ListHistorialExterno'),
+  loader: () => import("./Ecibar/ListHistorialExterno"),
   loading: Loading
 });
 export const Expedientes = Loadable({
-  loader: () => import('./Ecibar/Expedientes'),
+  loader: () => import("./Ecibar/Expedientes"),
   loading: Loading
 });
 export const Alumnos = Loadable({
-  loader: () => import('./Ecibar/Alumnos'),
+  loader: () => import("./Ecibar/Alumnos"),
   loading: Loading
 });
 export const Vehiculos = Loadable({
-  loader: () => import('./Ecibar/Vehiculos'),
+  loader: () => import("./Ecibar/Vehiculos"),
   loading: Loading
 });
 export const Instructores = Loadable({
-  loader: () => import('./Ecibar/Instructores'),
+  loader: () => import("./Ecibar/Instructores"),
   loading: Loading
 });
 
 export const Login = Loadable({
-  loader: () => import('./Ecibar/LoginApp'),
+  loader: () => import("./Ecibar/LoginApp"),
   loading: Loading
 });
 
 export const NotFound2 = Loadable({
-  loader: () => import('./NotFound/NotFound'),
+  loader: () => import("./NotFound/NotFound"),
   loading: Loading
 });
