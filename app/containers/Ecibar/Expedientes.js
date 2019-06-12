@@ -63,7 +63,10 @@ class Expedientes extends React.Component {
             if (value === 'T') {
               return <Chip label="Terminado" color="primary" />;
             }
-            return <Chip label="Unknown" />;
+            if (value === 'O') {
+              return <Chip label="Observación" color="default"/>
+            }
+            return <Chip label="Observación" />;
           }
         }
       },
