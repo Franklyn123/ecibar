@@ -147,7 +147,7 @@ export function aiii_c_FIAC(datos) {
       doc.text(
         185,
         finalYY2 + 16,
-        date_converter.convertDate(new Date(manejo[3].fecha))
+        date_converter.convertDate(new Date(manejo[6].fecha))
       );
       const finalY3 = doc.autoTable.previous.finalY;
 

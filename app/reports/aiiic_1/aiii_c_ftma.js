@@ -145,7 +145,7 @@ export function aiii_c_FTMA(datos) {
       doc.text(
         185,
         finalY2 + 16,
-        date_converter.convertDate(new Date(manejo[3].fecha))
+        date_converter.convertDate(new Date(manejo[6].fecha))
       );
       const finalY3 = doc.autoTable.previous.finalY;
 
@@ -422,7 +422,7 @@ export function aiii_c_FTMA(datos) {
       doc.text(
         185,
         finalY2 + 16,
-        date_converter.convertDate(new Date(manejo[3].fecha))
+        date_converter.convertDate(new Date(manejo[6].fecha))
       );
 
       // Placa del vehiculo
