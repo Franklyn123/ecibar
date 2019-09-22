@@ -1,0 +1,3 @@
+{"_id":{"$oid":"5cb60fb3ffa827238100fece"},"name":"octavio","username":"octavio","password":"22995555","admin":true,"__v":{"$numberInt":"0"}}
+{"_id":{"$oid":"5cb610184c58ac2470159008"},"name":"direccion","username":"direccion","password":"direccion","__v":{"$numberInt":"0"}}
+{"_id":{"$oid":"5cb61047f4229b253be304a1"},"name":"administracion","username":"administracion","password":"administracion","__v":{"$numberInt":"0"}}
