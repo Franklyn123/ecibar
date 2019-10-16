@@ -13,11 +13,12 @@ export function aiii_c_FTMA(datos) {
 
   // Genera arreglo de objetos JSON de dias de manejo
   const manejo = [];
-  for (let i = 0; i < datos.clases_manejo.size; i++) {
+  for (var i = 0; i < datos.clases_manejo.size; i++) {
     manejo.push({
-      fecha: datos.clases_manejo._tail.array[i]._root.entries[0][1],
-      km_inicio: datos.clases_manejo._tail.array[i]._root.entries[1][1],
-      km_fin: datos.clases_manejo._tail.array[i]._root.entries[2][1]
+      fecha_inicio: datos.clases_manejo._tail.array[i]._root.entries[1][1],
+      fecha_fin: datos.clases_manejo._tail.array[i]._root.entries[2][1],
+      km_inicio: datos.clases_manejo._tail.array[i]._root.entries[5][1],
+      km_fin: datos.clases_manejo._tail.array[i]._root.entries[6][1]
     });
   }
 
@@ -35,11 +36,11 @@ export function aiii_c_FTMA(datos) {
   img.src = '/images/ecibar/ecibar.png';
   img2.src = '/images/ecibar/mtc.png';
 
-  imageen.imgToBase64(img.src, (imagen0) => {
-    doc.addImage(imagen0, 'JPEG', 40, 40, 107, 23);
+  imageen.imgToBase64(img.src, imagen0 => {
+    doc.addImage(imagen0, 'JPEG', 40, 40, 107, 23, undefined, 'FAST');
 
-    imageen.imgToBase64(img2.src, (imagen1) => {
-      doc.addImage(imagen1, 'JPEG', 660, 40, 115, 29);
+    imageen.imgToBase64(img2.src, imagen1 => {
+      doc.addImage(imagen1, 'JPEG', 660, 40, 115, 29, undefined, 'FAST');
 
       doc.setFont('helvetica');
       doc.setFontType('bold');
@@ -88,11 +89,11 @@ export function aiii_c_FTMA(datos) {
       doc.text(
         185,
         83,
-        datos.alumno.a_paterno
-          + ' '
-          + datos.alumno.a_materno
-          + ' '
-          + datos.alumno.nombres
+        datos.alumno.a_paterno +
+          ' ' +
+          datos.alumno.a_materno +
+          ' ' +
+          datos.alumno.nombres
       );
       const finalY0 = doc.autoTable.previous.finalY;
 
@@ -126,7 +127,7 @@ export function aiii_c_FTMA(datos) {
       doc.text(
         185,
         finalY1 + 16,
-        date_converter.convertDate(new Date(manejo[0].fecha))
+        date_converter.convertDate(new Date(manejo[0].fecha_inicio))
       );
       const finalY2 = doc.autoTable.previous.finalY;
 
@@ -145,7 +146,7 @@ export function aiii_c_FTMA(datos) {
       doc.text(
         185,
         finalY2 + 16,
-        date_converter.convertDate(new Date(manejo[6].fecha))
+        date_converter.convertDate(new Date(manejo[3].fecha_fin))
       );
       const finalY3 = doc.autoTable.previous.finalY;
 
@@ -368,11 +369,11 @@ export function aiii_c_FTMA(datos) {
       doc.text(
         185,
         83,
-        datos.alumno.a_paterno
-          + ' '
-          + datos.alumno.a_materno
-          + ' '
-          + datos.alumno.nombres
+        datos.alumno.a_paterno +
+          ' ' +
+          datos.alumno.a_materno +
+          ' ' +
+          datos.alumno.nombres
       );
 
       // DNI
@@ -404,7 +405,7 @@ export function aiii_c_FTMA(datos) {
       doc.text(
         185,
         finalY1 + 16,
-        date_converter.convertDate(new Date(manejo[0].fecha))
+        date_converter.convertDate(new Date(manejo[0].fecha_inicio))
       );
 
       // Fecha fin
@@ -422,7 +423,7 @@ export function aiii_c_FTMA(datos) {
       doc.text(
         185,
         finalY2 + 16,
-        date_converter.convertDate(new Date(manejo[6].fecha))
+        date_converter.convertDate(new Date(manejo[6].fecha_fin))
       );
 
       // Placa del vehiculo
@@ -522,7 +523,7 @@ export function aiii_c_FTMA(datos) {
           ti: { columnWidth: 210 }
         }
       });
-      doc.text(620, finalY3 + 16, manejo[0].km_inicio.toString());
+      doc.text(620, finalY3 + 16, manejo[4].km_inicio.toString());
 
       doc.autoTable(
         [{ title: 'KILOMETRAJE DE TERMINO', dataKey: 'ti' }],
@@ -539,7 +540,7 @@ export function aiii_c_FTMA(datos) {
           }
         }
       );
-      doc.text(620, finalY4 + 16, manejo[3].km_fin.toString());
+      doc.text(620, finalY4 + 16, manejo[6].km_fin.toString());
 
       // Datos de la capacitación
       doc.autoTable(

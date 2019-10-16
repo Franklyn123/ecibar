@@ -1,5 +1,5 @@
-import * as image_converter from "../image_converter";
-import * as generador_asistencias from "./generador/generar_asistencias_teoricas";
+import * as image_converter from '../image_converter';
+import * as generador_asistencias from './generador/generar_asistencias_teoricas';
 
 const img = new Image();
 
@@ -14,32 +14,32 @@ export function aiii_a_RACT(datos) {
 
   var filas = generador_asistencias.generar(teoria);
 
-  var doc = new jsPDF("l", "pt");
+  var doc = new jsPDF('l', 'pt');
   var rows = [];
 
-  img.src = "/images/ecibar/ecibar.png";
+  img.src = '/images/ecibar/ecibar.png';
 
   image_converter.imgToBase64(img.src, function(imagen) {
-    doc.addImage(imagen, "JPEG", 40, 40, 168, 42.75);
+    doc.addImage(imagen, 'JPEG', 40, 40, 168, 42.75, undefined, 'FAST');
 
-    doc.setFont("helvetica");
-    doc.setFontType("bold");
+    doc.setFont('helvetica');
+    doc.setFontType('bold');
 
     // RACT
     doc.setFontSize(20);
-    doc.text(310, 70, "REGISTRO DE ASISTENCIA A CLASES TEORICAS");
+    doc.text(310, 70, 'REGISTRO DE ASISTENCIA A CLASES TEORICAS');
 
     doc.setFontSize(8);
 
     var exp = [
       {
-        title: "Nº EXPEDIENTE                                        ",
-        dataKey: "exp"
+        title: 'Nº EXPEDIENTE                                        ',
+        dataKey: 'exp'
       }
     ];
-    var colnom = [{ title: "APELLIDOS Y NOMBRES ", dataKey: "nombre" }];
-    var collic = [{ title: "LICENCIA EN TRAMITE ", dataKey: "lt" }];
-    var coltipoc = [{ title: "TIPO DE CURSO ", dataKey: "tc" }];
+    var colnom = [{ title: 'APELLIDOS Y NOMBRES ', dataKey: 'nombre' }];
+    var collic = [{ title: 'LICENCIA EN TRAMITE ', dataKey: 'lt' }];
+    var coltipoc = [{ title: 'TIPO DE CURSO ', dataKey: 'tc' }];
 
     // Nombres y apellidos
     doc.autoTable(colnom, rows, {
@@ -49,16 +49,16 @@ export function aiii_a_RACT(datos) {
       },
       styles: {
         fontSize: 8,
-        columnWidth: "wrap"
+        columnWidth: 'wrap'
       }
     });
     doc.text(
       210,
       113,
       datos.alumno.a_paterno +
-        " " +
+        ' ' +
         datos.alumno.a_materno +
-        " " +
+        ' ' +
         datos.alumno.nombres
     );
     var finalY0 = doc.autoTable.previous.finalY;
@@ -71,7 +71,7 @@ export function aiii_a_RACT(datos) {
       },
       styles: {
         fontSize: 8,
-        columnWidth: "wrap"
+        columnWidth: 'wrap'
       }
     });
     doc.text(210, finalY0 + 16, datos.licencia_postula);
@@ -85,7 +85,7 @@ export function aiii_a_RACT(datos) {
       },
       styles: {
         fontSize: 8,
-        columnWidth: "wrap"
+        columnWidth: 'wrap'
       }
     });
     doc.text(620, 113, datos.expediente);
@@ -98,18 +98,18 @@ export function aiii_a_RACT(datos) {
       },
       styles: {
         fontSize: 8,
-        columnWidth: "wrap"
+        columnWidth: 'wrap'
       }
     });
     doc.text(620, finalY0 + 16, datos.curso);
 
     doc.setFontSize(10);
     var col = [
-      { title: "NRO", dataKey: "nro" },
-      { title: "FECHA", dataKey: "fecha" },
-      { title: "HORA DE ENTRADA", dataKey: "horaentrada" },
-      { title: "HORA DE SALIDA", dataKey: "horasalida" },
-      { title: "HORAS", dataKey: "horas" }
+      { title: 'NRO', dataKey: 'nro' },
+      { title: 'FECHA', dataKey: 'fecha' },
+      { title: 'HORA DE ENTRADA', dataKey: 'horaentrada' },
+      { title: 'HORA DE SALIDA', dataKey: 'horasalida' },
+      { title: 'HORAS', dataKey: 'horas' }
     ];
 
     for (var key in filas) {
@@ -119,12 +119,12 @@ export function aiii_a_RACT(datos) {
 
     // Tabla de horas
     doc.autoTable(col, rows, {
-      tableWidth: "wrap",
+      tableWidth: 'wrap',
       margin: { horizontal: 40, top: finalY1 + 8 },
       styles: {
         fontSize: 8,
-        columnWidth: "wrap",
-        halign: "center"
+        columnWidth: 'wrap',
+        halign: 'center'
       },
       columnStyles: {
         nro: { columnWidth: 60 },
@@ -137,15 +137,15 @@ export function aiii_a_RACT(datos) {
 
     doc.setFontSize(8);
     var finalY = doc.autoTable.previous.finalY;
-    doc.text(450, finalY + 10, "TOTAL HORAS: ");
-    doc.text(623, finalY + 10, "30");
+    doc.text(450, finalY + 10, 'TOTAL HORAS: ');
+    doc.text(623, finalY + 10, '30');
 
-    doc.text(120, 540, "__________________________________");
+    doc.text(120, 540, '__________________________________');
 
-    doc.text(120, 551, "      FIRMA DEL ALUMNO(HUELLA)");
-    doc.text(580, 540, "___________________________");
-    doc.text(580, 551, "      FIRMA DEL DIRECTOR");
+    doc.text(120, 551, '      FIRMA DEL ALUMNO(HUELLA)');
+    doc.text(580, 540, '___________________________');
+    doc.text(580, 551, '      FIRMA DEL DIRECTOR');
 
-    doc.save(datos.expediente + "_RACT.pdf");
+    doc.save(datos.expediente + '_RACT.pdf');
   });
 }

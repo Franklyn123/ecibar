@@ -1,9 +1,17 @@
 export function convertDate(inputFormat) {
   function pad(s) {
-    return s < 10 ? "0" + s : s;
+    return s < 10 ? '0' + s : s;
   }
   const d = new Date(inputFormat);
-  return [pad(d.getDate()), pad(d.getMonth() + 1), d.getFullYear()].join("/");
+  return [pad(d.getDate()), pad(d.getMonth() + 1), d.getFullYear()].join('/');
+}
+
+export function extractHourFromDate(date) {
+  function pad(s) {
+    return s < 10 ? '0' + s : s;
+  }
+  const d = new Date(date);
+  return [pad(d.getHours()), pad(d.getMinutes())].join(':');
 }
 
 export function calcularEdad(inputFormat) {

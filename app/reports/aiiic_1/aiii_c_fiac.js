@@ -18,9 +18,9 @@ export function aiii_c_FIAC(datos) {
   const manejo = [];
   for (var i = 0; i < datos.clases_manejo.size; i++) {
     manejo.push({
-      fecha: datos.clases_manejo._tail.array[i]._root.entries[0][1],
-      km_inicio: datos.clases_manejo._tail.array[i]._root.entries[1][1],
-      km_fin: datos.clases_manejo._tail.array[i]._root.entries[2][1]
+      fecha: datos.clases_manejo._tail.array[i]._root.entries[1][1],
+      km_inicio: datos.clases_manejo._tail.array[i]._root.entries[5][1],
+      km_fin: datos.clases_manejo._tail.array[i]._root.entries[6][1]
     });
   }
 
@@ -37,11 +37,11 @@ export function aiii_c_FIAC(datos) {
   img.src = '/images/ecibar/ecibar.png';
   img2.src = '/images/ecibar/mtc.png';
 
-  imageen.imgToBase64(img.src, (imagen0) => {
-    doc.addImage(imagen0, 'JPEG', 40, 40, 107, 23);
+  imageen.imgToBase64(img.src, imagen0 => {
+    doc.addImage(imagen0, 'JPEG', 40, 40, 107, 23, undefined, 'FAST');
 
-    imageen.imgToBase64(img2.src, (imagen1) => {
-      doc.addImage(imagen1, 'JPEG', 660, 40, 115, 29);
+    imageen.imgToBase64(img2.src, imagen1 => {
+      doc.addImage(imagen1, 'JPEG', 660, 40, 115, 29, undefined, 'FAST');
 
       doc.setFont('helvetica');
       doc.setFontType('bold');
@@ -90,11 +90,11 @@ export function aiii_c_FIAC(datos) {
       doc.text(
         185,
         83,
-        datos.alumno.a_paterno
-          + ' '
-          + datos.alumno.a_materno
-          + ' '
-          + datos.alumno.nombres
+        datos.alumno.a_paterno +
+          ' ' +
+          datos.alumno.a_materno +
+          ' ' +
+          datos.alumno.nombres
       );
       const finalY0 = doc.autoTable.previous.finalY;
 
@@ -350,11 +350,11 @@ export function aiii_c_FIAC(datos) {
       doc.text(
         185,
         83,
-        datos.alumno.a_paterno
-          + ' '
-          + datos.alumno.a_materno
-          + ' '
-          + datos.alumno.nombres
+        datos.alumno.a_paterno +
+          ' ' +
+          datos.alumno.a_materno +
+          ' ' +
+          datos.alumno.nombres
       );
 
       // DNI

@@ -8,11 +8,12 @@ const img2 = new Image();
 export function aiii_c_EPM(datos) {
   // Genera arreglo de objetos JSON de dias de manejo
   const manejo = [];
-  for (let i = 0; i < datos.clases_manejo.size; i++) {
+  for (var i = 0; i < datos.clases_manejo.size; i++) {
     manejo.push({
-      fecha: datos.clases_manejo._tail.array[i]._root.entries[0][1],
-      km_inicio: datos.clases_manejo._tail.array[i]._root.entries[1][1],
-      km_fin: datos.clases_manejo._tail.array[i]._root.entries[2][1]
+      fecha_inicio: datos.clases_manejo._tail.array[i]._root.entries[1][1],
+      fecha_fin: datos.clases_manejo._tail.array[i]._root.entries[2][1],
+      km_inicio: datos.clases_manejo._tail.array[i]._root.entries[5][1],
+      km_fin: datos.clases_manejo._tail.array[i]._root.entries[6][1]
     });
   }
 
@@ -28,11 +29,11 @@ export function aiii_c_EPM(datos) {
   img.src = '/images/ecibar/ecibar.png';
   img2.src = '/images/ecibar/mtc.png';
 
-  imageen.imgToBase64(img.src, (imagen) => {
-    doc.addImage(imagen, 'JPEG', 440, 40, 107, 23);
+  imageen.imgToBase64(img.src, imagen => {
+    doc.addImage(imagen, 'JPEG', 440, 40, 107, 23, undefined, 'FAST');
 
-    imageen.imgToBase64(img2.src, (imagen) => {
-      doc.addImage(imagen, 'JPEG', 40, 40, 107, 23);
+    imageen.imgToBase64(img2.src, imagen => {
+      doc.addImage(imagen, 'JPEG', 40, 40, 107, 23, undefined, 'FAST');
 
       doc.setFont('helvetica');
       doc.setFontType('bold');
@@ -75,11 +76,11 @@ export function aiii_c_EPM(datos) {
       doc.text(
         185,
         133,
-        datos.alumno.a_paterno
-          + ' '
-          + datos.alumno.a_materno
-          + ' '
-          + datos.alumno.nombres
+        datos.alumno.a_paterno +
+          ' ' +
+          datos.alumno.a_materno +
+          ' ' +
+          datos.alumno.nombres
       );
       const finalY0 = doc.autoTable.previous.finalY;
 
@@ -111,7 +112,7 @@ export function aiii_c_EPM(datos) {
       doc.text(
         185,
         finalY1 + 16,
-        date_converter.convertDate(new Date(manejo[6].fecha))
+        date_converter.convertDate(new Date(manejo[6].fecha_inicio))
       );
       const finalY2 = doc.autoTable.previous.finalY;
 
@@ -158,7 +159,11 @@ export function aiii_c_EPM(datos) {
           }
         }
       );
-      doc.text(185, finalY4 + 16, '8:00');
+      doc.text(
+        185,
+        finalY4 + 16,
+        date_converter.extractHourFromDate(manejo[3].fecha_inicio)
+      );
       const finalY5 = doc.autoTable.previous.finalY;
 
       // Hora de fin
@@ -172,7 +177,11 @@ export function aiii_c_EPM(datos) {
           columnWidth: 'wrap'
         }
       });
-      doc.text(476, finalY4 + 16, '9:30');
+      doc.text(
+        476,
+        finalY4 + 16,
+        date_converter.extractHourFromDate(manejo[3].fecha_fin)
+      );
 
       // Via de circulacion
       const finalY02 = doc.autoTable.previous.finalY;
@@ -213,7 +222,7 @@ export function aiii_c_EPM(datos) {
           }
         }
       );
-      doc.text(190, finalY6 + 16, datos.km_inicio);
+      doc.text(190, finalY6 + 16, manejo[6].km_inicio);
 
       // Kilometraje de termino
       doc.autoTable(
@@ -362,7 +371,6 @@ export function aiii_c_EPM(datos) {
           halign: 'center'
         }
       });
-
 
       doc.setFontSize(6);
       doc.setFontType('normal');

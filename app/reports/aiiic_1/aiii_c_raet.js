@@ -19,8 +19,8 @@ export function aiii_c_RAET(datos) {
 
   img.src = '/images/ecibar/ecibar.png';
 
-  image_converter.imgToBase64(img.src, (imagen) => {
-    doc.addImage(imagen, 'JPEG', 40, 40, 168, 42.75);
+  image_converter.imgToBase64(img.src, imagen => {
+    doc.addImage(imagen, 'JPEG', 40, 40, 168, 42.75, undefined, 'FAST');
 
     doc.setFont('helvetica');
     doc.setFontType('bold');
@@ -55,11 +55,11 @@ export function aiii_c_RAET(datos) {
     doc.text(
       210,
       113,
-      datos.alumno.a_paterno
-        + ' '
-        + datos.alumno.a_materno
-        + ' '
-        + datos.alumno.nombres
+      datos.alumno.a_paterno +
+        ' ' +
+        datos.alumno.a_materno +
+        ' ' +
+        datos.alumno.nombres
     );
     const finalY0 = doc.autoTable.previous.finalY;
 

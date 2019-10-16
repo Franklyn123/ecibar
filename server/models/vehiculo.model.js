@@ -5,32 +5,27 @@ const Schema = mongoose.Schema;
 
 // Create Schema
 const VehiculoSchema = new Schema({
-  placa: {
-    type: String,
-    required: true
-  },
-  clase: {
-    type: Schema.Types.ObjectId,
-    ref: 'tipo_clases'
-  },
-  km: {
-    type: String,
-    required: true
-  },
-  recorrido: [],
-  modelo: {
-    type: String,
-    required: true
-  },
-  serie: {
-    type: String,
-    required: true
-  },
+    placa: {
+        type: String,
+        required: true
+    },
+    clase: {
+        type: Schema.Types.ObjectId,
+        ref: 'tipo_clases'
+    },
+    km: {
+        type: String,
+        required: true
+    },
+    serie: {
+        type: String,
+        required: true
+    },
 
-  fecha: {
-    type: Date,
-    default: Date.now
-  }
+    fecha: {
+        type: Date,
+        default: Date.now
+    }
 });
 
 module.exports = Vehiculo = mongoose.model('vehiculos', VehiculoSchema);

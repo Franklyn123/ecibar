@@ -25,10 +25,10 @@ export function aiv_FIAC(datos) {
   img2.src = '/images/ecibar/mtc.png';
 
   imageen.imgToBase64(img.src, imagen => {
-    doc.addImage(imagen, 'JPEG', 40, 40, 107, 23);
+    doc.addImage(imagen, 'JPEG', 40, 40, 107, 23, undefined, 'FAST');
 
     imageen.imgToBase64(img2.src, imagen => {
-      doc.addImage(imagen, 'JPEG', 660, 40, 115, 29);
+      doc.addImage(imagen, 'JPEG', 660, 40, 115, 29, undefined, 'FAST');
 
       doc.setFont('helvetica');
       doc.setFontType('bold');
@@ -77,11 +77,11 @@ export function aiv_FIAC(datos) {
       doc.text(
         185,
         83,
-        datos.alumno.a_paterno
-          + ' '
-          + datos.alumno.a_materno
-          + ' '
-          + datos.alumno.nombres
+        datos.alumno.a_paterno +
+          ' ' +
+          datos.alumno.a_materno +
+          ' ' +
+          datos.alumno.nombres
       );
       const finalY0 = doc.autoTable.previous.finalY;
 
