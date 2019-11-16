@@ -1,0 +1,8 @@
+{"_id":{"$oid":"5c6fa3a22aad9799bce79ac4"},"nombre":"AII-B","clases":[{"$oid":"5ce72c77aa7e97b1c2006983"},{"$oid":"5ce72c96aa7e97b1c2006998"}]}
+{"_id":{"$oid":"5c6fa3a22aad9799bce79ac5"},"nombre":"AI","clases":[{"$oid":"5ce72c65aa7e97b1c200696e"}]}
+{"_id":{"$oid":"5c6fa3a22aad9799bce79ac6"},"nombre":"AII-A","clases":[{"$oid":"5ce72c8eaa7e97b1c2006994"}]}
+{"_id":{"$oid":"5c6fa3a22aad9799bce79ac7"},"nombre":"AIII-B","clases":[{"$oid":"5ce72cacaa7e97b1c20069af"}]}
+{"_id":{"$oid":"5c6fa3a22aad9799bce79ac8"},"nombre":"AIII-C","clases":[{"$oid":"5ce72cacaa7e97b1c20069af"},{"$oid":"5ce72cb4aa7e97b1c20069b5"}]}
+{"_id":{"$oid":"5c6fa3a22aad9799bce79ac9"},"nombre":"AIII-A","clases":[{"$oid":"5ce72cb4aa7e97b1c20069b5"}]}
+{"_id":{"$oid":"5c781d45e977b7025434cc36"},"nombre":"AII-C","clases":[]}
+{"_id":{"$oid":"5c6fa3a22aad9799bce79ac3"},"nombre":"AIV","clases":[]}

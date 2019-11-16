@@ -1,0 +1,58 @@
+[
+  {
+    "nro": 1,
+    "fecha": "",
+    "horaentrada": "08:00",
+    "horasalida": "14:00",
+    "nombreCurso": "Urbanidad y trato al usuario principios de salud ocupacional aplicadas al transporte, normas de seguridad y calidad que regulan la prestación del servicio de transportes de personas y mercaderías                                                                                                                                                    ",
+    "horas": "8"
+  },
+  {
+    "nro": 2,
+    "fecha": "",
+    "horaentrada": "08:00",
+    "horasalida": "14:00",
+    "nombreCurso": "Mecánica automotriz avanzada según la categoría del vehículo que corresponda. Principios de salud ocupacional aplicada al transporte de normas de seguridad y calidad que regulan la prestación del transporte de pesronass y mercancias                                                                                                               ",
+    "horas": "8"
+  },
+  {
+    "nro": 3,
+    "fecha": "",
+    "horaentrada": "08:00",
+    "horasalida": "14:00",
+    "nombreCurso": "Normas básicas sobre clasificación vehícular, urbanidad y trato al usuario, mecánica automotriz avanzada según la categoría del vehículo que corresponda                                                                                                                                                                                               ",
+    "horas": "8"
+  },
+  {
+    "nro": 4,
+    "fecha": "",
+    "horaentrada": "08:00",
+    "horasalida": "14:00",
+    "nombreCurso": "Uso de la tecnología aplicada al transporte de mercancias y personas. Manejo correcto de la carga. Pesos y dimensiones vehículares (vehículos de tranposrte de personas y mercancias).                                                                                                                                                                 ",
+    "horas": "8"
+  },
+  {
+    "nro": 5,
+    "fecha": "",
+    "horaentrada": "08:00",
+    "horasalida": "14:00",
+    "nombreCurso": "Manejo correcto de la carga. Principios de salud ocupacional aplicadas al transporte. Pesos y dimensiones vehículares (vehículos de transporte de personas y mercancias).                                                                                                                                                                              ",
+    "horas": "8"
+  },
+  {
+    "nro": 6,
+    "fecha": "",
+    "horaentrada": "08:00",
+    "horasalida": "14:00",
+    "nombreCurso": "Normas de seguridad y calidad que regulan la prestanción del servicio de transporte de personas y mercancias. Normas básicas sobre clasificación vehícular, pesos y dimensiones vehículares (vehículo de transporte de personas y mercancias).                                                                                                          ",
+    "horas": "8"
+  },
+  {
+    "nro": 7,
+    "fecha": "",
+    "horaentrada": "08:00",
+    "horasalida": "9:30",
+    "nombreCurso": "Enseñanza de normas tributarias sobre el uso de las guías de remisión del transportista. Normas de seguridad y calidad que regulan la prestación del servicio de tranposrte de personas y mercancias. Normas básicas sobre clasificación vehicular.                                                                                                     ",
+    "horas": "2"
+  }
+]

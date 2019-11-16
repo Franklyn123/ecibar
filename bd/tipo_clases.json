@@ -1,0 +1,7 @@
+{"_id":{"$oid":"5ce72c65aa7e97b1c200696e"},"nombre":"N1"}
+{"_id":{"$oid":"5ce72c77aa7e97b1c2006983"},"nombre":"N2"}
+{"_id":{"$oid":"5ce72c8eaa7e97b1c2006994"},"nombre":"M1"}
+{"_id":{"$oid":"5ce72c96aa7e97b1c2006998"},"nombre":"M2"}
+{"_id":{"$oid":"5ce72cacaa7e97b1c20069af"},"nombre":"N3"}
+{"_id":{"$oid":"5ce72cb4aa7e97b1c20069b5"},"nombre":"M3"}
+{"_id":{"$oid":"5ce72cc6aa7e97b1c20069cb"},"nombre":"L5"}

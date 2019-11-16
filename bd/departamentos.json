@@ -1,0 +1,25 @@
+{"_id":{"$oid":"5c6e227110be95336d24b202"},"id":"080000","name":"Cusco","created_at":null,"updated_at":null}
+{"_id":{"$oid":"5c6e227110be95336d24b203"},"id":"090000","name":"Huancavelica","created_at":null,"updated_at":null}
+{"_id":{"$oid":"5c6e227110be95336d24b204"},"id":"100000","name":"Huánuco","created_at":null,"updated_at":null}
+{"_id":{"$oid":"5c6e227110be95336d24b205"},"id":"110000","name":"Ica","created_at":null,"updated_at":null}
+{"_id":{"$oid":"5c6e227110be95336d24b206"},"id":"120000","name":"Junín","created_at":null,"updated_at":null}
+{"_id":{"$oid":"5c6e227110be95336d24b207"},"id":"130000","name":"La Libertad","created_at":null,"updated_at":null}
+{"_id":{"$oid":"5c6e227110be95336d24b208"},"id":"140000","name":"Lambayeque","created_at":null,"updated_at":null}
+{"_id":{"$oid":"5c6e227110be95336d24b209"},"id":"150000","name":"Lima","created_at":null,"updated_at":null}
+{"_id":{"$oid":"5c6e227110be95336d24b20a"},"id":"160000","name":"Loreto","created_at":null,"updated_at":null}
+{"_id":{"$oid":"5c6e227110be95336d24b20b"},"id":"170000","name":"Madre de Dios","created_at":null,"updated_at":null}
+{"_id":{"$oid":"5c6e227110be95336d24b20c"},"id":"010000","name":"Amazonas","created_at":null,"updated_at":null}
+{"_id":{"$oid":"5c6e227110be95336d24b20d"},"id":"190000","name":"Pasco","created_at":null,"updated_at":null}
+{"_id":{"$oid":"5c6e227110be95336d24b20e"},"id":"200000","name":"Piura","created_at":null,"updated_at":null}
+{"_id":{"$oid":"5c6e227110be95336d24b20f"},"id":"210000","name":"Puno","created_at":null,"updated_at":null}
+{"_id":{"$oid":"5c6e227110be95336d24b210"},"id":"220000","name":"San Martín","created_at":null,"updated_at":null}
+{"_id":{"$oid":"5c6e227110be95336d24b211"},"id":"230000","name":"Tacna","created_at":null,"updated_at":null}
+{"_id":{"$oid":"5c6e227110be95336d24b212"},"id":"240000","name":"Tumbes","created_at":null,"updated_at":null}
+{"_id":{"$oid":"5c6e227110be95336d24b213"},"id":"250000","name":"Ucayali","created_at":null,"updated_at":null}
+{"_id":{"$oid":"5c6e227110be95336d24b214"},"id":"020000","name":"Áncash","created_at":null,"updated_at":null}
+{"_id":{"$oid":"5c6e227110be95336d24b215"},"id":"030000","name":"Apurímac","created_at":null,"updated_at":null}
+{"_id":{"$oid":"5c6e227110be95336d24b216"},"id":"040000","name":"Arequipa","created_at":null,"updated_at":null}
+{"_id":{"$oid":"5c6e227110be95336d24b217"},"id":"050000","name":"Ayacucho","created_at":null,"updated_at":null}
+{"_id":{"$oid":"5c6e227110be95336d24b218"},"id":"060000","name":"Cajamarca","created_at":null,"updated_at":null}
+{"_id":{"$oid":"5c6e227110be95336d24b219"},"id":"070000","name":"Callao","created_at":null,"updated_at":null}
+{"_id":{"$oid":"5c6e227110be95336d24b21a"},"id":"180000","name":"Moquegua","created_at":null,"updated_at":null}
